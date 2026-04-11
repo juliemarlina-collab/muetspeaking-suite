@@ -1,0 +1,1907 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>MUET Speaking Practice Suite</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&family=Lora:ital,wght@0,500;0,600;1,400&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet"/>
+<style>
+/* ── Reset & tokens ─────────────────────────────── */
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --navy:#0D1F3C;
+  --navy2:#152B50;
+  --cream:#F7F3EE;
+  --cream2:#EDE8E0;
+  --amber:#E8A020;
+  --amber2:#F5C250;
+  --blue:#1E5FD4;
+  --blue2:#3B7EF8;
+  --teal:#0B8F72;
+  --red:#C73030;
+  --text:#1A1A2E;
+  --muted:#6B7280;
+  --border:#DDD6CE;
+  --white:#FFFFFF;
+  --r-sm:10px;
+  --r-md:16px;
+  --r-lg:24px;
+  --r-xl:32px;
+  --shadow-sm:0 2px 8px rgba(13,31,60,.08);
+  --shadow-md:0 8px 28px rgba(13,31,60,.12);
+  --shadow-lg:0 20px 56px rgba(13,31,60,.16);
+}
+
+html{scroll-behavior:smooth}
+body{
+  font-family:'Outfit',sans-serif;
+  background:var(--cream);
+  color:var(--text);
+  min-height:100vh;
+  line-height:1.6;
+}
+
+/* ── Typography ──────────────────────────────────── */
+h1,h2,h3,h4{line-height:1.25;font-weight:700}
+.serif{font-family:'Lora',serif}
+.mono{font-family:'JetBrains Mono',monospace}
+
+/* ── Utilities ──────────────────────────────────── */
+.hidden{display:none!important}
+.fade-in{animation:fadeIn .4s ease both}
+.slide-up{animation:slideUp .4s cubic-bezier(.16,1,.3,1) both}
+@keyframes fadeIn{from{opacity:0}to{opacity:1}}
+@keyframes slideUp{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
+@keyframes pulse-ring{0%,100%{transform:scale(1);opacity:1}50%{transform:scale(1.06);opacity:.8}}
+@keyframes spin{to{transform:rotate(360deg)}}
+@keyframes countdown-flash{0%,100%{background:var(--navy)}50%{background:#7f1d1d}}
+
+.badge{
+  display:inline-flex;align-items:center;gap:5px;
+  padding:4px 12px;border-radius:99px;
+  font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;
+}
+.badge-blue{background:#EBF2FF;color:var(--blue)}
+.badge-amber{background:#FEF3D4;color:#92600A}
+.badge-green{background:#E6F6F0;color:#0A6650}
+.badge-navy{background:var(--navy);color:#fff}
+
+/* ── Layout ──────────────────────────────────────── */
+.page{max-width:1100px;margin:0 auto;padding:0 20px 80px}
+
+/* ── Top Nav ─────────────────────────────────────── */
+#topnav{
+  position:sticky;top:0;z-index:100;
+  background:rgba(247,243,238,.95);
+  backdrop-filter:blur(14px);
+  border-bottom:1.5px solid var(--border);
+  padding:0 20px;
+}
+.nav-inner{
+  max-width:1100px;margin:0 auto;height:60px;
+  display:flex;align-items:center;justify-content:space-between;gap:16px;
+}
+.nav-brand{display:flex;align-items:center;gap:10px}
+.nav-logo{
+  width:36px;height:36px;border-radius:10px;
+  background:var(--navy);
+  display:flex;align-items:center;justify-content:center;
+  color:#fff;
+}
+.nav-logo svg{
+  width:18px;
+  height:18px;
+  stroke:currentColor;
+  fill:none;
+  stroke-width:2.2;
+  stroke-linecap:round;
+  stroke-linejoin:round;
+}
+.nav-title{font-size:15px;font-weight:800;color:var(--navy);letter-spacing:-.01em}
+.nav-pills{display:flex;gap:4px}
+.nav-pill{
+  padding:7px 18px;border-radius:99px;
+  font-size:14.3px;font-weight:600;cursor:pointer;
+  border:none;background:transparent;color:var(--muted);
+  transition:all .2s;
+}
+.nav-pill:hover{background:var(--cream2);color:var(--navy)}
+.nav-pill.active{background:var(--navy);color:#fff}
+
+/* ── Hero ─────────────────────────────────────────── */
+#view-home{padding-top:40px}
+.hero{
+  background:var(--navy);
+  border-radius:var(--r-xl);
+  padding:48px 56px;
+  position:relative;overflow:hidden;
+  margin-bottom:36px;
+}
+.hero::before{
+  content:'';position:absolute;
+  top:-80px;right:-60px;
+  width:380px;height:380px;border-radius:50%;
+  background:radial-gradient(circle,rgba(232,160,32,.22) 0%,transparent 70%);
+}
+.hero::after{
+  content:'';position:absolute;
+  bottom:-100px;left:20%;
+  width:280px;height:280px;border-radius:50%;
+  background:radial-gradient(circle,rgba(30,95,212,.18) 0%,transparent 70%);
+}
+.hero-tag{
+  display:inline-flex;align-items:center;gap:7px;
+  background:rgba(255,255,255,.1);
+  border:1px solid rgba(255,255,255,.15);
+  border-radius:99px;padding:6px 16px;
+  font-size:13.2px;color:rgba(255,255,255,.8);font-weight:600;
+  letter-spacing:.06em;text-transform:uppercase;
+  margin-bottom:20px;
+}
+.hero h1{
+  font-size:clamp(30.8px,4.4vw,50.6px);font-weight:800;
+  color:#fff;letter-spacing:-.02em;
+  margin-bottom:14px;line-height:1.15;
+}
+.hero p{
+  font-size:17.6px;color:rgba(255,255,255,.72);
+  max-width:560px;line-height:1.75;
+}
+.hero-cards{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+  gap:14px;margin-top:40px;
+}
+.hero-card{
+  background:rgba(255,255,255,.09);
+  border:1.5px solid rgba(255,255,255,.14);
+  border-radius:var(--r-lg);
+  padding:22px;cursor:pointer;
+  transition:all .22s;
+  text-align:left;
+}
+.hero-card:hover{
+  background:rgba(255,255,255,.16);
+  border-color:rgba(255,255,255,.28);
+  transform:translateY(-3px);
+}
+.hero-card-icon{
+  width:44px;height:44px;border-radius:12px;
+  display:flex;align-items:center;justify-content:center;
+  font-size:20px;margin-bottom:14px;
+}
+.hero-card h3{font-size:16.5px;font-weight:700;color:#fff;margin-bottom:6px}
+.hero-card p{font-size:13.2px;color:rgba(255,255,255,.6);line-height:1.65}
+.hero-card-arrow{
+  display:inline-flex;align-items:center;gap:4px;
+  font-size:12.1px;font-weight:700;margin-top:14px;
+  color:rgba(255,255,255,.5);letter-spacing:.04em;text-transform:uppercase;
+}
+
+/* ── Home feature strip ─────────────────────────── */
+.feature-strip{
+  display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
+  gap:14px;margin-bottom:36px;
+}
+.feature-card{
+  background:var(--white);border-radius:var(--r-lg);
+  border:1.5px solid var(--border);
+  padding:22px;
+}
+.feature-icon{font-size:28px;margin-bottom:12px}
+.feature-card h4{font-size:15.4px;font-weight:700;margin-bottom:5px}
+.feature-card p{font-size:13.2px;color:var(--muted);line-height:1.65}
+
+/* ── Wizard layout ──────────────────────────────── */
+.task-page{padding-top:28px}
+.task-header{
+  display:flex;align-items:center;justify-content:space-between;
+  flex-wrap:wrap;gap:12px;margin-bottom:28px;
+}
+.task-header-left h2{font-size:24px;color:var(--navy);margin-bottom:4px}
+.task-header-left p{font-size:14.3px;color:var(--muted)}
+
+/* Steps progress bar */
+.steps-bar{
+  display:flex;align-items:center;gap:0;
+  background:var(--white);border:1.5px solid var(--border);
+  border-radius:var(--r-xl);padding:8px;
+  margin-bottom:28px;
+}
+.step-btn{
+  flex:1;display:flex;align-items:center;justify-content:center;gap:8px;
+  padding:10px 12px;border-radius:var(--r-lg);
+  border:none;background:transparent;cursor:pointer;
+  transition:all .2s;font-family:'Outfit',sans-serif;
+}
+.step-btn:hover{background:var(--cream)}
+.step-btn.active{background:var(--navy);box-shadow:var(--shadow-sm)}
+.step-num{
+  width:24px;height:24px;border-radius:50%;
+  display:flex;align-items:center;justify-content:center;
+  font-size:11px;font-weight:800;
+  background:var(--cream2);color:var(--muted);
+  flex-shrink:0;transition:all .2s;
+}
+.step-btn.active .step-num{background:var(--amber);color:var(--navy)}
+.step-btn.done .step-num{background:var(--teal);color:#fff}
+.step-label{font-size:13.2px;font-weight:600;color:var(--muted)}
+.step-btn.active .step-label{color:#fff}
+.step-btn.done .step-label{color:var(--teal)}
+.step-connector{width:1px;height:28px;background:var(--border);flex-shrink:0}
+
+/* Step panels */
+.step-panel{display:none}
+.step-panel.active{display:block}
+
+/* ── Cards ──────────────────────────────────────── */
+.card{
+  background:var(--white);
+  border:1.5px solid var(--border);
+  border-radius:var(--r-lg);
+  padding:26px;
+}
+.card+.card{margin-top:18px}
+.card-header{
+  display:flex;align-items:flex-start;justify-content:space-between;
+  gap:12px;margin-bottom:18px;
+}
+.card-title{font-size:17.6px;font-weight:700;color:var(--navy)}
+.card-sub{font-size:13.2px;color:var(--muted);margin-top:3px;font-weight:400}
+.card-icon{
+  width:40px;height:40px;border-radius:12px;
+  display:flex;align-items:center;justify-content:center;font-size:18px;
+  flex-shrink:0;
+}
+
+/* ── Guidance banners ───────────────────────────── */
+.guide-banner{
+  border-radius:var(--r-lg);padding:20px 24px;
+  display:flex;gap:16px;align-items:flex-start;
+  margin-bottom:20px;
+}
+.guide-banner.blue{background:#EBF2FF;border:1.5px solid #C3D9FF}
+.guide-banner.amber{background:#FEF3D4;border:1.5px solid #FAD77A}
+.guide-banner.green{background:#E6F6F0;border:1.5px solid #9EDACB}
+.guide-banner.navy{background:var(--navy);border:none}
+.guide-icon{font-size:22px;flex-shrink:0;margin-top:2px}
+.guide-title{font-size:15.4px;font-weight:700;margin-bottom:4px}
+.guide-banner.blue .guide-title{color:var(--blue)}
+.guide-banner.amber .guide-title{color:#7A4F00}
+.guide-banner.green .guide-title{color:#0A6650}
+.guide-banner.navy .guide-title{color:var(--amber)}
+.guide-text{font-size:14.3px;line-height:1.75;color:var(--text)}
+.guide-banner.navy .guide-text{color:rgba(255,255,255,.75)}
+
+/* ── Steps list ──────────────────────────────────── */
+.steps-list{display:flex;flex-direction:column;gap:10px}
+.step-item{
+  display:flex;gap:14px;align-items:flex-start;
+  background:var(--white);border-radius:var(--r-md);
+  padding:14px 16px;border:1.5px solid var(--border);
+}
+.step-dot{
+  width:28px;height:28px;border-radius:50%;
+  display:flex;align-items:center;justify-content:center;
+  font-size:12px;font-weight:800;flex-shrink:0;
+  background:var(--navy);color:#fff;
+}
+.step-item-title{font-size:14.3px;font-weight:700;color:var(--navy);margin-bottom:3px}
+.step-item-text{font-size:13.2px;color:var(--muted);line-height:1.65}
+
+/* ── Select & input ─────────────────────────────── */
+select,textarea,input{
+  font-family:'Outfit',sans-serif;
+  font-size:15.4px;color:var(--text);
+  border:1.5px solid var(--border);
+  border-radius:var(--r-md);
+  background:var(--white);
+  padding:10px 14px;
+  width:100%;outline:none;
+  transition:border-color .2s,box-shadow .2s;
+}
+select:focus,textarea:focus,input:focus{
+  border-color:var(--blue2);
+  box-shadow:0 0 0 3px rgba(59,126,248,.12);
+}
+textarea{resize:vertical;line-height:1.75}
+label{display:block;font-size:13.2px;font-weight:700;color:var(--muted);
+  text-transform:uppercase;letter-spacing:.08em;margin-bottom:7px}
+
+/* ── Buttons ──────────────────────────────────────── */
+.btn{
+  display:inline-flex;align-items:center;justify-content:center;gap:8px;
+  padding:12px 24px;border-radius:var(--r-md);
+  font-family:'Outfit',sans-serif;font-size:15.4px;font-weight:700;
+  cursor:pointer;border:none;transition:all .18s;
+  white-space:nowrap;
+}
+.btn-primary{background:var(--navy);color:#fff}
+.btn-primary:hover{background:#1a3664;transform:translateY(-1px);box-shadow:var(--shadow-md)}
+.btn-amber{background:var(--amber);color:var(--navy)}
+.btn-amber:hover{background:#d49018;transform:translateY(-1px)}
+.btn-outline{background:var(--white);color:var(--navy);border:1.5px solid var(--border)}
+.btn-outline:hover{border-color:var(--navy);background:var(--cream)}
+.btn-teal{background:var(--teal);color:#fff}
+.btn-teal:hover{background:#086e57}
+.btn-red{background:var(--red);color:#fff}
+.btn-red:hover{background:#a52626}
+.btn-lg{padding:15px 32px;font-size:16.5px}
+.btn-sm{padding:8px 16px;font-size:13.2px}
+.btn:disabled{opacity:.45;cursor:default;transform:none!important}
+.btn-row{display:flex;flex-wrap:wrap;gap:10px;margin-top:16px}
+
+/* ── Grid helpers ────────────────────────────────── */
+.grid-2{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+.grid-4{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
+@media(max-width:680px){
+  .grid-2,.grid-3,.grid-4{grid-template-columns:1fr}
+  .steps-bar{flex-wrap:wrap}
+  .step-connector{display:none}
+}
+
+/* ── Timer ring ──────────────────────────────────── */
+.timer-wrap{display:flex;flex-direction:column;align-items:center;gap:16px;padding:28px}
+.timer-ring-svg{transform:rotate(-90deg)}
+.timer-display{
+  text-align:center;position:relative;
+}
+.timer-time{
+  font-family:'JetBrains Mono',monospace;
+  font-size:52px;font-weight:700;
+  color:var(--navy);letter-spacing:-1px;
+  line-height:1;
+}
+.timer-phase{
+  font-size:13.2px;font-weight:700;text-transform:uppercase;
+  letter-spacing:.12em;color:var(--muted);margin-top:8px;
+}
+.timer-urgent .timer-time{color:var(--red);animation:pulse-ring 1s ease-in-out infinite}
+
+/* ── Candidate card grid ─────────────────────────── */
+.cand-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}
+.cand-card{
+  border-radius:var(--r-md);padding:14px 16px;
+  border:2px solid var(--border);
+  background:var(--white);cursor:pointer;
+  transition:all .2s;
+}
+.cand-card:hover{border-color:var(--blue2);background:#F0F6FF}
+.cand-card.selected{border-color:var(--navy);background:#EBF2FF}
+.cand-letter{
+  font-size:11px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;
+  color:var(--blue);margin-bottom:5px;
+}
+.cand-card.selected .cand-letter{color:var(--navy)}
+.cand-text{font-size:14.3px;color:var(--text);line-height:1.65}
+.cand-you{
+  display:inline-block;
+  background:var(--amber);color:var(--navy);
+  border-radius:4px;font-size:10px;font-weight:800;
+  padding:1px 7px;margin-left:6px;vertical-align:middle;
+}
+
+/* ── Points chips ────────────────────────────────── */
+.points-chips{display:flex;flex-wrap:wrap;gap:8px}
+.points-chip{
+  background:var(--cream);border:1.5px solid var(--border);
+  border-radius:99px;padding:6px 14px;
+  font-size:13.2px;font-weight:600;color:var(--navy);
+  cursor:pointer;transition:all .2s;
+}
+.points-chip:hover,.points-chip.active{
+  background:var(--navy);color:#fff;border-color:var(--navy);
+}
+
+/* ── PREP framework ──────────────────────────────── */
+.prep-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:10px}
+.prep-card{
+  border-radius:var(--r-md);padding:16px;text-align:center;
+}
+.prep-letter{
+  font-size:28px;font-weight:800;line-height:1;margin-bottom:8px;
+}
+.prep-word{font-size:14.3px;font-weight:700;margin-bottom:5px}
+.prep-hint{font-size:12.1px;color:var(--muted);line-height:1.6}
+.prep-P{background:#EBF2FF}
+.prep-P .prep-letter{color:var(--blue)}
+.prep-R{background:#FEF3D4}
+.prep-R .prep-letter{color:#B07800}
+.prep-E{background:#E6F6F0}
+.prep-E .prep-letter{color:var(--teal)}
+.prep-P2{background:#F5E6FF}
+.prep-P2 .prep-letter{color:#7B3FC8}
+
+/* ── Phrase pills ─────────────────────────────────── */
+.phrase-list{display:flex;flex-direction:column;gap:8px}
+.phrase-item{
+  background:var(--cream);border:1.5px solid var(--border);
+  border-radius:var(--r-sm);padding:10px 14px;
+  font-size:14.3px;color:var(--text);line-height:1.55;
+  font-style:italic;cursor:pointer;transition:all .15s;
+}
+.phrase-item:hover{background:var(--navy);color:#fff;border-color:var(--navy)}
+
+/* ── Feedback ──────────────────────────────────────── */
+.feedback-band{
+  background:var(--navy);border-radius:var(--r-lg);
+  padding:28px;display:flex;align-items:center;gap:24px;
+}
+.band-circle{
+  width:80px;height:80px;border-radius:50%;
+  display:flex;align-items:center;justify-content:center;
+  flex-shrink:0;border:3px solid var(--amber);
+}
+.band-num{font-size:34px;font-weight:800;color:#fff;font-family:'JetBrains Mono',monospace}
+.band-label{font-size:14.3px;color:rgba(255,255,255,.6);margin-top:4px}
+.band-desc{font-size:15.4px;color:rgba(255,255,255,.85);line-height:1.75}
+
+.scores-row{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-top:14px}
+.score-box{background:var(--cream);border-radius:var(--r-sm);padding:12px;text-align:center}
+.score-label{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--muted);margin-bottom:5px}
+.score-num{font-size:22px;font-weight:800;color:var(--navy);font-family:'JetBrains Mono',monospace}
+
+.fb-section{margin-top:14px}
+.fb-title{font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;margin-bottom:8px}
+.fb-green .fb-title{color:var(--teal)}
+.fb-amber .fb-title{color:#7A4F00}
+.fb-blue .fb-title{color:var(--blue)}
+.fb-text{font-size:14.3px;line-height:1.75;color:var(--text)}
+.phrase-chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:8px}
+.phrase-chip{
+  background:var(--white);border:1.5px solid var(--border);
+  border-radius:99px;padding:5px 14px;
+  font-size:12px;font-weight:600;color:var(--navy);
+}
+
+/* ── Lecturer dashboard ──────────────────────────── */
+.group-card{
+  background:var(--white);border:1.5px solid var(--border);
+  border-radius:var(--r-xl);padding:28px;
+  margin-bottom:20px;
+}
+.cand-track{
+  background:var(--cream);border-radius:var(--r-lg);
+  padding:18px;margin-bottom:12px;
+}
+.track-header{
+  display:flex;justify-content:space-between;align-items:flex-start;
+  margin-bottom:14px;
+}
+.track-name{font-size:15px;font-weight:700;color:var(--navy)}
+.track-band{
+  font-size:13px;font-weight:700;
+  background:var(--navy);color:#fff;
+  border-radius:99px;padding:3px 12px;
+}
+.track-counters{
+  display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-bottom:12px;
+}
+.counter-box{
+  text-align:center;background:var(--white);
+  border-radius:var(--r-sm);padding:8px;
+}
+.counter-num{font-size:20px;font-weight:800;color:var(--navy);font-family:'JetBrains Mono',monospace}
+.counter-lbl{font-size:10px;color:var(--muted);text-transform:uppercase;letter-spacing:.08em}
+.track-btns{display:flex;flex-wrap:wrap;gap:6px}
+.track-btn{
+  padding:7px 13px;border-radius:99px;
+  font-size:11px;font-weight:700;cursor:pointer;border:none;
+  font-family:'Outfit',sans-serif;transition:all .15s;
+}
+.track-btn-blue{background:#EBF2FF;color:var(--blue)}
+.track-btn-blue:hover{background:var(--blue);color:#fff}
+.track-btn-amber{background:#FEF3D4;color:#7A4F00}
+.track-btn-amber:hover{background:var(--amber);color:var(--navy)}
+.track-btn-red{background:#FFECEC;color:var(--red)}
+.track-btn-red:hover{background:var(--red);color:#fff}
+
+/* ── Rubric ──────────────────────────────────────── */
+.rubric-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:8px;margin-bottom:10px}
+.rubric-row{
+  background:var(--white);border-radius:var(--r-sm);padding:10px 12px;
+  display:flex;justify-content:space-between;align-items:center;
+}
+.rubric-label{font-size:12px;color:var(--muted)}
+.rubric-select{width:auto;padding:4px 8px;font-size:13px;font-weight:700}
+
+/* ── Recording ──────────────────────────────────────── */
+.rec-status{
+  display:flex;align-items:center;gap:8px;
+  font-size:13px;color:var(--muted);margin-top:10px;
+}
+.rec-dot{
+  width:8px;height:8px;border-radius:50%;background:var(--muted);
+}
+.rec-dot.live{background:var(--red);animation:pulse-ring .9s ease infinite}
+
+/* ── Worksheet preview ──────────────────────────── */
+.ws-preview{
+  background:var(--white);border:1.5px solid var(--border);
+  border-radius:var(--r-md);padding:20px;margin-top:14px;
+  font-size:13px;line-height:1.75;
+}
+.ws-cand{
+  display:flex;gap:8px;padding:8px 0;
+  border-bottom:1px solid var(--border);
+  font-size:13px;
+}
+.ws-cand:last-child{border-bottom:none}
+.ws-cand-lbl{font-weight:700;width:100px;flex-shrink:0;color:var(--navy)}
+
+/* ── Summary list ────────────────────────────────── */
+.summary-list{display:flex;flex-direction:column;gap:10px}
+.summary-item{
+  background:var(--white);border:1.5px solid var(--border);
+  border-radius:var(--r-md);padding:14px 16px;
+  display:flex;align-items:center;justify-content:space-between;gap:12px;
+}
+.summary-name{font-size:14px;font-weight:700;color:var(--navy)}
+.summary-meta{font-size:12px;color:var(--muted);margin-top:2px}
+.summary-stats{display:flex;gap:12px;font-size:12px;color:var(--muted)}
+
+/* ── Divider ──────────────────────────────────────── */
+.divider{height:1px;background:var(--border);margin:20px 0}
+
+/* ── Section header ──────────────────────────────── */
+.section-eyebrow{
+  font-size:11px;font-weight:800;letter-spacing:.14em;
+  text-transform:uppercase;color:var(--blue);margin-bottom:5px;
+}
+.section-title{font-size:24.2px;font-weight:800;color:var(--navy);margin-bottom:8px}
+.section-sub{font-size:14.3px;color:var(--muted);margin-bottom:24px;line-height:1.7}
+
+/* ── Tooltip-style tip ────────────────────────────── */
+.inline-tip{
+  display:flex;gap:10px;align-items:flex-start;
+  background:var(--cream2);border-radius:var(--r-sm);
+  padding:10px 14px;font-size:12px;color:var(--muted);
+  line-height:1.65;margin-top:10px;
+}
+.inline-tip strong{color:var(--navy)}
+
+/* ── Task nav (back btn row) ─────────────────────── */
+.toprow{
+  display:flex;align-items:center;justify-content:space-between;
+  flex-wrap:wrap;gap:12px;margin-bottom:20px;padding-top:24px;
+}
+
+/* ── Two-col layout ───────────────────────────────── */
+.two-col{display:grid;grid-template-columns:1.1fr .9fr;gap:24px;align-items:start}
+@media(max-width:820px){.two-col{grid-template-columns:1fr}}
+.sticky-col{position:sticky;top:80px}
+
+/* ── Scrollbar ──────────────────────────────────────── */
+::-webkit-scrollbar{width:6px;height:6px}
+::-webkit-scrollbar-track{background:transparent}
+::-webkit-scrollbar-thumb{background:var(--border);border-radius:99px}
+</style>
+</head>
+<body>
+
+<!-- ══ TOP NAV ══════════════════════════════════════ -->
+<nav id="topnav">
+  <div class="nav-inner">
+    <div class="nav-brand">
+      <div class="nav-logo" aria-hidden="true">
+        <svg viewBox="0 0 24 24">
+          <path d="M12 3a3 3 0 0 1 3 3v6a3 3 0 0 1-6 0V6a3 3 0 0 1 3-3Z"/>
+          <path d="M19 11a7 7 0 0 1-14 0"/>
+          <path d="M12 18v3"/>
+          <path d="M8 21h8"/>
+        </svg>
+      </div>
+      <div class="nav-title">MUET Speaking Suite</div>
+    </div>
+    <div class="nav-pills">
+      <button class="nav-pill active" data-view="home">Home</button>
+      <button class="nav-pill" data-view="guide">Test Guide</button>
+      <button class="nav-pill" data-view="taskA">Task A</button>
+      <button class="nav-pill" data-view="taskB">Task B</button>
+      <button class="nav-pill" data-view="lecturer">Lecturer</button>
+    </div>
+  </div>
+</nav>
+
+<!-- ══ VIEWS ════════════════════════════════════════ -->
+<div class="page">
+
+<!-- ── HOME ──────────────────────────────────────── -->
+<div id="view-home" class="view slide-up">
+  <div class="hero">
+    <div class="hero-tag">🇲🇾 Official MUET Format · 30 Prompt Sets</div>
+    <h1>MUET Speaking<br>Practice Suite</h1>
+    <p>Exam-style preparation with guided workflows, timed practice, voice recording, auto feedback, and a full lecturer dashboard — all in one place.</p>
+    <div class="hero-cards">
+      <div class="hero-card" data-view="taskA">
+        <div class="hero-card-icon" style="background:rgba(59,126,248,.2)">🎤</div>
+        <h3>Task A — Individual</h3>
+        <p>Step-by-step guided individual presentation with PREP framework, timed practice, and instant feedback.</p>
+        <div class="hero-card-arrow">Start here →</div>
+      </div>
+      <div class="hero-card" data-view="taskB">
+        <div class="hero-card-icon" style="background:rgba(232,160,32,.2)">💬</div>
+        <h3>Task B — Group</h3>
+        <p>Interactive group discussion practice with discussion phrases, participation guide, and feedback.</p>
+        <div class="hero-card-arrow">After Task A →</div>
+      </div>
+      <div class="hero-card" data-view="guide">
+        <div class="hero-card-icon" style="background:rgba(128,112,64,.22)">🧭</div>
+        <h3>Speaking Test Guide</h3>
+        <p>See the full MUET speaking test flow from individual presentation to the same-topic group discussion.</p>
+        <div class="hero-card-arrow">See full flow →</div>
+      </div>
+      <div class="hero-card" data-view="lecturer">
+        <div class="hero-card-icon" style="background:rgba(11,143,114,.2)">📊</div>
+        <h3>Lecturer Dashboard</h3>
+        <p>Monitor multiple groups live, track speaking behaviour, score rubrics, and print worksheets.</p>
+        <div class="hero-card-arrow">For lecturers →</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="card" style="margin-bottom:24px">
+    <div class="card-header">
+      <div>
+        <div class="section-eyebrow">Practice Record</div>
+        <div class="section-title">Student Details</div>
+        <div class="section-sub">Fill in these details before starting practice so the session record is clearly linked to the student.</div>
+      </div>
+      <div class="card-icon" style="background:#EBF2FF">👤</div>
+    </div>
+    <div class="grid-2">
+      <div>
+        <label for="student-name">Student Name</label>
+        <input id="student-name" type="text" placeholder="Enter student name"/>
+      </div>
+      <div>
+        <label for="student-regno">Registration No.</label>
+        <input id="student-regno" type="text" placeholder="Enter registration number"/>
+      </div>
+    </div>
+    <div class="btn-row" style="margin-top:16px">
+      <button id="save-student-record" class="btn btn-primary">Save Record</button>
+      <button id="clear-student-record" class="btn btn-outline">Clear Record</button>
+    </div>
+    <div id="student-record-status" class="inline-tip" style="margin-top:14px">📝 <span><strong>No record saved yet.</strong> Add the student's details here before beginning Task A or Task B.</span></div>
+  </div>
+
+  <div class="feature-strip">
+    <div class="feature-card">
+      <div class="feature-icon">🗂️</div>
+      <h4>30 Official Prompt Sets</h4>
+      <p>Real MUET workbook questions from 2021–2023, all three sessions.</p>
+    </div>
+    <div class="feature-card">
+      <div class="feature-icon">⏱️</div>
+      <h4>Exam-Accurate Timers</h4>
+      <p>2-min prep + 2-min speaking for Task A. 3-min prep + 10-min discussion for Task B.</p>
+    </div>
+    <div class="feature-card">
+      <div class="feature-icon">🎧</div>
+      <h4>Voice Recording</h4>
+      <p>Record your practice, replay, and improve — no account needed.</p>
+    </div>
+    <div class="feature-card">
+      <div class="feature-icon">⭐</div>
+      <h4>Auto Band Feedback</h4>
+      <p>Estimated MUET Band 1–6 with detailed strengths and suggestions.</p>
+    </div>
+    <div class="feature-card">
+      <div class="feature-icon">🖨️</div>
+      <h4>Printable Worksheets</h4>
+      <p>Full classroom handout with rubric, notes space, and task cards.</p>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="section-eyebrow">Recommended flow</div>
+    <div class="section-title">How to use this suite</div>
+    <div class="steps-list">
+      <div class="step-item"><div class="step-dot">1</div><div><div class="step-item-title">Choose your task</div><div class="step-item-text">Start with Task A (individual) before Task B (group). Weaker or moderate students should always practise Task A first.</div></div></div>
+      <div class="step-item"><div class="step-dot">2</div><div><div class="step-item-title">Follow the steps on-screen</div><div class="step-item-text">Each task has 4 guided steps. Complete them in order — selecting your set, reading the question, using the timer, then checking feedback.</div></div></div>
+      <div class="step-item"><div class="step-dot">3</div><div><div class="step-item-title">Practise, then improve one thing</div><div class="step-item-text">Don't try to fix everything at once. Read your feedback and improve just one sentence or phrase before your next attempt.</div></div></div>
+      <div class="step-item"><div class="step-dot">4</div><div><div class="step-item-title">Repeat with a new set</div><div class="step-item-text">Speed and confidence come from repetition. Practise the same structure across different topics to build fluency.</div></div></div>
+    </div>
+  </div>
+</div>
+
+<!-- ── TEST GUIDE ───────────────────────────────── -->
+<div id="view-guide" class="view hidden slide-up">
+  <div class="toprow">
+    <div>
+      <div class="section-eyebrow">Speaking Test Flow</div>
+      <div style="font-size:22px;font-weight:800;color:var(--navy)">How the MUET Speaking Test Is Conducted</div>
+    </div>
+    <div style="display:flex;gap:10px">
+      <button class="btn btn-outline btn-sm" data-view="home">← Back</button>
+    </div>
+  </div>
+
+  <div class="guide-banner blue">
+    <div class="guide-icon">🧭</div>
+    <div>
+      <div class="guide-title">One topic, two tasks</div>
+      <div class="guide-text">Task A and Task B use the same set or topic. First, each candidate speaks individually in Task A. After that, the same candidates continue with Task B by discussing the same topic together through support, agreement, disagreement, and response.</div>
+    </div>
+  </div>
+
+  <div class="two-col">
+    <div>
+      <div class="card">
+        <div class="card-header">
+          <div><div class="card-title">Step-by-Step Test Conduct</div><div class="card-sub">Use this page to explain the full speaking test to students</div></div>
+          <div class="card-icon" style="background:#EBF2FF">📝</div>
+        </div>
+        <div class="steps-list">
+          <div class="step-item"><div class="step-dot">1</div><div><div class="step-item-title">Students receive one MUET topic set</div><div class="step-item-text">All four candidates in the same group use the same booklet or prompt set. The topic in Task B comes from this same set.</div></div></div>
+          <div class="step-item"><div class="step-dot">2</div><div><div class="step-item-title">Candidates prepare for Task A</div><div class="step-item-text">Each candidate gets a different point under the same Task A situation. They have 2 minutes to prepare short notes.</div></div></div>
+          <div class="step-item"><div class="step-dot">3</div><div><div class="step-item-title">Task A individual presentation begins</div><div class="step-item-text">Candidate A, B, C, and D speak one by one. Each candidate presents for about 2 minutes using their own assigned point.</div></div></div>
+          <div class="step-item"><div class="step-dot">4</div><div><div class="step-item-title">Candidates move to Task B using the same topic</div><div class="step-item-text">After all individual presentations, the group continues with Task B. They do not change to a different topic. They discuss the same set in an interactive way.</div></div></div>
+          <div class="step-item"><div class="step-dot">5</div><div><div class="step-item-title">Candidates prepare for Task B</div><div class="step-item-text">The group gets 3 minutes to prepare. Students review the Task B question and choose ideas they want to support during discussion.</div></div></div>
+          <div class="step-item"><div class="step-dot">6</div><div><div class="step-item-title">Task B group discussion starts</div><div class="step-item-text">All four candidates discuss together for 10 minutes. They support ideas, agree, disagree politely, ask questions, respond to each other, and work towards one best answer.</div></div></div>
+          <div class="step-item"><div class="step-dot">7</div><div><div class="step-item-title">The group reaches a conclusion</div><div class="step-item-text">Before the discussion ends, candidates should help the group agree on the most suitable or most effective point.</div></div></div>
+        </div>
+      </div>
+    </div>
+
+    <div>
+      <div class="card">
+        <div class="card-header">
+          <div><div class="card-title">What Students Should Do</div><div class="card-sub">Simple teacher-friendly explanation</div></div>
+          <div class="card-icon" style="background:#FEF3D4">🎓</div>
+        </div>
+        <div class="steps-list">
+          <div class="step-item"><div class="step-dot" style="background:var(--blue)">A</div><div><div class="step-item-title">Task A</div><div class="step-item-text">Speak individually. State your point clearly, explain it, give an example, and conclude.</div></div></div>
+          <div class="step-item"><div class="step-dot" style="background:var(--amber);color:var(--navy)">B</div><div><div class="step-item-title">Task B</div><div class="step-item-text">Use the same topic again, but now speak interactively. Listen carefully and respond to classmates.</div></div></div>
+          <div class="step-item"><div class="step-dot" style="background:var(--teal)">✓</div><div><div class="step-item-title">Support or respond</div><div class="step-item-text">Use phrases such as “I agree with you because…”, “I would like to add…”, or “However, I have a different opinion…”.</div></div></div>
+          <div class="step-item"><div class="step-dot" style="background:#7B3FC8">?</div><div><div class="step-item-title">Ask questions</div><div class="step-item-text">Invite others into the discussion with “What do you think?” or “Do you agree with this idea?”.</div></div></div>
+        </div>
+        <div class="inline-tip">💡 <span><strong>Teacher note:</strong> A student may not need long turns in Task B. Short, clear, interactive turns are usually better than repeating a long prepared speech.</span></div>
+      </div>
+
+      <div class="card" style="margin-top:16px">
+        <div class="card-header">
+          <div><div class="card-title">Quick Timing Summary</div><div class="card-sub">Easy reminder for classroom practice</div></div>
+          <div class="card-icon" style="background:#E6F6F0">⏱️</div>
+        </div>
+        <div class="steps-list">
+          <div class="step-item"><div class="step-dot">2</div><div><div class="step-item-title">Task A preparation</div><div class="step-item-text">2 minutes</div></div></div>
+          <div class="step-item"><div class="step-dot">2</div><div><div class="step-item-title">Task A speaking</div><div class="step-item-text">About 2 minutes per candidate</div></div></div>
+          <div class="step-item"><div class="step-dot">3</div><div><div class="step-item-title">Task B preparation</div><div class="step-item-text">3 minutes</div></div></div>
+          <div class="step-item"><div class="step-dot">10</div><div><div class="step-item-title">Task B discussion</div><div class="step-item-text">10 minutes for the whole group</div></div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ── TASK A ──────────────────────────────────────── -->
+<div id="view-taskA" class="view hidden slide-up">
+  <div class="toprow">
+    <div>
+      <div class="section-eyebrow">Individual Presentation</div>
+      <div style="font-size:22px;font-weight:800;color:var(--navy)">Task A Practice</div>
+      <div id="taskA-student-record" class="card-sub" style="margin-top:6px">Practice record: No student details saved yet.</div>
+    </div>
+    <div style="display:flex;gap:10px">
+      <button id="taskA-sample-btn" class="btn btn-primary btn-sm">🔀 New Set</button>
+      <button class="btn btn-outline btn-sm" data-view="home">← Back</button>
+    </div>
+  </div>
+
+  <!-- Steps bar -->
+  <div class="steps-bar">
+    <button class="step-btn active" data-task="taskA" data-step="0">
+      <div class="step-num">1</div>
+      <div class="step-label">Choose Set</div>
+    </button>
+    <div class="step-connector"></div>
+    <button class="step-btn" data-task="taskA" data-step="1">
+      <div class="step-num">2</div>
+      <div class="step-label">Read & Plan</div>
+    </button>
+    <div class="step-connector"></div>
+    <button class="step-btn" data-task="taskA" data-step="2">
+      <div class="step-num">3</div>
+      <div class="step-label">Timer & Speak</div>
+    </button>
+    <div class="step-connector"></div>
+    <button class="step-btn" data-task="taskA" data-step="3">
+      <div class="step-num">4</div>
+      <div class="step-label">Feedback</div>
+    </button>
+  </div>
+
+  <!-- STEP 1 — Choose Set -->
+  <div class="step-panel active" id="taskA-step-0">
+    <div class="two-col">
+      <div>
+        <div class="guide-banner blue">
+          <div class="guide-icon">💡</div>
+          <div>
+            <div class="guide-title">Step 1 — Choose your set and candidate</div>
+            <div class="guide-text">Pick an official MUET prompt set from the dropdown, then click the candidate role that matches the one given to you. Each candidate has a different specific point to present.</div>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-header">
+            <div><div class="card-title">Select Prompt Set</div><div class="card-sub">30 official MUET workbook sets, 2021–2023</div></div>
+            <div class="card-icon" style="background:#EBF2FF">🗂️</div>
+          </div>
+          <label>Official Set</label>
+          <select id="taskA-set-select"></select>
+          <div id="taskA-source" style="margin-top:10px;font-size:12px;color:var(--muted)"></div>
+        </div>
+        <div class="card" style="margin-top:16px">
+          <div class="card-header">
+            <div><div class="card-title">Situation</div><div class="card-sub">Read this before selecting your role</div></div>
+            <div class="card-icon" style="background:#FEF3D4">📋</div>
+          </div>
+          <div style="font-size:14px;line-height:1.8;color:var(--text)" id="taskA-situation"></div>
+        </div>
+        <div class="card" style="margin-top:16px">
+          <div class="card-header">
+            <div><div class="card-title">Choose Your Candidate Role</div><div class="card-sub">Click the role assigned to you</div></div>
+          </div>
+          <div class="cand-grid" id="taskA-cand-grid"></div>
+        </div>
+      </div>
+      <div>
+        <div class="card">
+          <div class="card-header">
+            <div><div class="card-title">What is Task A?</div></div>
+            <div class="card-icon" style="background:#E6F6F0">🎓</div>
+          </div>
+          <div class="steps-list">
+            <div class="step-item"><div class="step-dot" style="background:var(--blue)">A</div><div><div class="step-item-title">Individual speaking task</div><div class="step-item-text">Each candidate (A, B, C, D) receives a different point to argue in favour of the situation given.</div></div></div>
+            <div class="step-item"><div class="step-dot" style="background:var(--teal)">⏱</div><div><div class="step-item-title">2 minutes preparation</div><div class="step-item-text">You plan your answer using bullet notes. Do not write full sentences.</div></div></div>
+            <div class="step-item"><div class="step-dot" style="background:var(--amber);color:var(--navy)">🎙</div><div><div class="step-item-title">2 minutes speaking</div><div class="step-item-text">You speak continuously using PREP: Point → Reason → Example → Restate.</div></div></div>
+          </div>
+          <div class="inline-tip">💡 <span><strong>For weaker students:</strong> Focus on one clear idea only. Use short sentences. Accuracy is more important than sounding advanced.</span></div>
+        </div>
+        <div style="margin-top:16px">
+          <button class="btn btn-primary btn-lg" style="width:100%" onclick="goStep('taskA',1)">
+            I've chosen my role — Continue to Step 2 →
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- STEP 2 — Read & Plan -->
+  <div class="step-panel hidden" id="taskA-step-1">
+    <div class="two-col">
+      <div>
+        <div class="guide-banner amber">
+          <div class="guide-icon">✏️</div>
+          <div>
+            <div class="guide-title">Step 2 — Read your question, then plan</div>
+            <div class="guide-text">Read your specific point carefully. Use the PREP guide to prepare short bullet notes. You have 2 minutes in the exam — practise planning quickly.</div>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-header">
+            <div><div class="card-title" id="taskA-role-label">Your Role</div><div class="card-sub">This is the specific point you must present</div></div>
+            <span class="badge badge-navy" id="taskA-role-badge">Candidate ?</span>
+          </div>
+          <div style="font-size:16px;font-weight:600;color:var(--navy);line-height:1.75;padding:14px;background:var(--cream);border-radius:var(--r-md)" id="taskA-question"></div>
+        </div>
+
+        <div class="card" style="margin-top:16px">
+          <div class="card-header"><div class="card-title">All Candidate Points</div><div class="card-sub">Know what others are presenting too</div></div>
+          <div id="taskA-points"></div>
+        </div>
+
+        <div class="card" style="margin-top:16px">
+          <div class="card-header">
+            <div><div class="card-title">Your Planning Notes</div><div class="card-sub">Bullet points only — no full sentences</div></div>
+            <div class="card-icon" style="background:#F5E6FF">✍️</div>
+          </div>
+          <textarea id="taskA-notes" rows="5" placeholder="• Main point&#10;• My reason (because...)&#10;• My example (e.g. in Malaysia...)&#10;• Conclusion (therefore...)"></textarea>
+          <div class="inline-tip">⚠️ <span><strong>Exam tip:</strong> Don't write your full speech here. Writing too much leads to reading, which lowers your fluency score.</span></div>
+        </div>
+      </div>
+      <div>
+        <div class="card">
+          <div class="card-header"><div class="card-title">PREP Framework</div><div class="card-sub">Use this order every time</div></div>
+          <div class="prep-grid">
+            <div class="prep-card prep-P"><div class="prep-letter">P</div><div class="prep-word">Point</div><div class="prep-hint">State your main idea directly</div></div>
+            <div class="prep-card prep-R"><div class="prep-letter">R</div><div class="prep-word">Reason</div><div class="prep-hint">Explain why it matters</div></div>
+            <div class="prep-card prep-E"><div class="prep-letter">E</div><div class="prep-word">Example</div><div class="prep-hint">Give one real example</div></div>
+            <div class="prep-card prep-P2"><div class="prep-letter">P</div><div class="prep-word">Restate</div><div class="prep-hint">Reinforce and close</div></div>
+          </div>
+        </div>
+        <div class="card" style="margin-top:16px">
+          <div class="card-header"><div class="card-title">Plan Template</div><div class="card-sub">Fill this in mentally before speaking</div></div>
+          <div class="steps-list">
+            <div class="step-item"><div class="step-dot" style="background:var(--blue)">P</div><div><div class="step-item-title" id="plan-point-preview">My point: —</div><div class="step-item-text">State this directly in your opening sentence.</div></div></div>
+            <div class="step-item"><div class="step-dot" style="background:#B07800">R</div><div><div class="step-item-title">Reason: "This is because..."</div><div class="step-item-text">Explain why this helps in the situation.</div></div></div>
+            <div class="step-item"><div class="step-dot" style="background:var(--teal)">E</div><div><div class="step-item-title">Example: "For example, in Malaysia..."</div><div class="step-item-text">A realistic Malaysian context works best.</div></div></div>
+            <div class="step-item"><div class="step-dot" style="background:#7B3FC8">P</div><div><div class="step-item-title">Restate: "In conclusion, I believe..."</div><div class="step-item-text">Summarise and hand back confidently.</div></div></div>
+          </div>
+        </div>
+        <div style="margin-top:16px">
+          <button class="btn btn-amber btn-lg" style="width:100%" onclick="goStep('taskA',2)">
+            Ready to speak — Start Timer & Step 3 →
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- STEP 3 — Timer & Speak -->
+  <div class="step-panel hidden" id="taskA-step-2">
+    <div class="two-col">
+      <div>
+        <div class="guide-banner green">
+          <div class="guide-icon">🎙</div>
+          <div>
+            <div class="guide-title">Step 3 — Use the timer and speak</div>
+            <div class="guide-text">Start with Preparation (2 min), then move to Speaking (2 min). Use the Guided Script below to help you begin each section. Type your speech into the Transcript box as you practise.</div>
+          </div>
+        </div>
+
+        <!-- Guided Script -->
+        <div class="card">
+          <div class="card-header">
+            <div><div class="card-title">Guided Script</div><div class="card-sub">Use these as starting points — don't read word-for-word</div></div>
+            <div class="card-icon" style="background:#E6F6F0">📝</div>
+          </div>
+          <div id="taskA-script"></div>
+        </div>
+
+        <!-- Useful phrases -->
+        <div class="card" style="margin-top:16px">
+          <div class="card-header"><div class="card-title">Useful Phrases</div><div class="card-sub">Click any phrase to copy it</div></div>
+          <div class="phrase-list" id="taskA-phrases"></div>
+        </div>
+
+        <!-- Transcript -->
+        <div class="card" style="margin-top:16px">
+          <div class="card-header">
+            <div><div class="card-title">Transcript</div><div class="card-sub">Type what you said — edit and improve here</div></div>
+            <div class="card-icon" style="background:#F5E6FF">✍️</div>
+          </div>
+          <textarea id="taskA-transcript" rows="8" placeholder="Type or paste your spoken response here...&#10;&#10;Good morning. I would like to discuss..."></textarea>
+        </div>
+      </div>
+
+      <!-- Sticky right col: timer + recording -->
+      <div class="sticky-col">
+        <div class="card">
+          <div class="card-header"><div class="card-title">Exam Timer</div><div class="card-sub">Preparation → Speaking</div></div>
+          <div class="timer-wrap">
+            <svg class="timer-ring-svg" width="160" height="160" viewBox="0 0 160 160">
+              <circle cx="80" cy="80" r="70" fill="none" stroke="var(--cream2)" stroke-width="10"/>
+              <circle id="taskA-timer-arc" cx="80" cy="80" r="70" fill="none"
+                stroke="var(--blue)" stroke-width="10"
+                stroke-dasharray="439.8" stroke-dashoffset="439.8"
+                stroke-linecap="round" style="transition:stroke-dashoffset .9s linear"/>
+            </svg>
+            <div class="timer-display" id="taskA-timer-display">
+              <div class="timer-time" id="taskA-time">02:00</div>
+              <div class="timer-phase" id="taskA-phase">Ready to start</div>
+            </div>
+          </div>
+          <div class="btn-row">
+            <button id="taskA-start-btn" class="btn btn-primary" style="flex:1">▶ Start</button>
+            <button id="taskA-next-btn" class="btn btn-outline">Next Phase</button>
+            <button id="taskA-reset-btn" class="btn btn-outline">↺ Reset</button>
+          </div>
+          <div class="inline-tip" style="margin-top:14px">⏱️ <span><strong>Prep:</strong> 2 min plan. <strong>Speaking:</strong> 2 min talk. Timer moves automatically.</span></div>
+        </div>
+
+        <div class="card" style="margin-top:16px">
+          <div class="card-header">
+            <div><div class="card-title">Voice Recording</div><div class="card-sub">Optional — helps you hear yourself</div></div>
+            <div class="card-icon" style="background:#FFECEC">🎧</div>
+          </div>
+          <div class="counter-box" style="margin-bottom:12px;text-align:center">
+            <div class="counter-num" id="taskA-recording-time">00:00</div>
+            <div class="counter-lbl">Recording time</div>
+          </div>
+          <div class="btn-row">
+            <button id="taskA-record-btn" class="btn btn-red" style="flex:1">⏺ Record</button>
+            <button id="taskA-stop-record-btn" class="btn btn-outline">■ Stop</button>
+          </div>
+          <div class="rec-status"><div class="rec-dot" id="taskA-rec-dot"></div><span id="taskA-recording-status">Click Record to start</span></div>
+          <audio id="taskA-audio-playback" class="hidden" controls style="width:100%;margin-top:10px"></audio>
+        </div>
+
+        <div style="margin-top:16px">
+          <button class="btn btn-teal btn-lg" style="width:100%" onclick="goStep('taskA',3);renderTaskAFeedback()">
+            Check Feedback — Step 4 →
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- STEP 4 — Feedback -->
+  <div class="step-panel hidden" id="taskA-step-3">
+    <div class="guide-banner navy">
+      <div class="guide-icon">⭐</div>
+      <div>
+        <div class="guide-title">Step 4 — Read your feedback and improve one thing</div>
+        <div class="guide-text">Look at your strengths first — that's what you're already doing well. Then pick just one area to improve. Practise that specific thing before clicking New Set to try again.</div>
+      </div>
+    </div>
+    <div class="two-col">
+      <div>
+        <div id="taskA-feedback"></div>
+        <div style="margin-top:20px;display:flex;gap:10px">
+          <button class="btn btn-outline" onclick="goStep('taskA',2)">← Practise Again</button>
+          <button id="taskA-feedback-btn" class="btn btn-amber">↻ Recalculate</button>
+          <button class="btn btn-primary" id="taskA-new-set-btn">🔀 New Set</button>
+        </div>
+      </div>
+      <div>
+        <div class="card">
+          <div class="card-header"><div class="card-title">Quick Improvement Guide</div></div>
+          <div class="steps-list">
+            <div class="step-item"><div class="step-dot" style="background:var(--blue)">1</div><div><div class="step-item-title">If Band 1–2: Focus on completing one full sentence</div><div class="step-item-text">Just say your point + one reason. Two clear sentences is better than five confused ones.</div></div></div>
+            <div class="step-item"><div class="step-dot" style="background:var(--teal)">2</div><div><div class="step-item-title">If Band 3–4: Add a specific example</div><div class="step-item-text">"For example, in Malaysia..." — any real-life context. This moves you from Band 3 to Band 4.</div></div></div>
+            <div class="step-item"><div class="step-dot" style="background:var(--amber);color:var(--navy)">3</div><div><div class="step-item-title">If Band 4–5: Use more connecting words</div><div class="step-item-text">"Furthermore", "This is mainly because", "As a result" — these improve coherence.</div></div></div>
+            <div class="step-item"><div class="step-dot" style="background:#7B3FC8">4</div><div><div class="step-item-title">If Band 5–6: Upgrade vocabulary</div><div class="step-item-text">Replace "good" → "beneficial", "bad" → "detrimental", "think" → "perceive".</div></div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ── TASK B ──────────────────────────────────────── -->
+<div id="view-taskB" class="view hidden slide-up">
+  <div class="toprow">
+    <div>
+      <div class="section-eyebrow">Group Discussion</div>
+      <div style="font-size:22px;font-weight:800;color:var(--navy)">Task B Practice</div>
+      <div id="taskB-student-record" class="card-sub" style="margin-top:6px">Practice record: No student details saved yet.</div>
+    </div>
+    <div style="display:flex;gap:10px">
+      <button id="taskB-sample-btn" class="btn btn-primary btn-sm">🔀 New Set</button>
+      <button class="btn btn-outline btn-sm" data-view="home">← Back</button>
+    </div>
+  </div>
+
+  <div class="steps-bar">
+    <button class="step-btn active" data-task="taskB" data-step="0">
+      <div class="step-num">1</div><div class="step-label">Choose Set</div>
+    </button>
+    <div class="step-connector"></div>
+    <button class="step-btn" data-task="taskB" data-step="1">
+      <div class="step-num">2</div><div class="step-label">Read & Plan</div>
+    </button>
+    <div class="step-connector"></div>
+    <button class="step-btn" data-task="taskB" data-step="2">
+      <div class="step-num">3</div><div class="step-label">Timer & Discuss</div>
+    </button>
+    <div class="step-connector"></div>
+    <button class="step-btn" data-task="taskB" data-step="3">
+      <div class="step-num">4</div><div class="step-label">Feedback</div>
+    </button>
+  </div>
+
+  <!-- STEP 1 -->
+  <div class="step-panel active" id="taskB-step-0">
+    <div class="two-col">
+      <div>
+        <div class="guide-banner blue">
+          <div class="guide-icon">💡</div>
+          <div>
+            <div class="guide-title">Step 1 — Use the same set from Task A</div>
+            <div class="guide-text">Task B continues the same topic used in Task A. Check that the same prompt set is selected, then read the discussion question and points. You do not need to cover all five points by yourself.</div>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-header">
+            <div><div class="card-title">Select Prompt Set</div><div class="card-sub">Use the same set that was used in Task A</div></div>
+            <div class="card-icon" style="background:#EBF2FF">🗂️</div>
+          </div>
+          <label>Official Set</label>
+          <select id="taskB-set-select"></select>
+        </div>
+        <div class="card" style="margin-top:16px">
+          <div class="card-header"><div class="card-title">Discussion Topic</div></div>
+          <div style="font-size:15px;line-height:1.85;color:var(--text);padding:14px;background:var(--cream);border-radius:var(--r-md)" id="taskB-topic"></div>
+        </div>
+        <div class="card" style="margin-top:16px">
+          <div class="card-header">
+            <div><div class="card-title">Discussion Points</div><div class="card-sub">Click a point to highlight it as your main argument</div></div>
+          </div>
+          <div class="points-chips" id="taskB-points-chips"></div>
+          <div class="divider"></div>
+          <div style="font-size:12px;color:var(--muted)">Decision focus: <strong id="taskB-focus" style="color:var(--navy)"></strong></div>
+        </div>
+      </div>
+      <div>
+        <div class="card">
+          <div class="card-header"><div class="card-title">What is Task B?</div></div>
+          <div class="steps-list">
+            <div class="step-item"><div class="step-dot" style="background:var(--blue)">👥</div><div><div class="step-item-title">Group discussion (4 candidates)</div><div class="step-item-text">The same four candidates continue with the same topic from Task A and discuss it together.</div></div></div>
+            <div class="step-item"><div class="step-dot" style="background:var(--teal)">⏱</div><div><div class="step-item-title">3 min prep + 10 min discussion</div><div class="step-item-text">Preparation: plan your main point. Discussion: interact, respond, ask, and reach consensus.</div></div></div>
+            <div class="step-item"><div class="step-dot" style="background:var(--amber);color:var(--navy)">💬</div><div><div class="step-item-title">Interaction is scored</div><div class="step-item-text">Students should support, agree, disagree politely, ask questions, and respond to others on the same topic.</div></div></div>
+          </div>
+          <div class="inline-tip">💡 <span><strong>Key reminder:</strong> You don't need a long speech. Short, interactive turns score higher than one long monologue.</span></div>
+        </div>
+        <div style="margin-top:16px">
+          <button class="btn btn-primary btn-lg" style="width:100%" onclick="goStep('taskB',1)">
+            Continue to Read & Plan →
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- STEP 2 -->
+  <div class="step-panel hidden" id="taskB-step-1">
+    <div class="two-col">
+      <div>
+        <div class="guide-banner amber">
+          <div class="guide-icon">✏️</div>
+          <div>
+            <div class="guide-title">Step 2 — Prepare your contribution</div>
+            <div class="guide-text">Pick one point from the same topic used in Task A. Plan one short reason and one example. Then prepare a few phrases to support, agree, disagree, and ask questions.</div>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-header"><div class="card-title">Discussion Topic & Question</div></div>
+          <div style="font-size:14px;line-height:1.8;margin-bottom:12px" id="taskB-topic2"></div>
+          <div style="background:var(--cream);border-radius:var(--r-md);padding:12px 16px">
+            <div style="font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--muted);margin-bottom:6px">All Discussion Points</div>
+            <div id="taskB-all-points"></div>
+          </div>
+        </div>
+        <div class="card" style="margin-top:16px">
+          <div class="card-header"><div class="card-title">Simple Discussion Formula</div></div>
+          <div class="steps-list">
+            <div class="step-item"><div class="step-dot" style="background:var(--blue)">1</div><div><div class="step-item-title">Start with your opinion</div><div class="step-item-text">"I think [point] is the best option because..."</div></div></div>
+            <div class="step-item"><div class="step-dot" style="background:var(--teal)">2</div><div><div class="step-item-title">Support your idea</div><div class="step-item-text">Give one short reason and one simple example linked to the same topic.</div></div></div>
+            <div class="step-item"><div class="step-dot" style="background:var(--amber);color:var(--navy)">3</div><div><div class="step-item-title">Agree or disagree politely</div><div class="step-item-text">"I agree with you because..." / "I understand your point, but I think..."</div></div></div>
+            <div class="step-item"><div class="step-dot" style="background:#7B3FC8">4</div><div><div class="step-item-title">Ask, respond, and conclude</div><div class="step-item-text">"What do you think?" / "Would you agree?" / "Shall we choose this point?"</div></div></div>
+          </div>
+        </div>
+      </div>
+      <div>
+        <div class="card">
+          <div class="card-header"><div class="card-title">Interaction Phrases</div><div class="card-sub">Click to copy — use these in your discussion</div></div>
+          <div style="font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--teal);margin-bottom:8px">Agreeing</div>
+          <div class="phrase-list" id="phrases-agree"></div>
+          <div style="font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--red);margin-top:14px;margin-bottom:8px">Disagreeing</div>
+          <div class="phrase-list" id="phrases-disagree"></div>
+          <div style="font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--blue);margin-top:14px;margin-bottom:8px">Asking / Inviting</div>
+          <div class="phrase-list" id="phrases-ask"></div>
+        </div>
+        <div style="margin-top:16px">
+          <button class="btn btn-amber btn-lg" style="width:100%" onclick="goStep('taskB',2)">
+            Ready — Start Timer & Step 3 →
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- STEP 3 -->
+  <div class="step-panel hidden" id="taskB-step-2">
+    <div class="two-col">
+      <div>
+        <div class="guide-banner green">
+          <div class="guide-icon">💬</div>
+          <div>
+            <div class="guide-title">Step 3 — Start the timer and practise</div>
+            <div class="guide-text">Use the timer to simulate real exam conditions. Discuss the same topic from Task A, but now interact with your group members. Support ideas, agree or disagree politely, ask questions, and move towards one decision.</div>
+          </div>
+        </div>
+
+        <!-- Participation tips -->
+        <div class="card">
+          <div class="card-header"><div class="card-title">What Examiners Notice</div><div class="card-sub">These behaviours raise your band</div></div>
+          <div class="grid-2" style="gap:10px">
+            <div class="step-item"><div class="step-dot" style="background:var(--teal);width:22px;height:22px;font-size:10px">✓</div><div><div class="step-item-text">Respond directly to a classmate's idea with a reason</div></div></div>
+            <div class="step-item"><div class="step-dot" style="background:var(--teal);width:22px;height:22px;font-size:10px">✓</div><div><div class="step-item-text">Ask at least one question to move the discussion forward</div></div></div>
+            <div class="step-item"><div class="step-dot" style="background:var(--teal);width:22px;height:22px;font-size:10px">✓</div><div><div class="step-item-text">Show agreement or polite disagreement</div></div></div>
+            <div class="step-item"><div class="step-dot" style="background:var(--teal);width:22px;height:22px;font-size:10px">✓</div><div><div class="step-item-text">Help close with a short group conclusion</div></div></div>
+          </div>
+        </div>
+
+        <!-- Discussion log -->
+        <div class="card" style="margin-top:16px">
+          <div class="card-header">
+            <div><div class="card-title">Discussion Log</div><div class="card-sub">Type turns for all candidates — simulate the full group</div></div>
+            <div class="card-icon" style="background:#E6F6F0">🧾</div>
+          </div>
+          <textarea id="taskB-transcript" rows="10" placeholder="Candidate A: I would like to begin. I think [point] is most important because...&#10;Candidate B: That is a good point. However, I believe...&#10;Candidate C: I agree with Candidate A because...&#10;Candidate D: What do you all think about...?"></textarea>
+          <div class="btn-row">
+            <button id="taskB-record-btn" class="btn btn-red btn-sm">⏺ Voice</button>
+            <button id="taskB-stop-record-btn" class="btn btn-outline btn-sm">■ Stop</button>
+            <div class="rec-status" style="margin-top:0"><div class="rec-dot" id="taskB-rec-dot"></div><span id="taskB-recording-status" style="font-size:12px">Click Voice to record</span></div>
+          </div>
+          <audio id="taskB-audio-playback" class="hidden" controls style="width:100%;margin-top:10px"></audio>
+        </div>
+      </div>
+
+      <div class="sticky-col">
+        <div class="card">
+          <div class="card-header"><div class="card-title">Exam Timer</div><div class="card-sub">Preparation → Discussion</div></div>
+          <div class="timer-wrap">
+            <svg class="timer-ring-svg" width="160" height="160" viewBox="0 0 160 160">
+              <circle cx="80" cy="80" r="70" fill="none" stroke="var(--cream2)" stroke-width="10"/>
+              <circle id="taskB-timer-arc" cx="80" cy="80" r="70" fill="none"
+                stroke="var(--amber)" stroke-width="10"
+                stroke-dasharray="439.8" stroke-dashoffset="439.8"
+                stroke-linecap="round" style="transition:stroke-dashoffset .9s linear"/>
+            </svg>
+            <div class="timer-display">
+              <div class="timer-time" id="taskB-time">03:00</div>
+              <div class="timer-phase" id="taskB-phase">Ready to start</div>
+            </div>
+          </div>
+          <div class="btn-row">
+            <button id="taskB-start-btn" class="btn btn-amber" style="flex:1;color:var(--navy)">▶ Start</button>
+            <button id="taskB-next-btn" class="btn btn-outline">Next Phase</button>
+            <button id="taskB-reset-btn" class="btn btn-outline">↺ Reset</button>
+          </div>
+          <div class="inline-tip" style="margin-top:14px">⏱️ <span><strong>Prep:</strong> 3 min plan. <strong>Discussion:</strong> 10 min group talk.</span></div>
+        </div>
+        <div style="margin-top:16px">
+          <button class="btn btn-teal btn-lg" style="width:100%" onclick="goStep('taskB',3);renderTaskBFeedback()">
+            Check Feedback — Step 4 →
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- STEP 4 -->
+  <div class="step-panel hidden" id="taskB-step-3">
+    <div class="guide-banner navy">
+      <div class="guide-icon">📈</div>
+      <div>
+        <div class="guide-title">Step 4 — Review your interaction feedback</div>
+        <div class="guide-text">Task B is scored on interaction, not just content. Read whether you responded, asked questions, and stayed involved. Then practise again with better turns.</div>
+      </div>
+    </div>
+    <div class="two-col">
+      <div>
+        <div id="taskB-feedback"></div>
+        <div style="margin-top:20px;display:flex;gap:10px">
+          <button class="btn btn-outline" onclick="goStep('taskB',2)">← Practise Again</button>
+          <button id="taskB-feedback-btn" class="btn btn-amber">↻ Recalculate</button>
+          <button class="btn btn-primary" id="taskB-new-set-btn">🔀 New Set</button>
+        </div>
+      </div>
+      <div>
+        <div class="card">
+          <div class="card-header"><div class="card-title">Interaction Checklist</div><div class="card-sub">Did you do these in your discussion?</div></div>
+          <div class="steps-list">
+            <div class="step-item"><div class="step-dot" style="background:var(--teal)">✓</div><div><div class="step-item-title">Responded to a classmate by name or idea</div><div class="step-item-text">"I agree with what Candidate A said because..."</div></div></div>
+            <div class="step-item"><div class="step-dot" style="background:var(--teal)">✓</div><div><div class="step-item-title">Asked at least one question</div><div class="step-item-text">"What do you think about...?" / "Can you explain that further?"</div></div></div>
+            <div class="step-item"><div class="step-dot" style="background:var(--teal)">✓</div><div><div class="step-item-title">Used polite agreement or disagreement</div><div class="step-item-text">"That's a good point. However, I believe..." </div></div></div>
+            <div class="step-item"><div class="step-dot" style="background:var(--teal)">✓</div><div><div class="step-item-title">Helped the group reach a conclusion</div><div class="step-item-text">"Shall we agree that [point] is the most important?"</div></div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ── LECTURER ───────────────────────────────────── -->
+<div id="view-lecturer" class="view hidden slide-up">
+  <div class="toprow">
+    <div>
+      <div class="section-eyebrow">Lecturer Tools</div>
+      <div style="font-size:22px;font-weight:800;color:var(--navy)">Dashboard</div>
+    </div>
+    <div style="display:flex;gap:10px;flex-wrap:wrap">
+      <button id="add-group-btn" class="btn btn-primary btn-sm">+ Add Group</button>
+      <button id="export-feedback-btn" class="btn btn-outline btn-sm">📋 Copy All Feedback</button>
+      <button id="print-worksheet-btn" class="btn btn-amber btn-sm" style="color:var(--navy)">🖨 Print Worksheet</button>
+      <button class="btn btn-outline btn-sm" data-view="home">← Back</button>
+    </div>
+  </div>
+
+  <div class="two-col" style="align-items:start">
+    <!-- Left: overview + worksheet -->
+    <div>
+      <div class="card">
+        <div class="card-header"><div class="card-title">Group Overview</div><div class="card-sub">Quick summary of all groups</div></div>
+        <div class="summary-list" id="group-summary-list"></div>
+      </div>
+
+      <div class="card" style="margin-top:18px">
+        <div class="card-header">
+          <div><div class="card-title">Worksheet Builder</div><div class="card-sub">Print-ready classroom handout</div></div>
+          <button id="copy-worksheet-btn" class="btn btn-outline btn-sm">Copy Text</button>
+        </div>
+        <label>Select Set</label>
+        <select id="lecturer-worksheet-select"></select>
+        <div id="worksheet-preview" class="ws-preview"></div>
+        <div class="btn-row" style="margin-top:14px">
+          <button id="print-ws-btn2" class="btn btn-amber" style="flex:1;color:var(--navy)">🖨 Print Worksheet</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Right: group cards -->
+    <div id="groups-container"></div>
+  </div>
+</div>
+
+</div><!-- end .page -->
+
+<script>
+/* ══════════════════════════════════════════════════════
+   DATA
+══════════════════════════════════════════════════════ */
+const officialPromptBank=[{label:"2021 S1 · Booklet 1",source:"Workbook set 2021 Session 1",taskA:{situation:"Technology helps us in many ways. What are some of these ways?",candidates:{A:"How technology helps us do housework.",B:"How technology helps us make friends.",C:"How technology helps us shop online.",D:"How technology helps us find entertainment."}},taskB:{situation:"Technology is an important tool in education today. In your group, discuss the benefits of using technology in education.",question:"What are the benefits of using technology in education?",points:["Quick access","Economical","Independent learning","Interesting lessons","New skills"],choose:"The main benefit of using technology in education."}},{label:"2021 S1 · Booklet 2",source:"Workbook set 2021 Session 1",taskA:{situation:"Haze happens almost every year. What can you do to keep healthy during haze?",candidates:{A:"Wearing face masks.",B:"Drinking lots of water.",C:"Staying indoors.",D:"Seeing a doctor."}},taskB:{situation:"Forest fire causes air pollution in the region. In your group, discuss how countries can deal with forest fire.",question:"How can countries deal with forest fire?",points:["International cooperation","Education","Fire fighting equipment","Trained rescue team","Stricter law"],choose:"The best way for countries to deal with forest fire."}},{label:"2021 S1 · Booklet 3",source:"Workbook set 2021 Session 1",taskA:{situation:"Students should take part in sports. What are some benefits of sports?",candidates:{A:"Learning teamwork in sports.",B:"Keeping fit.",C:"Reducing stress.",D:"Meeting people."}},taskB:{situation:"Winning medals in sports events is a dream for many countries. To do this, the standards of sports have to be improved.",question:"How can the standards of sports be improved in countries?",points:["Upgrade sports facilities","Identify talents","Improve coaching standards","More sporting events","Rewards"],choose:"The best way to improve the standards of sports in countries."}},{label:"2021 S1 · Booklet 4",source:"Workbook set 2021 Session 1",taskA:{situation:"There are many important ways to care for the environment. What are some of these ways?",candidates:{A:"Reducing the use of paper.",B:"Reducing the use of plastic bags.",C:"Reducing the use of fuel.",D:"Reducing the use of electricity."}},taskB:{situation:"There is a growing concern about how waste is being managed in our country. In your group, discuss how the government can manage waste effectively.",question:"How can the government manage waste effectively?",points:["Better technologies","Fines","Recycling centres","Stop foreign dumping","Stricter law"],choose:"The best way for the government to manage waste effectively in our country."}},{label:"2021 S1 · Booklet 8",source:"Workbook set 2021 Session 1",taskA:{situation:"Many students leave their homes to continue their studies. What are some useful skills that they should have?",candidates:{A:"Cooking skills.",B:"First-aid skills.",C:"Driving skills.",D:"Self-defense skills."}},taskB:{situation:"Some life skills are not taught in schools. In your group, discuss what life skills should be taught in schools.",question:"What life skills should be taught in schools?",points:["Leadership","Personal grooming","Financial planning","Intercultural communication","Time management"],choose:"The best life skill that should be taught in schools."}},{label:"2021 S1 · Booklet 10",source:"Workbook set 2021 Session 1",taskA:{situation:"You have been given RM200. What are some important things that you can buy?",candidates:{A:"Buying clothes.",B:"Buying food.",C:"Buying internet plans.",D:"Buying video games."}},taskB:{situation:"With the rising cost of living, consumers have to be smart. In your group, discuss how to be a smart consumer.",question:"How can people be smart consumers?",points:["Compare prices","Know consumer rights","Read labels","Make shopping lists","Buy during sales"],choose:"The best way to be a smart consumer."}},{label:"2021 S2 · Booklet 1",source:"Workbook set 2021 Session 2",taskA:{situation:"Students prepare for exams in different ways. What are some of the ways?",candidates:{A:"Studying in groups.",B:"Studying in a library.",C:"Going to extra classes.",D:"Doing past year exam questions."}},taskB:{situation:"Studying abroad is challenging. In your group, discuss why it is challenging.",question:"Why is studying abroad challenging?",points:["Homesick","Cultural difference","Cost of living","Language problem","Lack of friends"],choose:"The main reason why studying abroad is challenging."}},{label:"2021 S2 · Booklet 4",source:"Workbook set 2021 Session 2",taskA:{situation:"Nowadays, many people go to gyms. Give some reasons why they do so.",candidates:{A:"Exercising to lose weight.",B:"Having a comfortable place to exercise.",C:"Convenient operating hours.",D:"Exercising to reduce stress."}},taskB:{situation:"Exercise is good for health. However, many people do not exercise. In your group, discuss possible ways to create a fitness culture.",question:"What are the ways to create a fitness culture?",points:["Workplace exercise programmes","School physical education","Fitness competitions","Family workout programmes","Online fitness communities"],choose:"The best way to create a fitness culture."}},{label:"2021 S2 · Booklet 8",source:"Workbook set 2021 Session 2",taskA:{situation:"Smartphones are useful tools for learning. How can students use smartphones to study?",candidates:{A:"Sharing notes with friends.",B:"Searching for information on the internet.",C:"Doing online discussion.",D:"Attending online classes."}},taskB:{situation:"Online teaching and learning is common today. In your group, discuss the issues related to online teaching and learning.",question:"What are the issues related to online teaching and learning?",points:["Internet connection","Technical issues","Quality of learning","Learning environment","Cost"],choose:"The most challenging issue related to online teaching and learning."}},{label:"2021 S2 · Booklet 10",source:"Workbook set 2021 Session 2",taskA:{situation:"Working part-time is useful for young people. What are some advantages of working part-time?",candidates:{A:"Making extra money.",B:"Learning new skills.",C:"Making new friends.",D:"Learning to manage time well."}},taskB:{situation:"Financial education is important for young people. In your group, discuss its importance.",question:"Why is financial education important for young people?",points:["Avoid debts","Plan spending","Maintain income","Better living standards","Strong economy"],choose:"The best reason why financial education is important for young people."}},{label:"2021 S3 · Booklet 1",source:"Workbook set 2021 Session 3",taskA:{situation:"Many colleges organise student trips. What are some benefits of going on these trips?",candidates:{A:"Learning to take care of yourself and others.",B:"Working in a team.",C:"Getting new experience.",D:"Releasing stress."}},taskB:{situation:"Participating in a college trip can be exciting and educational. In your group, discuss how participation in such trips can be increased.",question:"How can participation in college trips be increased?",points:["Fun activities","Lower fee","Interesting destinations","Longer trip","Improve safety"],choose:"The best way to increase participation in college trips."}},{label:"2021 S3 · Booklet 3",source:"Workbook set 2021 Session 3",taskA:{situation:"It is good for students to take part in a competition. Suggest some of these competitions.",candidates:{A:"Taking part in a drama competition.",B:"Taking part in an art competition.",C:"Taking part in a cooking competition.",D:"Taking part in a sports competition."}},taskB:{situation:"Competitions can play an important role in the development of an individual. In your group, discuss why competitions are important.",question:"Why are competitions important in the development of an individual?",points:["Motivation","Learn skills","Build confidence","Rewards","Expand networks"],choose:"The most important reason why competitions are important in the development of an individual."}},{label:"2021 S3 · Booklet 5",source:"Workbook set 2021 Session 3",taskA:{situation:"Today, many teenagers want to earn some money to spend on themselves. Suggest some ways for teenagers to earn some money.",candidates:{A:"Selling home-cooked food.",B:"Doing deliveries.",C:"Working at a fast food restaurant.",D:"Teaching children in the neighbourhood."}},taskB:{situation:"There is a new trend of young people entering the business world and doing very well. In your group, discuss how young people can advance their business.",question:"How can young people advance their business?",points:["Manage money","Advertisement","Strategic planning","Make new contacts","Creativity"],choose:"The best way for young people to advance their business."}},{label:"2022 S1 · Booklet 1",source:"Workbook set 2022 Session 1",taskA:{situation:"Children spend too much time indoors. Suggest some outdoor activities for them.",candidates:{A:"Taking part in sports.",B:"Camping.",C:"Gardening.",D:"Doing recycling projects."}},taskB:{situation:"It is important to encourage children to be healthy from young. In your group, discuss the factors that influence children's attitudes towards health.",question:"What factors influence children's attitudes towards health?",points:["Family members","Media","Education","Celebrities","Friends"],choose:"The main factor that influences children's attitudes towards health."}},{label:"2022 S1 · Booklet 3",source:"Workbook set 2022 Session 1",taskA:{situation:"Studying in a new environment brings challenges to some people. What would be some of these challenges?",candidates:{A:"Making new friends.",B:"Using your time well.",C:"Protecting yourself.",D:"Using money carefully."}},taskB:{situation:"It is important to choose a good university. In your group, discuss how people choose a university.",question:"How do people choose a university?",points:["Fees","Qualified lecturers","Facilities","Interesting course","Reputation"],choose:"The most important factor when choosing a university."}},{label:"2022 S1 · Booklet 5",source:"Workbook set 2022 Session 1",taskA:{situation:"College students have to sit for examinations. Suggest some ways students can prepare for them.",candidates:{A:"Studying regularly.",B:"Making your own revision notes.",C:"Group discussions.",D:"Doing sample questions."}},taskB:{situation:"There seems to be too much emphasis on final examinations in universities and colleges. In your group, discuss other ways universities and colleges can assess students.",question:"What are ways to assess university or college students?",points:["In-class quizzes","Presentations","Fieldwork","Group projects","Practical training"],choose:"The best way to assess university or college students other than final examinations."}},{label:"2022 S1 · Booklet 7",source:"Workbook set 2022 Session 1",taskA:{situation:"It is useful to learn a new language. Suggest some ways to learn a new language.",candidates:{A:"Taking online classes.",B:"Watching drama and movies.",C:"Having a personal teacher.",D:"Making friends with people who speak the language."}},taskB:{situation:"Knowing many languages can be an advantage. In your group, discuss the advantages of knowing many languages.",question:"What are the advantages of knowing many languages?",points:["Employment","Entertainment","Learn new culture","Make travel easier","Meet new people"],choose:"The main advantage of knowing many languages."}},{label:"2022 S2 · Booklet 1",source:"Workbook set 2022 Session 2",taskA:{situation:"Living in a hostel has its advantages. Suggest some of these advantages.",candidates:{A:"Making new friends.",B:"Living in a safe place.",C:"Enjoying hostel activities.",D:"Learning life skills."}},taskB:{situation:"Many students studying away from home have to live in hostels. Therefore, hostels must be well-equipped and properly maintained to meet the needs of the students.",question:"How can hostels be improved to meet students' needs?",points:["Better security","Cleaning services","Exercise facilities","Wi-Fi","Food"],choose:"The most effective way hostels can be improved to meet students' needs."}},{label:"2022 S2 · Booklet 2",source:"Workbook set 2022 Session 2",taskA:{situation:"Many things can cause stress in our lives. Suggest ways to reduce stress.",candidates:{A:"Exercising regularly.",B:"Listening to music.",C:"Keeping a pet.",D:"Spending time with friends."}},taskB:{situation:"Mental health has become a great concern today. In your group, discuss how the government can help improve mental health among citizens.",question:"How can the government help improve mental health among citizens?",points:["Campaigns","Build community centres","Exercise facilities","Medical assistance","Financial aid"],choose:"The best way the government can help improve mental health among citizens."}},{label:"2022 S2 · Booklet 6",source:"Workbook set 2022 Session 2",taskA:{situation:"Cooking your own food is better than eating out. What are the advantages of cooking your own food?",candidates:{A:"Cleanliness.",B:"Good ingredients.",C:"Saving costs.",D:"Bringing family together."}},taskB:{situation:"It is important to make healthy food choices. In your group, discuss how people can get advice about making healthy food choices.",question:"How can people get advice about making healthy food choices?",points:["Consult medical professionals","Refer to parents","Download health apps","Consumer associations","Health campaigns"],choose:"The best way to get advice about making healthy food choices."}},{label:"2022 S3 · Booklet 2",source:"Workbook set 2022 Session 3",taskA:{situation:"Smartphones are important in our lives. Suggest some uses of smartphones.",candidates:{A:"Playing games.",B:"Watching movies.",C:"Communicating with friends.",D:"Shopping."}},taskB:{situation:"The spread of information via smartphones can reach many people. In your group, discuss how the government can control the spread of fake news.",question:"How can the government control the spread of fake news?",points:["Monitor users","Penalties","Website checking","Campaigns","Special task force"],choose:"The most effective way the government can control the spread of fake news."}},{label:"2022 S3 · Booklet 4",source:"Workbook set 2022 Session 3",taskA:{situation:"People now prefer to shop online. What are some reasons for this?",candidates:{A:"Comparing prices.",B:"Greater variety.",C:"Home delivery.",D:"Avoiding crowds."}},taskB:{situation:"Online businesses are becoming increasingly popular as they are more profitable. In your group, discuss the advantages of running online businesses.",question:"What are the advantages of running online businesses?",points:["Payment in advance","No physical stores","Reach more customers","Lower marketing costs","Fewer employees"],choose:"The best advantage of running online businesses."}},{label:"2022 S3 · Booklet 6",source:"Workbook set 2022 Session 3",taskA:{situation:"You have to attend online classes. Suggest what you need.",candidates:{A:"A good computer.",B:"A fast internet connection.",C:"A quiet area.",D:"Interesting study materials."}},taskB:{situation:"Online learning offers many benefits. Therefore, universities should promote online learning. In your group, discuss why universities should promote online learning.",question:"Why should universities promote online learning?",points:["Cost","Encourage independent learning","Global classes","Interactive resources","Convenient"],choose:"The main reason why universities should promote online learning."}},{label:"2023 S1 · Booklet 1",source:"Workbook set 2023 Session 1",taskA:{situation:"When we travel, we have to pay for many things. What are some of these?",candidates:{A:"Paying for food.",B:"Paying for transportation.",C:"Paying for accommodation.",D:"Paying for activities."}},taskB:{situation:"Many tourists prefer to go cashless when travelling. In your group, discuss the advantages of going cashless when travelling.",question:"What are the advantages of going cashless when travelling?",points:["Safer","Saves time","Track expenses","Buy on credit","Points and rewards"],choose:"The most important advantage of going cashless when travelling."}},{label:"2023 S1 · Booklet 3",source:"Workbook set 2023 Session 1",taskA:{situation:"You want to celebrate your best friend's birthday. Suggest some ways to celebrate this occasion.",candidates:{A:"Organising a big party.",B:"Buying a special gift.",C:"Making a video.",D:"Taking a trip together."}},taskB:{situation:"We all need good friends in life. In your group, discuss some factors that can contribute to building strong friendship.",question:"What factors can contribute to building strong friendship?",points:["Supportive","Trustworthy","Loyal","Open communication","Acceptance"],choose:"The most important factor that can contribute to building strong friendship."}},{label:"2023 S1 · Booklet 4",source:"Workbook set 2023 Session 1",taskA:{situation:"There has been an increase in the use of plastics. Suggest some ways to reduce the use of plastics.",candidates:{A:"Refusing plastic straws.",B:"Using recyclable bags.",C:"Reusing plastic containers.",D:"Sending used plastics to recycling centres."}},taskB:{situation:"It is everybody's responsibility to take care of the environment. In your group, discuss some of the ways to take care of the environment.",question:"What are the ways to take care of the environment?",points:["Clean beaches","Recycling","Conserve water","Use electric vehicles","Save trees"],choose:"The best way to take care of the environment."}},{label:"2023 S1 · Booklet 5",source:"Workbook set 2023 Session 1",taskA:{situation:"Being a first year student can be challenging. Suggest some ways to make university life easier.",candidates:{A:"Finding new friends.",B:"Joining university activities.",C:"Exploring the university.",D:"Meeting with professors."}},taskB:{situation:"Many parties can help contribute to mental health of university students. In your group, discuss who plays a role in promoting mental health among university students.",question:"Who plays a role in promoting mental health among university students?",points:["Peers","Parents","Medical professionals","Lecturers","University administrators"],choose:"The most important role in promoting mental health among university students."}},{label:"2023 S1 · Booklet 7",source:"Workbook set 2023 Session 1",taskA:{situation:"One way to stay healthy is to rest and relax. Suggest some ways we can do this.",candidates:{A:"Watching television.",B:"Reading books.",C:"Chatting with friends.",D:"Playing games."}},taskB:{situation:"A healthy nation is a happy nation. In your group, discuss how the government can encourage citizens to lead a physically healthy life.",question:"How can the government encourage citizens to lead a physically healthy life?",points:["Free exercise sessions","Public sports facilities","Cheaper sports equipment","Competitions","Campaigns"],choose:"The best way the government can encourage citizens to lead a physically healthy life."}},{label:"Custom ? Visit Malaysia Year",source:"Custom topic set",taskA:{situation:"People have different ways to promote Visit Malaysia Year.",candidates:{A:"Suggest ways universities can help promote Visit Malaysia Year.",B:"Suggest ways social media can be used to attract tourists to Malaysia.",C:"Suggest ways local communities can support tourism.",D:"Suggest ways to promote lesser-known tourist destinations in Malaysia."}},taskB:{situation:"Visit Malaysia Year needs fresh and effective promotion strategies. In your group, discuss the best way to attract more tourists to Malaysia.",question:"Which is the most effective way to promote Visit Malaysia Year?",points:["University campaigns","Social media promotion","Community support","Promoting lesser-known destinations","National tourism partnerships"],choose:"The most effective way to promote Visit Malaysia Year."}},{label:"Custom ? Weather & Environment",source:"Custom topic set",taskA:{situation:"There are various ways to reduce environmental problems in Malaysia.",candidates:{A:"Suggest ways the government can reduce flood problems.",B:"Suggest ways individuals can help protect the environment.",C:"Suggest ways schools or universities can promote environmental awareness.",D:"Suggest ways technology can help solve environmental issues."}},taskB:{situation:"Environmental problems in Malaysia require action from different groups. In your group, discuss the most effective way to overcome these problems.",question:"Which is the most effective way to overcome environmental problems?",points:["Government flood action","Individual responsibility","Environmental education","Technology solutions","Community cooperation"],choose:"The most effective way to overcome environmental problems."}},{label:"Custom ? Cost of Living / Fuel",source:"Custom topic set",taskA:{situation:"Rising living costs have affected many Malaysians.",candidates:{A:"Suggest ways students can manage their daily expenses.",B:"Suggest ways the government can help reduce the burden of rising costs.",C:"Suggest ways people can reduce dependency on fuel.",D:"Suggest ways people can increase their income."}},taskB:{situation:"Rising prices and fuel costs are affecting daily life. In your group, discuss the most practical way for Malaysians to cope with these challenges.",question:"Which is the most practical way to cope with rising living costs?",points:["Manage daily expenses","Government support","Reduce fuel dependency","Increase income","Smarter budgeting"],choose:"The most practical way to cope with rising living costs."}},{label:"Custom ? Transportation",source:"Custom topic set",taskA:{situation:"Traffic congestion is a common problem in Malaysia.",candidates:{A:"Suggest ways to improve public transportation.",B:"Suggest ways to encourage people to use public transport.",C:"Suggest ways to reduce the number of private vehicles on the road.",D:"Suggest ways technology can improve transportation systems."}},taskB:{situation:"Traffic congestion affects productivity, time, and quality of life. In your group, discuss the best solution to reduce traffic congestion in Malaysia.",question:"Which is the best solution to reduce traffic congestion?",points:["Improve public transportation","Encourage public transport use","Reduce private vehicles","Use transport technology","Better urban planning"],choose:"The best solution to reduce traffic congestion."}},{label:"Custom ? Technology & AI",source:"Custom topic set",taskA:{situation:"Technology plays an important role in education.",candidates:{A:"Suggest ways AI can benefit students in learning.",B:"Suggest ways technology can create challenges in education.",C:"Suggest ways teachers can use digital tools effectively.",D:"Suggest ways students can improve their digital skills."}},taskB:{situation:"Technology is changing how students learn and how teachers teach. In your group, discuss whether technology in education brings more benefits than disadvantages.",question:"Do the benefits of technology in education outweigh the disadvantages?",points:["AI learning support","Technology challenges","Effective digital teaching","Digital skills development","Balanced technology use"],choose:"Whether the benefits of technology in education outweigh the disadvantages."}},{label:"Custom ? Student Life & Well-Being",source:"Custom topic set",taskA:{situation:"Students today face many challenges in their daily lives.",candidates:{A:"Suggest ways students can manage stress.",B:"Suggest ways universities can support students' mental health.",C:"Suggest ways students can balance study and personal life.",D:"Suggest ways peer support can help students."}},taskB:{situation:"Student well-being is important for academic success and healthy development. In your group, discuss the most effective way to support students' well-being.",question:"Which is the most effective way to support students' well-being?",points:["Stress management","University mental health support","Study-life balance","Peer support","Healthy campus culture"],choose:"The most effective way to support students' well-being."}},{label:"Custom ? Employability & Skills",source:"Custom topic set",taskA:{situation:"Employability skills are important for graduates.",candidates:{A:"Suggest ways students can develop important job skills.",B:"Suggest ways universities can prepare students for employment.",C:"Suggest ways internships can benefit students.",D:"Suggest ways students can improve communication skills."}},taskB:{situation:"Graduates need more than academic results to succeed in the workplace. In your group, discuss the most important skill for graduates.",question:"Which is the most important skill for graduates?",points:["Job skills development","University preparation","Internship experience","Communication skills","Adaptability"],choose:"The most important skill for graduates."}},{label:"Custom ? Sustainability",source:"Custom topic set",taskA:{situation:"Sustainable living is becoming increasingly important.",candidates:{A:"Suggest ways households can practise sustainable living.",B:"Suggest ways schools can encourage sustainability.",C:"Suggest ways businesses can reduce environmental impact.",D:"Suggest ways young people can support sustainability."}},taskB:{situation:"Sustainable living requires action from families, schools, businesses, and young people. In your group, discuss the most effective way to promote sustainable living.",question:"Which is the most effective way to promote sustainable living?",points:["Household practices","School sustainability efforts","Business responsibility","Youth action","Public awareness campaigns"],choose:"The most effective way to promote sustainable living."}}];
+
+const taskAPhrases=["Good morning. Today, I would like to discuss...","Based on my point of view, I strongly feel that...","To begin with, I believe that...","This is because...","For example, in Malaysia...","Furthermore, this also helps to...","Therefore, in conclusion...","In summary, I strongly believe that..."];
+const phrasesAgree=["I completely agree with your point because...","That is a valid point. I would also add that...","Building on what you said, I think..."];
+const phrasesDisagree=["I see your point, however I believe...","With respect, I have a slightly different view...","That may be true, but we should also consider..."];
+const phrasesAsk=["What do you think about this point?","Would anyone like to add to what I said?","Shall we all agree that this is the best solution?","Can you elaborate on your point further?"];
+
+/* ══ STATE ══════════════════════════════════════════ */
+const taskAState={currentIndex:0,candidate:"A",phaseIndex:0,phases:[{label:"Preparation",duration:120},{label:"Speaking",duration:120}],remaining:120,interval:null,active:false};
+const taskBState={currentIndex:0,phaseIndex:0,phases:[{label:"Preparation",duration:180},{label:"Discussion",duration:600}],remaining:180,interval:null,active:false};
+const recorderState={taskA:null,taskB:null};
+const recordingTimers={taskA:{interval:null,elapsed:0},taskB:{interval:null,elapsed:0}};
+const lecturerState={groups:[],nextGroupId:1,worksheetIndex:0};
+const studentRecordState={name:"",regNo:""};
+
+/* ══ UTILS ══════════════════════════════════════════ */
+const $=id=>document.getElementById(id);
+const fmtTime=s=>`${String(Math.floor(s/60)).padStart(2,"0")}:${String(s%60).padStart(2,"0")}`;
+function randomIndex(items,cur){if(items.length===1)return 0;let n=Math.floor(Math.random()*items.length);while(n===cur)n=Math.floor(Math.random()*items.length);return n;}
+function getStudentRecordLabel(){
+  if(studentRecordState.name&&studentRecordState.regNo)return `${studentRecordState.name} · ${studentRecordState.regNo}`;
+  if(studentRecordState.name)return studentRecordState.name;
+  if(studentRecordState.regNo)return studentRecordState.regNo;
+  return "No student details saved yet.";
+}
+function updateStudentRecordUI(){
+  if($("student-name"))$("student-name").value=studentRecordState.name;
+  if($("student-regno"))$("student-regno").value=studentRecordState.regNo;
+  const hasRecord=studentRecordState.name||studentRecordState.regNo;
+  if($("student-record-status")){
+    $("student-record-status").innerHTML=hasRecord
+      ? `📝 <span><strong>Saved record:</strong> ${getStudentRecordLabel()}</span>`
+      : `📝 <span><strong>No record saved yet.</strong> Add the student's details here before beginning Task A or Task B.</span>`;
+  }
+  if($("taskA-student-record"))$("taskA-student-record").textContent=`Practice record: ${getStudentRecordLabel()}`;
+  if($("taskB-student-record"))$("taskB-student-record").textContent=`Practice record: ${getStudentRecordLabel()}`;
+}
+function saveStudentRecord(){
+  studentRecordState.name=$("student-name").value.trim();
+  studentRecordState.regNo=$("student-regno").value.trim();
+  try{
+    localStorage.setItem("muetStudentRecord",JSON.stringify(studentRecordState));
+  }catch{}
+  updateStudentRecordUI();
+}
+function clearStudentRecord(){
+  studentRecordState.name="";
+  studentRecordState.regNo="";
+  try{
+    localStorage.removeItem("muetStudentRecord");
+  }catch{}
+  updateStudentRecordUI();
+}
+function loadStudentRecord(){
+  try{
+    const saved=localStorage.getItem("muetStudentRecord");
+    if(saved){
+      const parsed=JSON.parse(saved);
+      studentRecordState.name=parsed.name||"";
+      studentRecordState.regNo=parsed.regNo||"";
+    }
+  }catch{}
+  updateStudentRecordUI();
+}
+
+/* ══ VIEW SWITCHING ═════════════════════════════════ */
+function setView(name){
+  if(name==="taskB"){
+    taskBState.currentIndex=taskAState.currentIndex;
+    renderTaskB();
+  }
+  document.querySelectorAll(".view").forEach(v=>v.classList.add("hidden"));
+  const el=$("view-"+name);
+  el.classList.remove("hidden");
+  el.classList.remove("slide-up");
+  void el.offsetWidth;
+  el.classList.add("slide-up");
+  document.querySelectorAll(".nav-pill").forEach(p=>{
+    p.classList.toggle("active",p.dataset.view===name);
+  });
+  window.scrollTo({top:0,behavior:"smooth"});
+}
+document.querySelectorAll("[data-view]").forEach(el=>{
+  el.addEventListener("click",()=>setView(el.dataset.view));
+});
+
+/* ══ STEP NAVIGATION ════════════════════════════════ */
+function goStep(task,step){
+  const panels=document.querySelectorAll(`#view-${task} .step-panel`);
+  panels.forEach((p,i)=>{p.classList.toggle("active",i===step);p.classList.toggle("hidden",i!==step);});
+  const btns=document.querySelectorAll(`[data-task="${task}"]`);
+  btns.forEach((b,i)=>{
+    b.classList.remove("active","done");
+    if(i===step)b.classList.add("active");
+    else if(i<step)b.classList.add("done");
+  });
+  window.scrollTo({top:0,behavior:"smooth"});
+}
+document.querySelectorAll(".step-btn").forEach(btn=>{
+  btn.addEventListener("click",()=>goStep(btn.dataset.task,parseInt(btn.dataset.step)));
+});
+
+/* ══ POPULATE SELECTS ═══════════════════════════════ */
+function populateSelects(){
+  const opts=officialPromptBank.map((s,i)=>`<option value="${i}">${s.label}</option>`).join("");
+  ["taskA-set-select","taskB-set-select","lecturer-worksheet-select"].forEach(id=>{$(id).innerHTML=opts;});
+}
+
+/* ══ TASK A RENDER ══════════════════════════════════ */
+function renderTaskA(){
+  const s=officialPromptBank[taskAState.currentIndex];
+  $("taskA-set-select").value=String(taskAState.currentIndex);
+  $("taskA-source").textContent=s.source;
+  $("taskA-situation").textContent=s.taskA.situation;
+  // candidate grid
+  $("taskA-cand-grid").innerHTML=Object.entries(s.taskA.candidates).map(([c,pt])=>`
+    <div class="cand-card${c===taskAState.candidate?" selected":""}" onclick="selectCand('${c}')">
+      <div class="cand-letter">Candidate ${c}${c===taskAState.candidate?'<span class="cand-you">YOU</span>':""}</div>
+      <div class="cand-text">${pt}</div>
+    </div>`).join("");
+  // Step 2 updates
+  const pt=s.taskA.candidates[taskAState.candidate];
+  $("taskA-role-label").textContent=`Candidate ${taskAState.candidate} — Your Point`;
+  $("taskA-role-badge").textContent=`Candidate ${taskAState.candidate}`;
+  $("taskA-question").textContent=pt;
+  $("plan-point-preview").textContent=`My point: ${pt}`;
+  $("taskA-points").innerHTML=Object.entries(s.taskA.candidates).map(([c,p])=>`
+    <div style="display:flex;gap:10px;padding:8px 0;border-bottom:1px solid var(--border);align-items:flex-start">
+      <span style="font-size:11px;font-weight:800;color:${c===taskAState.candidate?"var(--blue)":"var(--muted)"};width:80px;flex-shrink:0;text-transform:uppercase;letter-spacing:.06em;padding-top:2px">Cand. ${c}${c===taskAState.candidate?" ★":""}</span>
+      <span style="font-size:13px;color:var(--text);line-height:1.65">${p}</span>
+    </div>`).join("");
+  // phrases
+  $("taskA-phrases").innerHTML=taskAPhrases.map(p=>`<div class="phrase-item" onclick="copyText('${p.replace(/'/g,"&#39;")}')" title="Click to copy">${p}</div>`).join("");
+  // script
+  $("taskA-script").innerHTML=`
+    <div class="steps-list">
+      <div class="step-item"><div class="step-dot" style="background:var(--navy)">O</div><div><div class="step-item-title">Opening</div><div class="step-item-text">"Good morning. Today, I would like to discuss ${s.taskA.situation.toLowerCase()}"</div></div></div>
+      <div class="step-item"><div class="step-dot" style="background:var(--blue)">P</div><div><div class="step-item-title">My Stand</div><div class="step-item-text">"Based on my point of view, I strongly feel that ${pt.toLowerCase()}"</div></div></div>
+      <div class="step-item"><div class="step-dot" style="background:#B07800">R</div><div><div class="step-item-title">Reason</div><div class="step-item-text">"This is because... [explain why this helps in the situation]"</div></div></div>
+      <div class="step-item"><div class="step-dot" style="background:var(--teal)">E</div><div><div class="step-item-title">Example</div><div class="step-item-text">"For example, in Malaysia... [give one real example]"</div></div></div>
+      <div class="step-item"><div class="step-dot" style="background:#7B3FC8">C</div><div><div class="step-item-title">Conclusion</div><div class="step-item-text">"In conclusion, I believe ${pt.toLowerCase()} is the best answer."</div></div></div>
+    </div>`;
+  if(!$("taskA-transcript").value.trim()){
+    $("taskA-transcript").value=`Good morning. Today, I would like to discuss ${s.taskA.situation.toLowerCase()}\nIn my opinion, ${pt.toLowerCase()}\nThis is because...\nFor example, in Malaysia...\nTherefore, in conclusion, I believe...`;
+  }
+  renderGenericTimer(taskAState,"taskA");
+  renderTaskAFeedback();
+}
+
+function selectCand(c){
+  taskAState.candidate=c;
+  $("taskA-transcript").value="";
+  renderTaskA();
+}
+
+/* ══ TASK B RENDER ══════════════════════════════════ */
+function renderTaskB(){
+  const s=officialPromptBank[taskBState.currentIndex];
+  $("taskB-set-select").value=String(taskBState.currentIndex);
+  const fullTopic=`${s.taskB.situation} ${s.taskB.question}`;
+  $("taskB-topic").textContent=fullTopic;
+  if($("taskB-topic2"))$("taskB-topic2").textContent=fullTopic;
+  $("taskB-focus").textContent=s.taskB.choose;
+  // chips
+  $("taskB-points-chips").innerHTML=s.taskB.points.map(p=>`<div class="points-chip" onclick="this.classList.toggle('active')">${p}</div>`).join("");
+  // all points in step 2
+  if($("taskB-all-points"))$("taskB-all-points").innerHTML=s.taskB.points.map((p,i)=>`<div style="display:flex;gap:8px;padding:6px 0;border-bottom:1px solid var(--border);font-size:13px"><span style="color:var(--muted);font-weight:700;width:20px">${i+1}.</span><span>${p}</span></div>`).join("");
+  // phrases
+  $("phrases-agree").innerHTML=phrasesAgree.map(p=>`<div class="phrase-item" onclick="copyText('${p.replace(/'/g,"&#39;")}')">${p}</div>`).join("");
+  $("phrases-disagree").innerHTML=phrasesDisagree.map(p=>`<div class="phrase-item" onclick="copyText('${p.replace(/'/g,"&#39;")}')">${p}</div>`).join("");
+  $("phrases-ask").innerHTML=phrasesAsk.map(p=>`<div class="phrase-item" onclick="copyText('${p.replace(/'/g,"&#39;")}')">${p}</div>`).join("");
+  if(!$("taskB-transcript").value.trim()){
+    $("taskB-transcript").value=`Candidate A: I would like to begin. I think ${s.taskB.points[0].toLowerCase()} is the most important because...\nCandidate B: That is a good point. However, I believe ${s.taskB.points[1].toLowerCase()} is more practical.\nCandidate C: I agree with Candidate A. For example...\nCandidate D: What do you all think? Shall we decide on...?`;
+  }
+  renderGenericTimer(taskBState,"taskB");
+  renderTaskBFeedback();
+}
+
+/* ══ TIMERS ═════════════════════════════════════════ */
+function updateArc(prefix,state){
+  const phase=state.phases[state.phaseIndex];
+  const pct=(phase.duration-state.remaining)/phase.duration;
+  const arc=$(`${prefix}-timer-arc`);
+  if(arc){const total=439.8;arc.style.strokeDashoffset=String(total-(total*pct));}
+  const colors=["var(--blue)","var(--teal)","var(--amber)"];
+  if(arc)arc.style.stroke=colors[state.phaseIndex]||"var(--blue)";
+}
+function renderGenericTimer(state,prefix){
+  const phase=state.phases[state.phaseIndex];
+  $(`${prefix}-time`).textContent=fmtTime(state.remaining);
+  $(`${prefix}-phase`).textContent=state.active?phase.label:"Ready to start";
+  const urgent=state.remaining>0&&state.remaining<=10;
+  const disp=$(`${prefix}-timer-display`)||$(`${prefix}-time`).parentElement;
+  if(disp){disp.classList.toggle("timer-urgent",urgent);}
+  updateArc(prefix,state);
+}
+function clearTimer(state){if(state.interval){clearInterval(state.interval);state.interval=null;}}
+function startTimer(state,prefix){
+  clearTimer(state);state.active=true;renderGenericTimer(state,prefix);
+  state.interval=setInterval(()=>{
+    state.remaining-=1;
+    if(state.remaining<=0){
+      if(state.phaseIndex<state.phases.length-1){state.phaseIndex++;state.remaining=state.phases[state.phaseIndex].duration;}
+      else{state.remaining=0;state.active=false;clearTimer(state);}
+    }
+    renderGenericTimer(state,prefix);
+  },1000);
+}
+function nextPhase(state,prefix){
+  if(state.phaseIndex<state.phases.length-1){state.phaseIndex++;state.remaining=state.phases[state.phaseIndex].duration;}
+  else state.remaining=0;
+  state.active=false;clearTimer(state);renderGenericTimer(state,prefix);
+}
+function resetTimer(state,prefix){
+  clearTimer(state);state.phaseIndex=0;state.remaining=state.phases[0].duration;state.active=false;renderGenericTimer(state,prefix);
+}
+
+$("taskA-start-btn").onclick=()=>startTimer(taskAState,"taskA");
+$("taskA-next-btn").onclick=()=>nextPhase(taskAState,"taskA");
+$("taskA-reset-btn").onclick=()=>resetTimer(taskAState,"taskA");
+$("taskB-start-btn").onclick=()=>startTimer(taskBState,"taskB");
+$("taskB-next-btn").onclick=()=>nextPhase(taskBState,"taskB");
+$("taskB-reset-btn").onclick=()=>resetTimer(taskBState,"taskB");
+
+/* ══ RECORDING ══════════════════════════════════════ */
+async function toggleRecording(mode,action){
+  const dot=$(`${mode}-rec-dot`);
+  const status=$(`${mode}-recording-status`);
+  const timeLabel=$(`${mode}-recording-time`);
+  const audio=$(`${mode}-audio-playback`);
+  const timer=recordingTimers[mode];
+  if(action==="start"){
+    if(!navigator.mediaDevices||!window.MediaRecorder){status.textContent="Not supported in this browser.";return;}
+    try{
+      const stream=await navigator.mediaDevices.getUserMedia({audio:true});
+      const chunks=[];
+      const mr=new MediaRecorder(stream);
+      recorderState[mode]={mediaRecorder:mr,stream,chunks};
+      mr.addEventListener("dataavailable",e=>{if(e.data.size>0)chunks.push(e.data);});
+      mr.addEventListener("stop",()=>{
+        const blob=new Blob(chunks,{type:"audio/webm"});
+        audio.src=URL.createObjectURL(blob);audio.classList.remove("hidden");
+        stream.getTracks().forEach(t=>t.stop());
+      });
+      mr.start();
+      clearInterval(timer.interval);timer.elapsed=0;
+      if(timeLabel)timeLabel.textContent="00:00";
+      timer.interval=setInterval(()=>{timer.elapsed++;if(timeLabel)timeLabel.textContent=fmtTime(timer.elapsed);},1000);
+      status.textContent="Recording in progress...";
+      if(dot)dot.classList.add("live");
+    }catch{status.textContent="Microphone blocked. Use the transcript instead.";}
+  }
+  if(action==="stop"){
+    const ar=recorderState[mode];
+    if(!ar)return;
+    if(ar.mediaRecorder.state!=="inactive")ar.mediaRecorder.stop();
+    clearInterval(timer.interval);
+    status.textContent="Recording saved.";
+    if(dot)dot.classList.remove("live");
+  }
+}
+$("taskA-record-btn").onclick=()=>toggleRecording("taskA","start");
+$("taskA-stop-record-btn").onclick=()=>toggleRecording("taskA","stop");
+$("taskB-record-btn").onclick=()=>toggleRecording("taskB","start");
+$("taskB-stop-record-btn").onclick=()=>toggleRecording("taskB","stop");
+
+/* ══ COPY TEXT ══════════════════════════════════════ */
+async function copyText(text){
+  try{await navigator.clipboard.writeText(text);return true;}catch{return false;}
+}
+
+/* ══ TASK A FEEDBACK ════════════════════════════════ */
+function analyzeTaskA(text){
+  const n=text.trim();
+  const wc=n?n.split(/\s+/).length:0;
+  const sc=n?n.split(/[.!?]+/).filter(Boolean).length:0;
+  const conn=["because","for example","in conclusion","firstly","secondly","finally","in my opinion","furthermore","however","therefore"];
+  const cc=conn.reduce((a,p)=>a+(n.toLowerCase().includes(p)?1:0),0);
+  const vocabSet=new Set((n.toLowerCase().match(/[a-z']+/g)||[]));
+  const band=Math.max(1,Math.min(6,Math.round(wc/45)+(cc>=3?1:0)));
+  return{
+    band,
+    fulfilment:Math.max(1,Math.min(6,Math.round(wc/50+1))),
+    fluency:Math.max(1,Math.min(6,Math.round(sc/3+cc/2))),
+    vocabulary:Math.max(1,Math.min(6,Math.round(vocabSet.size/25+1))),
+    control:Math.max(1,Math.min(6,Math.round(sc/4+2))),
+    strength:cc>=3?"You used several linking phrases — this makes your response well-structured and confident.":"Your ideas are clear and show you understand the task.",
+    improvement:wc<90?"Develop each point further — add a stronger reason and a specific Malaysian example.":"Work on smoother transitions so your speech flows more naturally.",
+    phrases:cc<3?["Firstly, I believe...","This is mainly because...","For instance, in Malaysia...","To sum up, this option..."]:["Another strong reason is...","This clearly shows that...","As a result, we can see...","Overall, I strongly believe..."],
+    model:`Good morning. Based on my point of view, I strongly feel that ${officialPromptBank[taskAState.currentIndex].taskA.candidates[taskAState.candidate].toLowerCase()} because it is practical, relevant, and well-suited to the situation given.`
+  };
+}
+
+function renderTaskAFeedback(){
+  const fb=analyzeTaskA($("taskA-transcript").value);
+  const bandColors=["","#C73030","#E8A020","#E8A020","#1E5FD4","#0B8F72","#7B3FC8"];
+  const bandLabels=["","Very Poor","Weak","Moderate","Satisfactory","Good","Excellent"];
+  $("taskA-feedback").innerHTML=`
+    <div class="feedback-band" style="margin-bottom:14px">
+      <div class="band-circle"><div class="band-num" style="color:${bandColors[fb.band]}">${fb.band}</div></div>
+      <div><div class="band-label">Estimated Band ${fb.band}/6 — ${bandLabels[fb.band]}</div>
+        <div class="band-desc">Based on your transcript word count, sentence structure, and use of linking expressions.</div></div>
+    </div>
+    <div class="scores-row">
+      <div class="score-box"><div class="score-label">Task Fulfil.</div><div class="score-num">${fb.fulfilment}/6</div></div>
+      <div class="score-box"><div class="score-label">Fluency</div><div class="score-num">${fb.fluency}/6</div></div>
+      <div class="score-box"><div class="score-label">Vocabulary</div><div class="score-num">${fb.vocabulary}/6</div></div>
+      <div class="score-box"><div class="score-label">Language</div><div class="score-num">${fb.control}/6</div></div>
+    </div>
+    <div class="card" style="margin-top:14px">
+      <div class="fb-section fb-green"><div class="fb-title">✅ Strength</div><div class="fb-text">${fb.strength}</div></div>
+      <div class="divider"></div>
+      <div class="fb-section fb-amber"><div class="fb-title">🎯 Improvement</div><div class="fb-text">${fb.improvement}</div></div>
+      <div class="divider"></div>
+      <div class="fb-section fb-blue">
+        <div class="fb-title">💡 Suggested Phrases</div>
+        <div class="phrase-chips">${fb.phrases.map(p=>`<span class="phrase-chip">${p}</span>`).join("")}</div>
+      </div>
+      <div class="divider"></div>
+      <div class="fb-section"><div class="fb-title" style="color:var(--navy)">📝 Model Opening</div>
+        <div style="font-size:13px;font-style:italic;color:var(--text);line-height:1.8;padding:12px;background:var(--cream);border-radius:var(--r-sm)">"${fb.model}"</div>
+      </div>
+    </div>`;
+}
+
+/* ══ TASK B FEEDBACK ════════════════════════════════ */
+function analyzeTaskB(text){
+  const n=text.trim().toLowerCase();
+  const lines=text.split("\n").filter(l=>l.trim()).length;
+  const qs=(text.match(/\?/g)||[]).length;
+  const sigs=["i agree","i disagree","what do you think","i would like to add","because","however","i believe"];
+  const ic=sigs.reduce((a,s)=>a+(n.includes(s)?1:0),0);
+  const wc=n?n.split(/\s+/).length:0;
+  const iScore=Math.max(1,Math.min(10,lines+ic+qs));
+  const band=Math.max(1,Math.min(6,Math.round(iScore/2.2+wc/120)));
+  return{
+    iScore,band,
+    participation:lines>=4?"You participated actively and kept your role visible throughout the discussion.":"Your ideas are present — try to contribute more turns and react to more points.",
+    strength:ic>=3?"You used collaborative language and responded to ideas — this is exactly what examiners want.":"You have the foundation of discussion interaction and can build on this.",
+    suggestion:qs===0?"Try asking at least one question to invite a response from others — this scores well.":"Push your interaction further by reacting directly to classmates' specific opinions."
+  };
+}
+
+function renderTaskBFeedback(){
+  const fb=analyzeTaskB($("taskB-transcript").value);
+  const bandLabels=["","Very Poor","Weak","Moderate","Satisfactory","Good","Excellent"];
+  $("taskB-feedback").innerHTML=`
+    <div class="feedback-band" style="margin-bottom:14px">
+      <div class="band-circle"><div class="band-num">${fb.band}</div></div>
+      <div><div class="band-label">Estimated Band ${fb.band}/6 — ${bandLabels[fb.band]}</div>
+        <div class="band-desc">Based on how many contributions, questions, and interaction signals appear in your discussion log.</div></div>
+    </div>
+    <div class="scores-row" style="grid-template-columns:1fr 1fr">
+      <div class="score-box"><div class="score-label">Interaction</div><div class="score-num">${fb.iScore}/10</div></div>
+      <div class="score-box"><div class="score-label">Band</div><div class="score-num">${fb.band}/6</div></div>
+    </div>
+    <div class="card" style="margin-top:14px">
+      <div class="fb-section fb-green"><div class="fb-title">✅ Participation</div><div class="fb-text">${fb.participation}</div></div>
+      <div class="divider"></div>
+      <div class="fb-section fb-blue"><div class="fb-title">💪 Strength</div><div class="fb-text">${fb.strength}</div></div>
+      <div class="divider"></div>
+      <div class="fb-section fb-amber"><div class="fb-title">🎯 Next Step</div><div class="fb-text">${fb.suggestion}</div></div>
+    </div>`;
+}
+
+/* ══ SET CHANGE ═════════════════════════════════════ */
+$("taskA-set-select").onchange=e=>{taskAState.currentIndex=+e.target.value;taskBState.currentIndex=taskAState.currentIndex;$("taskA-transcript").value="";renderTaskA();renderTaskB();};
+$("taskB-set-select").onchange=e=>{taskBState.currentIndex=+e.target.value;$("taskB-transcript").value="";renderTaskB();};
+$("taskA-sample-btn").onclick=()=>{taskAState.currentIndex=randomIndex(officialPromptBank,taskAState.currentIndex);taskBState.currentIndex=taskAState.currentIndex;$("taskA-transcript").value="";renderTaskA();renderTaskB();goStep("taskA",0);};
+$("taskB-sample-btn").onclick=()=>{taskBState.currentIndex=randomIndex(officialPromptBank,taskBState.currentIndex);$("taskB-transcript").value="";renderTaskB();goStep("taskB",0);};
+$("taskA-feedback-btn").onclick=renderTaskAFeedback;
+$("taskB-feedback-btn").onclick=renderTaskBFeedback;
+$("taskA-transcript").oninput=renderTaskAFeedback;
+$("taskB-transcript").oninput=renderTaskBFeedback;
+$("taskA-new-set-btn").onclick=()=>{taskAState.currentIndex=randomIndex(officialPromptBank,taskAState.currentIndex);taskBState.currentIndex=taskAState.currentIndex;$("taskA-transcript").value="";renderTaskA();renderTaskB();goStep("taskA",0);};
+$("taskB-new-set-btn").onclick=()=>{taskBState.currentIndex=randomIndex(officialPromptBank,taskBState.currentIndex);$("taskB-transcript").value="";renderTaskB();goStep("taskB",0);};
+
+/* ══ LECTURER ═══════════════════════════════════════ */
+function createCandidate(name){return{name,spoke:0,responded:0,asked:0,quiet:0,dominated:0,rubric:{taskFulfilment:3,fluency:3,vocabulary:3,languageControl:3,band:3,comments:""}};}
+function createGroup(){return{id:lecturerState.nextGroupId++,name:`Group ${lecturerState.nextGroupId-1}`,timer:{phaseIndex:0,phases:[{label:"Preparation",duration:180},{label:"Discussion",duration:600}],remaining:180,interval:null,active:false},candidates:["A","B","C","D"].map(c=>createCandidate(`Candidate ${c}`))};} 
+
+function summarizeCandidate(c){
+  const act=c.spoke+c.responded+c.asked;
+  const pen=c.quiet+c.dominated;
+  const tb=Math.max(1,Math.min(6,Math.round(act/2.2-pen*.5+2)));
+  const ra=Math.round((c.rubric.taskFulfilment+c.rubric.fluency+c.rubric.vocabulary+c.rubric.languageControl)/4);
+  const band=Math.max(1,Math.min(6,Math.round((tb+ra+c.rubric.band)/3)));
+  let str="Shows baseline participation.",wk="Needs more balanced contribution.",sug="Use more responses and questions.";
+  if(c.asked>=2&&c.responded>=2)str="Actively interacted and helped move the discussion forward.";
+  else if(c.spoke>=3)str="Shared ideas clearly and stayed involved.";
+  if(c.quiet>=2){wk="Participation was limited and sometimes too quiet.";sug="Enter the discussion earlier and react directly to others.";}
+  else if(c.dominated>=2){wk="Sometimes dominated instead of balancing.";sug="Invite others in and keep turns shorter.";}
+  if(c.rubric.comments.trim())sug=c.rubric.comments.trim();
+  return{band,str,wk,sug,tb,ra};
+}
+
+function renderLecturer(){
+  // summary
+  $("group-summary-list").innerHTML=lecturerState.groups.map(g=>{
+    const tot=g.candidates.reduce((a,c)=>({spoke:a.spoke+c.spoke,responded:a.responded+c.responded,asked:a.asked+c.asked}),{spoke:0,responded:0,asked:0});
+    return`<div class="summary-item"><div><div class="summary-name">${g.name}</div><div class="summary-meta">${g.timer.phases[g.timer.phaseIndex].label} · ${fmtTime(g.timer.remaining)}</div></div><div class="summary-stats"><span>🎤 ${tot.spoke}</span><span>💬 ${tot.responded}</span><span>❓ ${tot.asked}</span></div></div>`;
+  }).join("");
+
+  // group cards
+  $("groups-container").innerHTML=lecturerState.groups.map(g=>{
+    const ph=g.timer.phases[g.timer.phaseIndex];
+    const pct=((ph.duration-g.timer.remaining)/ph.duration*100).toFixed(1);
+    return`<div class="group-card">
+      <div style="display:flex;justify-content:space-between;align-items:flex-start;flex-wrap:wrap;gap:12px;margin-bottom:20px">
+        <div><div class="section-eyebrow">${g.name}</div><div style="font-size:18px;font-weight:800;color:var(--navy)">Live Group Control</div></div>
+        <div style="display:flex;align-items:center;gap:14px">
+          <svg width="72" height="72" viewBox="0 0 72 72" style="transform:rotate(-90deg)">
+            <circle cx="36" cy="36" r="30" fill="none" stroke="var(--cream2)" stroke-width="6"/>
+            <circle cx="36" cy="36" r="30" fill="none" stroke="var(--amber)" stroke-width="6"
+              stroke-dasharray="188.5" stroke-dashoffset="${(188.5-188.5*pct/100).toFixed(1)}" stroke-linecap="round"/>
+          </svg>
+          <div style="background:var(--navy);border-radius:var(--r-md);padding:12px 18px;color:#fff;min-width:110px">
+            <div style="font-size:10px;text-transform:uppercase;letter-spacing:.12em;color:rgba(255,255,255,.5);margin-bottom:4px">${g.timer.active?ph.label:"Ready"}</div>
+            <div style="font-family:'JetBrains Mono',monospace;font-size:24px;font-weight:700">${fmtTime(g.timer.remaining)}</div>
+          </div>
+        </div>
+      </div>
+      <div style="display:flex;flex-wrap:wrap;gap:8px;margin-bottom:22px">
+        <button onclick="ctrlGroup(${g.id},'start')" class="btn btn-primary btn-sm">▶ Start</button>
+        <button onclick="ctrlGroup(${g.id},'next')" class="btn btn-outline btn-sm">Next Phase</button>
+        <button onclick="ctrlGroup(${g.id},'reset')" class="btn btn-outline btn-sm">↺ Reset</button>
+        <button onclick="cpyGroup(${g.id})" class="btn btn-amber btn-sm" style="color:var(--navy)">📋 Copy Feedback</button>
+      </div>
+      <div class="grid-2">
+        ${g.candidates.map((c,ci)=>{const s=summarizeCandidate(c);return`
+          <div class="cand-track">
+            <div class="track-header">
+              <div><div class="track-name">${c.name}</div><div style="font-size:12px;color:var(--muted)">Auto trend ${s.tb}/6 · Rubric avg ${s.ra}/6</div></div>
+              <div class="track-band">Band ${s.band}/6</div>
+            </div>
+            <div class="track-counters">
+              <div class="counter-box"><div class="counter-num">${c.spoke}</div><div class="counter-lbl">Spoke</div></div>
+              <div class="counter-box"><div class="counter-num">${c.responded}</div><div class="counter-lbl">Responded</div></div>
+              <div class="counter-box"><div class="counter-num">${c.asked}</div><div class="counter-lbl">Asked</div></div>
+            </div>
+            <div class="track-btns">
+              <button onclick="track(${g.id},${ci},'spoke')" class="track-btn track-btn-blue">🎤 Spoke</button>
+              <button onclick="track(${g.id},${ci},'responded')" class="track-btn track-btn-blue">💬 Responded</button>
+              <button onclick="track(${g.id},${ci},'asked')" class="track-btn track-btn-blue">❓ Asked</button>
+              <button onclick="track(${g.id},${ci},'quiet')" class="track-btn track-btn-amber">🔈 Too quiet</button>
+              <button onclick="track(${g.id},${ci},'dominated')" class="track-btn track-btn-red">⚠️ Dominated</button>
+            </div>
+            <div style="margin-top:12px;font-size:12px;line-height:1.75;color:var(--muted);background:var(--white);border-radius:var(--r-sm);padding:10px 12px">
+              <span style="color:var(--teal);font-weight:700">✓</span> ${s.str}<br>
+              <span style="color:var(--red);font-weight:700">✗</span> ${s.wk}<br>
+              <span style="color:var(--blue);font-weight:700">→</span> ${s.sug}
+            </div>
+            <div style="margin-top:10px;padding:12px;background:var(--white);border-radius:var(--r-sm)">
+              <div style="font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--muted);margin-bottom:8px">Rubric</div>
+              <div class="rubric-grid">
+                ${["taskFulfilment","fluency","vocabulary","languageControl"].map(k=>`
+                  <div class="rubric-row"><span class="rubric-label">${k==="taskFulfilment"?"Task Fulfil.":k==="languageControl"?"Language":k.charAt(0).toUpperCase()+k.slice(1)}</span>
+                    <select class="rubric-select" onchange="updRubric(${g.id},${ci},'${k}',+this.value)">
+                      ${[1,2,3,4,5,6].map(n=>`<option value="${n}"${n===c.rubric[k]?" selected":""}>${n}</option>`).join("")}
+                    </select></div>`).join("")}
+                <div class="rubric-row" style="grid-column:1/-1"><span class="rubric-label">Lecturer Band</span>
+                  <select class="rubric-select" onchange="updRubric(${g.id},${ci},'band',+this.value)">
+                    ${[1,2,3,4,5,6].map(n=>`<option value="${n}"${n===c.rubric.band?" selected":""}>${n}</option>`).join("")}
+                  </select></div>
+              </div>
+              <textarea rows="2" placeholder="Lecturer comment..." style="margin-top:8px;font-size:12px" onblur="updRubric(${g.id},${ci},'comments',this.value)">${c.rubric.comments}</textarea>
+            </div>
+          </div>`}).join("")}
+      </div>
+    </div>`;
+  }).join("");
+}
+
+function ctrlGroup(gid,action){
+  const g=lecturerState.groups.find(x=>x.id===gid);if(!g)return;
+  const t=g.timer;
+  if(action==="start"){
+    if(t.interval)clearInterval(t.interval);t.active=true;
+    t.interval=setInterval(()=>{
+      t.remaining--;
+      if(t.remaining<=0){
+        if(t.phaseIndex<t.phases.length-1){t.phaseIndex++;t.remaining=t.phases[t.phaseIndex].duration;}
+        else{t.remaining=0;t.active=false;clearInterval(t.interval);t.interval=null;}
+      }
+      renderLecturer();
+    },1000);
+  }
+  if(action==="next"){if(t.interval){clearInterval(t.interval);t.interval=null;}if(t.phaseIndex<t.phases.length-1){t.phaseIndex++;t.remaining=t.phases[t.phaseIndex].duration;}else t.remaining=0;t.active=false;}
+  if(action==="reset"){if(t.interval){clearInterval(t.interval);t.interval=null;}t.phaseIndex=0;t.remaining=t.phases[0].duration;t.active=false;}
+  renderLecturer();
+}
+function track(gid,ci,m){const g=lecturerState.groups.find(x=>x.id===gid);if(!g)return;g.candidates[ci][m]++;renderLecturer();}
+function updRubric(gid,ci,k,v){const g=lecturerState.groups.find(x=>x.id===gid);if(!g)return;g.candidates[ci].rubric[k]=v;renderLecturer();}
+
+function buildGroupText(g){
+  return`${g.name}\n${g.candidates.map(c=>{const s=summarizeCandidate(c);return`${c.name}\nBand: ${s.band}/6 | Spoke: ${c.spoke} | Responded: ${c.responded} | Asked: ${c.asked}\nStrength: ${s.str}\nWeakness: ${s.wk}\nSuggestion: ${s.sug}`;}).join("\n\n")}`;
+}
+async function cpyGroup(gid){const g=lecturerState.groups.find(x=>x.id===gid);if(!g)return;const ok=await copyText(buildGroupText(g));alert(ok?`${g.name} feedback copied.`:"Copy failed.");}
+async function cpyAll(){const ok=await copyText(lecturerState.groups.map(buildGroupText).join("\n\n---\n\n"));alert(ok?"All feedback copied.":"Copy failed.");}
+
+$("add-group-btn").onclick=()=>{lecturerState.groups.push(createGroup());renderLecturer();};
+$("export-feedback-btn").onclick=cpyAll;
+
+/* ══ WORKSHEET ══════════════════════════════════════ */
+function buildWSText(s){
+  return`MUET Speaking Practice Worksheet\n${s.label} · ${s.source}\n\nTASK A\nSituation: ${s.taskA.situation}\n${Object.entries(s.taskA.candidates).map(([c,p])=>`Candidate ${c}: ${p}`).join("\n")}\n\nNotes:\n• Opening:\n• Reason:\n• Example:\n• Conclusion:\n\nRubric: Task fulfilment ___/6  Fluency ___/6  Vocabulary ___/6  Language ___/6  Band ___/6\nComment: ___________\n\nTASK B\nSituation: ${s.taskB.situation}\nQuestion: ${s.taskB.question}\nPoints: ${s.taskB.points.join(" · ")}\nDecision focus: ${s.taskB.choose}\n\nRubric: Task fulfilment ___/6  Fluency ___/6  Vocabulary ___/6  Language ___/6  Band ___/6\nComment: ___________`;
+}
+function renderWSPreview(){
+  const s=officialPromptBank[lecturerState.worksheetIndex];
+  $("lecturer-worksheet-select").value=String(lecturerState.worksheetIndex);
+  $("worksheet-preview").innerHTML=`
+    <div style="font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:.1em;color:var(--blue);margin-bottom:6px">Task A</div>
+    <div style="font-size:13px;margin-bottom:10px;line-height:1.75">${s.taskA.situation}</div>
+    ${Object.entries(s.taskA.candidates).map(([c,p])=>`<div class="ws-cand"><span class="ws-cand-lbl">Candidate ${c}</span><span>${p}</span></div>`).join("")}
+    <div style="height:12px"></div>
+    <div style="font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:.1em;color:var(--amber);margin-bottom:6px">Task B</div>
+    <div style="font-size:13px;margin-bottom:8px;line-height:1.75">${s.taskB.question}</div>
+    <div style="display:flex;flex-wrap:wrap;gap:6px">${s.taskB.points.map(p=>`<span style="background:var(--cream2);border-radius:99px;padding:4px 12px;font-size:12px;font-weight:600">${p}</span>`).join("")}</div>
+    <div style="margin-top:8px;font-size:12px;color:var(--muted)">Focus: ${s.taskB.choose}</div>`;
+}
+function printWS(){
+  const s=officialPromptBank[lecturerState.worksheetIndex];
+  const w=window.open("","_blank","width=960,height=720");
+  if(!w){alert("Pop-ups blocked. Please allow pop-ups.");return;}
+  const cands=Object.entries(s.taskA.candidates).map(([c,p])=>`<tr><td style="padding:8px 12px;font-weight:700;color:#1E5FD4;width:110px">Cand. ${c}</td><td style="padding:8px 12px">${p}</td><td style="padding:8px 12px;width:180px;border-bottom:1px solid #ddd"></td></tr>`).join("");
+  const pts=s.taskB.points.map((p,i)=>`<li style="margin:6px 0">${i+1}. ${p}</li>`).join("");
+  w.document.write(`<!DOCTYPE html><html><head><meta charset="UTF-8"><title>${s.label}</title><style>body{font-family:Arial,sans-serif;margin:28px;color:#1a1a2e;font-size:14px;line-height:1.7}h1{font-size:22px;margin-bottom:4px}h2{font-size:16px;font-weight:700;margin:18px 0 8px;padding:6px 10px;background:#EBF2FF;border-radius:6px}table{width:100%;border-collapse:collapse;margin:10px 0}td{border:1px solid #ddd;padding:8px 10px;vertical-align:top}.rubric{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin:10px 0}.rbox{border:1px solid #ddd;border-radius:6px;padding:8px;text-align:center;font-size:12px}.note{height:40px;border-bottom:1px solid #999;margin:8px 0}@media print{body{margin:14px}}</style></head><body>
+    <div style="background:#0D1F3C;color:#fff;padding:18px 22px;border-radius:10px;margin-bottom:18px">
+      <h1>${s.label}</h1><p style="margin:0;color:rgba(255,255,255,.7)">${s.source} · MUET Speaking Practice Worksheet</p></div>
+    <h2>TASK A — Individual Presentation</h2>
+    <p><strong>Situation:</strong> ${s.taskA.situation}</p>
+    <table><tr style="background:#f0f4ff"><th style="padding:8px 12px;text-align:left;width:110px">Candidate</th><th>Point to Present</th><th>Planning Notes</th></tr>${cands}</table>
+    <div class="rubric"><div class="rbox">Task fulfilment<br>___/6</div><div class="rbox">Fluency<br>___/6</div><div class="rbox">Vocabulary<br>___/6</div><div class="rbox">Language<br>___/6</div></div>
+    <div style="border:1px solid #ddd;border-radius:6px;padding:10px;margin-top:6px">Overall Band: ___/6 &nbsp;&nbsp; Comment: <div class="note"></div></div>
+    <h2>TASK B — Group Discussion</h2>
+    <p><strong>Situation:</strong> ${s.taskB.situation}</p>
+    <p><strong>Question:</strong> ${s.taskB.question}</p>
+    <ul>${pts}</ul>
+    <p><strong>Decision focus:</strong> ${s.taskB.choose}</p>
+    <p style="font-size:12px;color:#666;margin-top:10px">Useful moves: I agree because... / However, I think... / What do you think? / Shall we agree on...?</p>
+    <div class="note" style="margin-top:8px">Group notes:</div><div class="note">Final decision:</div>
+    <div class="rubric" style="margin-top:14px"><div class="rbox">Task fulfilment<br>___/6</div><div class="rbox">Fluency<br>___/6</div><div class="rbox">Vocabulary<br>___/6</div><div class="rbox">Language<br>___/6</div></div>
+    <div style="border:1px solid #ddd;border-radius:6px;padding:10px;margin-top:6px">Overall Band: ___/6 &nbsp;&nbsp; Comment: <div class="note"></div></div>
+    <script>window.onload=()=>window.print()<\/script></body></html>`);
+  w.document.close();
+}
+
+$("lecturer-worksheet-select").onchange=e=>{lecturerState.worksheetIndex=+e.target.value;renderWSPreview();};
+$("copy-worksheet-btn").onclick=async()=>{const ok=await copyText(buildWSText(officialPromptBank[lecturerState.worksheetIndex]));alert(ok?"Worksheet text copied.":"Copy failed.");};
+$("print-worksheet-btn").onclick=printWS;
+$("print-ws-btn2").onclick=printWS;
+$("save-student-record").onclick=saveStudentRecord;
+$("clear-student-record").onclick=clearStudentRecord;
+
+window.ctrlGroup=ctrlGroup;window.track=track;window.updRubric=updRubric;window.cpyGroup=cpyGroup;window.goStep=goStep;
+
+/* ══ INIT ════════════════════════════════════════════ */
+populateSelects();
+loadStudentRecord();
+renderTaskA();
+renderTaskB();
+lecturerState.groups=[createGroup(),createGroup()];
+renderLecturer();
+renderWSPreview();
+setView("home");
+</script>
+</body>
+</html>
