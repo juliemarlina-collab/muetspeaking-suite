@@ -345,7 +345,7 @@ select:focus,textarea:focus,input:focus{border-color:var(--blue)}textarea{resize
       <button class="np" data-v="report">📊 Student Overall Performance &amp; Feedback Report</button>
       <button class="np" data-v="lecturer">🏫 Lecturer Dashboard</button>
     </div>
-    <button class="nav-toggle" id="nav-toggle" aria-label="Open navigation menu">â˜°</button>
+    <button class="nav-toggle" id="nav-toggle" aria-label="Open navigation menu">☰</button>
   </div>
 </nav>
 <div class="mobile-overlay hidden" id="mobile-overlay"></div>
@@ -355,7 +355,7 @@ select:focus,textarea:focus,input:focus{border-color:var(--blue)}textarea{resize
       <div class="ms-logo">MS</div>
       <div class="ms-title">MUET Speaking Suite</div>
     </div>
-    <button class="ms-close" id="mobile-close" aria-label="Close navigation menu">Ã—</button>
+    <button class="ms-close" id="mobile-close" aria-label="Close navigation menu">×</button>
   </div>
   <div class="ms-kicker">Navigation</div>
   <div class="ms-nav">
@@ -420,9 +420,9 @@ select:focus,textarea:focus,input:focus{border-color:var(--blue)}textarea{resize
     <p>Complete practice aligned with official MPM MUET 800 regulations §17–20. Covers Task A (Production) and Task B (Interaction) with timers, recording, speech-to-text, and Band 1.0–5+ feedback.</p>
     <div class="hero-cards">
       <div class="hcard" data-v="sampleA"><div class="hcard-ico" style="background:rgba(30,95,212,.2)">📖</div><h3>Task A Sample Test</h3><p>Learn PREP framework with full model answer and annotations.</p><div class="hcard-arr">Learn first →</div></div>
-      <div class="hcard" data-v="testA"><div class="hcard-ico" style="background:rgba(232,160,32,.2)">🎤</div><h3>Task A Test</h3><p>Individual presentation — 2+2 min timer, record, transcribe, Band feedback.</p><div class="hcard-arr">Practise →</div><div class="hcard-done" id="hd-a">âœ“</div></div>
+      <div class="hcard" data-v="testA"><div class="hcard-ico" style="background:rgba(232,160,32,.2)">🎤</div><h3>Task A Test</h3><p>Individual presentation — 2+2 min timer, record, transcribe, Band feedback.</p><div class="hcard-arr">Practise →</div><div class="hcard-done" id="hd-a">✓</div></div>
       <div class="hcard" data-v="sampleB"><div class="hcard-ico" style="background:rgba(11,143,114,.2)">📖</div><h3>Task B Sample Test</h3><p>Model group discussion with annotated interaction phrases.</p><div class="hcard-arr">Learn first →</div></div>
-      <div class="hcard" data-v="testB"><div class="hcard-ico" style="background:rgba(107,63,200,.2)">💬</div><h3>Task B Test</h3><p>Group discussion — same topic as Task A, 3+10 min, interaction scoring.</p><div class="hcard-arr">Practise →</div><div class="hcard-done" id="hd-b">âœ“</div></div>
+      <div class="hcard" data-v="testB"><div class="hcard-ico" style="background:rgba(107,63,200,.2)">💬</div><h3>Task B Test</h3><p>Group discussion — same topic as Task A, 3+10 min, interaction scoring.</p><div class="hcard-arr">Practise →</div><div class="hcard-done" id="hd-b">✓</div></div>
       <div class="hcard" data-v="report"><div class="hcard-ico" style="background:rgba(212,96,10,.2)">📊</div><h3>Student Overall Performance &amp; Feedback Report</h3><p>Full printable report with Task A+B scores, band, strengths, suggestions.</p><div class="hcard-arr">View report →</div></div>
       <div class="hcard" data-v="lecturer"><div class="hcard-ico" style="background:rgba(11,143,114,.2)">🏫</div><h3>Lecturer Dashboard</h3><p>Monitor groups, track interaction live, score rubrics, print worksheets.</p><div class="hcard-arr">For lecturers →</div></div>
     </div>
@@ -438,11 +438,11 @@ select:focus,textarea:focus,input:focus{border-color:var(--blue)}textarea{resize
     <div class="brow">
       <button class="btn btn-p btn-sm" onclick="saveRecord()">💾 Save Record</button>
       <button class="btn btn-o btn-sm" onclick="clearRecord()">Clear</button>
-      <span id="rec-saved" class="hidden" style="font-size:11px;color:var(--teal);font-weight:700;align-self:center">âœ… Saved</span>
+      <span id="rec-saved" class="hidden" style="font-size:11px;color:var(--teal);font-weight:700;align-self:center">✅ Saved</span>
     </div>
   </div>
   <div class="fstrip">
-    <div class="fcard"><div class="fi">âš–️</div><h4>Official SOP</h4><p>Timers, structure, and scoring follow MPM MUET 800 regulations §17–20 exactly.</p></div>
+    <div class="fcard"><div class="fi">⚖️</div><h4>Official SOP</h4><p>Timers, structure, and scoring follow MPM MUET 800 regulations §17–20 exactly.</p></div>
     <div class="fcard"><div class="fi">🏅</div><h4>Band 1.0 – 5+</h4><p>Official 9-level MUET scale. Scores shown out of 90 per §18 — not the wrong "1–6" scale.</p></div>
     <div class="fcard"><div class="fi">🎙</div><h4>Record + Transcribe</h4><p>Speak and auto-transcribe with Web Speech API. Works best in Chrome.</p></div>
     <div class="fcard"><div class="fi">🔗</div><h4>Same Topic Rule</h4><p>Task B always uses the same set as Task A — matching the real MUET exam SOP.</p></div>
@@ -485,7 +485,7 @@ select:focus,textarea:focus,input:focus{border-color:var(--blue)}textarea{resize
         <div class="si"><div class="sd purple">4</div><div><div class="sit">End by repeating your stand</div><div class="six">Finish confidently so the examiner hears a complete answer, not an unfinished idea.</div></div></div>
       </div>
     </div>
-    <div class="tip">⏱️ <span><strong>Official timing (MPM §17):</strong> 2 min preparation (bullet notes only — NO full sentences) → ~2 min speaking per candidate. 4 candidates Ã— 2 min each.</span></div>
+    <div class="tip">⏱️ <span><strong>Official timing (MPM §17):</strong> 2 min preparation (bullet notes only — NO full sentences) → ~2 min speaking per candidate. 4 candidates × 2 min each.</span></div>
   </div>
   <div class="card" class="mb-14">
     <div class="ch"><div class="ct">Select a sample topic</div><div class="cs">7 gamified practice themes</div></div>
@@ -574,7 +574,7 @@ select:focus,textarea:focus,input:focus{border-color:var(--blue)}textarea{resize
   <div class="spanel hidden" id="Astep-1">
     <div class="two-col">
       <div>
-        <div class="gb amber"><div class="gbi">âœ️</div><div><div class="gbt">Step 2 — Read your point and plan with PREP</div><div class="gbx">Write bullet notes only. Your goal is simple: 1 clear point, 1 reason, 1 Malaysian example, then 1 short closing line. You have 2 minutes to prepare in the real exam.</div></div></div>
+        <div class="gb amber"><div class="gbi">✏️</div><div><div class="gbt">Step 2 — Read your point and plan with PREP</div><div class="gbx">Write bullet notes only. Your goal is simple: 1 clear point, 1 reason, 1 Malaysian example, then 1 short closing line. You have 2 minutes to prepare in the real exam.</div></div></div>
         <div class="card"><div class="ch"><div><div class="ct" id="tA-role-lbl">Your Role</div><div class="cs">Your specific assigned point</div></div><span id="tA-role-badge" style="background:var(--navy);color:#fff;border-radius:99px;padding:3px 11px;font-size:10px;font-weight:700">?</span></div><div style="font-size:13px;font-weight:600;padding:11px;background:var(--cream);border-radius:var(--r);line-height:1.75" id="tA-point"></div></div>
         <div class="card" class="mt-11"><div class="ch"><div class="ct">All candidate points</div></div><div id="tA-allpts"></div></div>
         <div class="card" class="mt-11">
@@ -586,7 +586,7 @@ select:focus,textarea:focus,input:focus{border-color:var(--blue)}textarea{resize
             <span class="prep-tag result">4. Restate</span>
           </div>
           <textarea id="tA-notes" rows="6" placeholder="• Point: I believe this is the best choice because...&#10;• Reason: It helps students / society by...&#10;• Example: In Malaysia, for example...&#10;• Restate: Therefore, I strongly believe..."></textarea>
-          <div class="tip">âš ️ <span>Do not write a full script here. Write keywords only, then speak naturally from your notes.</span></div>
+          <div class="tip">⚠️ <span>Do not write a full script here. Write keywords only, then speak naturally from your notes.</span></div>
         </div>
       </div>
       <div>
@@ -630,12 +630,12 @@ select:focus,textarea:focus,input:focus{border-color:var(--blue)}textarea{resize
             <svg class="tr-svg" width="148" height="148" viewBox="0 0 148 148"><circle cx="74" cy="74" r="63" fill="none" stroke="var(--cream2)" stroke-width="8"/><circle id="tA-arc" cx="74" cy="74" r="63" fill="none" stroke="var(--blue)" stroke-width="8" stroke-dasharray="395.8" stroke-dashoffset="395.8" stroke-linecap="round" style="transition:stroke-dashoffset .9s linear"/></svg>
             <div><div class="tt" id="tA-time">02:00</div><div class="tp" id="tA-phase">Ready to start</div></div>
           </div>
-          <div class="brow"><button id="tA-start" class="btn btn-p" style="flex:1">â–¶ Start</button><button id="tA-next" class="btn btn-o">Next Phase</button><button id="tA-reset" class="btn btn-o">↺</button></div>
+          <div class="brow"><button id="tA-start" class="btn btn-p" style="flex:1">▶ Start</button><button id="tA-next" class="btn btn-o">Next Phase</button><button id="tA-reset" class="btn btn-o">↺</button></div>
         </div>
         <div class="card" class="mt-11">
           <div class="ch"><div><div class="ct">Record + Transcribe</div><div class="cs">Web Speech API — Chrome recommended</div></div></div>
           <div style="text-align:center;padding:7px 0"><div style="font-family:'JetBrains Mono',monospace;font-size:19px;font-weight:700;color:var(--navy)" id="tA-rtime">00:00</div></div>
-          <div class="brow"><button id="tA-rec" class="btn btn-r" style="flex:1">⏺ Record</button><button id="tA-stop" class="btn btn-o">â–  Stop</button></div>
+          <div class="brow"><button id="tA-rec" class="btn btn-r" style="flex:1">⏺ Record</button><button id="tA-stop" class="btn btn-o">■ Stop</button></div>
           <audio id="tA-audio" class="hidden" controls style="width:100%;margin-top:8px"></audio>
           <div class="tip" style="margin-top:8px">🔬 <span>Speech recognition works in Chrome/Edge. On other browsers, type your transcript manually.</span></div>
         </div>
@@ -698,10 +698,10 @@ select:focus,textarea:focus,input:focus{border-color:var(--blue)}textarea{resize
       <div class="card" class="mt-13">
         <div class="ch"><div class="ct">What made this Band 4.5?</div></div>
         <div class="sl">
-          <div class="si"><div class="sd teal">âœ“</div><div><div class="sit">Each candidate responded to a specific person by name</div><div class="six">"Candidate A, that is a valid point..." — shows active listening, not just waiting to speak.</div></div></div>
-          <div class="si"><div class="sd teal">âœ“</div><div><div class="sit">Both agreement AND polite disagreement used</div><div class="six">Not just agreeing — Candidate B disagreed with a reason, showing independent thinking.</div></div></div>
-          <div class="si"><div class="sd teal">âœ“</div><div><div class="sit">A question was asked to invite a quieter candidate</div><div class="six">"Candidate D, what is your view?" — inviting others raises Interaction score significantly.</div></div></div>
-          <div class="si"><div class="sd teal">âœ“</div><div><div class="sit">Group reached clear consensus before time ended</div><div class="six">"Shall we agree that..." is a Band 4+ consensus move. Missing this reduces Task Fulfilment.</div></div></div>
+          <div class="si"><div class="sd teal">✓</div><div><div class="sit">Each candidate responded to a specific person by name</div><div class="six">"Candidate A, that is a valid point..." — shows active listening, not just waiting to speak.</div></div></div>
+          <div class="si"><div class="sd teal">✓</div><div><div class="sit">Both agreement AND polite disagreement used</div><div class="six">Not just agreeing — Candidate B disagreed with a reason, showing independent thinking.</div></div></div>
+          <div class="si"><div class="sd teal">✓</div><div><div class="sit">A question was asked to invite a quieter candidate</div><div class="six">"Candidate D, what is your view?" — inviting others raises Interaction score significantly.</div></div></div>
+          <div class="si"><div class="sd teal">✓</div><div><div class="sit">Group reached clear consensus before time ended</div><div class="six">"Shall we agree that..." is a Band 4+ consensus move. Missing this reduces Task Fulfilment.</div></div></div>
         </div>
       </div>
     </div>
@@ -776,7 +776,7 @@ select:focus,textarea:focus,input:focus{border-color:var(--blue)}textarea{resize
   <div class="spanel hidden" id="Bstep-1">
     <div class="two-col">
       <div>
-        <div class="gb amber"><div class="gbi">âœ️</div><div><div class="gbt">Step 2 — Prepare your contribution and interaction moves</div><div class="gbx">Pick ONE point to argue. Prepare one reason, one example, plus phrases to agree, disagree, and ask questions.</div></div></div>
+        <div class="gb amber"><div class="gbi">✏️</div><div><div class="gbt">Step 2 — Prepare your contribution and interaction moves</div><div class="gbx">Pick ONE point to argue. Prepare one reason, one example, plus phrases to agree, disagree, and ask questions.</div></div></div>
         <div class="card"><div class="ch"><div class="ct">Topic &amp; question</div></div><div style="font-size:12px;line-height:1.8;margin-bottom:9px" id="tB-topic2"></div><div id="tB-allpts"></div></div>
         <div class="card" class="mt-11">
           <div class="ch"><div class="ct">Discussion formula (4 moves)</div></div>
@@ -810,10 +810,10 @@ select:focus,textarea:focus,input:focus{border-color:var(--blue)}textarea{resize
         <div class="card">
           <div class="ch"><div class="ct">Interaction checklist</div></div>
           <div class="grid2" style="gap:7px">
-            <div class="si"><div class="sd teal sm">âœ“</div><div><div class="six">Responded to a candidate by name</div></div></div>
-            <div class="si"><div class="sd teal sm">âœ“</div><div><div class="six">Asked at least one question</div></div></div>
-            <div class="si"><div class="sd teal sm">âœ“</div><div><div class="six">Agreed or disagreed with a reason</div></div></div>
-            <div class="si"><div class="sd teal sm">âœ“</div><div><div class="six">Helped reach group consensus</div></div></div>
+            <div class="si"><div class="sd teal sm">✓</div><div><div class="six">Responded to a candidate by name</div></div></div>
+            <div class="si"><div class="sd teal sm">✓</div><div><div class="six">Asked at least one question</div></div></div>
+            <div class="si"><div class="sd teal sm">✓</div><div><div class="six">Agreed or disagreed with a reason</div></div></div>
+            <div class="si"><div class="sd teal sm">✓</div><div><div class="six">Helped reach group consensus</div></div></div>
           </div>
         </div>
         <div class="card" class="mt-11">
@@ -821,7 +821,7 @@ select:focus,textarea:focus,input:focus{border-color:var(--blue)}textarea{resize
           <textarea id="tB-transcript" rows="11" placeholder="Candidate A: I would like to begin. I think [point] is most effective because...&#10;Candidate B: That is a good point. However, I believe...&#10;Candidate C: I agree with Candidate A. For example, in Malaysia...&#10;Candidate D: What do you all think? Shall we agree on...?"></textarea>
           <div style="display:flex;align-items:center;justify-content:space-between;margin-top:6px">
             <div class="rs"><div class="rdot" id="tB-rdot"></div><span id="tB-rstatus">Click Voice to record</span></div>
-            <div class="brow" style="margin-top:0"><button id="tB-rec" class="btn btn-r btn-sm">⏺ Voice</button><button id="tB-stop" class="btn btn-o btn-sm">â–  Stop</button></div>
+            <div class="brow" style="margin-top:0"><button id="tB-rec" class="btn btn-r btn-sm">⏺ Voice</button><button id="tB-stop" class="btn btn-o btn-sm">■ Stop</button></div>
           </div>
           <audio id="tB-audio" class="hidden" controls style="width:100%;margin-top:7px"></audio>
         </div>
@@ -833,7 +833,7 @@ select:focus,textarea:focus,input:focus{border-color:var(--blue)}textarea{resize
             <svg class="tr-svg" width="148" height="148" viewBox="0 0 148 148"><circle cx="74" cy="74" r="63" fill="none" stroke="var(--cream2)" stroke-width="8"/><circle id="tB-arc" cx="74" cy="74" r="63" fill="none" stroke="var(--amber)" stroke-width="8" stroke-dasharray="395.8" stroke-dashoffset="395.8" stroke-linecap="round" style="transition:stroke-dashoffset .9s linear"/></svg>
             <div><div class="tt" id="tB-time">03:00</div><div class="tp" id="tB-phase">Ready to start</div></div>
           </div>
-          <div class="brow"><button id="tB-start" class="btn btn-a" style="flex:1;color:var(--navy)">â–¶ Start</button><button id="tB-next" class="btn btn-o">Next Phase</button><button id="tB-reset" class="btn btn-o">↺</button></div>
+          <div class="brow"><button id="tB-start" class="btn btn-a" style="flex:1;color:var(--navy)">▶ Start</button><button id="tB-next" class="btn btn-o">Next Phase</button><button id="tB-reset" class="btn btn-o">↺</button></div>
           <div class="tip" class="mt-9">⏱️ <span>Prep 3 min → Discussion 10 min. Reach consensus before time ends.</span></div>
         </div>
         <div class="mt-11"><button class="btn btn-t btn-lg" class="w-full" onclick="goStep('B',3);evalB()">Get Band Feedback →</button></div>
@@ -856,10 +856,10 @@ select:focus,textarea:focus,input:focus{border-color:var(--blue)}textarea{resize
       <div>
         <div class="card"><div class="ch"><div class="ct">Interaction checklist — did you?</div></div>
           <div class="sl">
-            <div class="si"><div class="sd teal">âœ“</div><div><div class="sit">Referred to a classmate by name</div><div class="six">"I agree with what Candidate A said because..."</div></div></div>
-            <div class="si"><div class="sd teal">âœ“</div><div><div class="sit">Asked at least one question</div><div class="six">"What do you think about this?" — direct §20 Interaction signal</div></div></div>
-            <div class="si"><div class="sd teal">âœ“</div><div><div class="sit">Used polite agreement or disagreement</div><div class="six">"That's a good point. However, I believe..."</div></div></div>
-            <div class="si"><div class="sd teal">âœ“</div><div><div class="sit">Helped the group reach consensus</div><div class="six">"Shall we agree that [point] is the most effective?"</div></div></div>
+            <div class="si"><div class="sd teal">✓</div><div><div class="sit">Referred to a classmate by name</div><div class="six">"I agree with what Candidate A said because..."</div></div></div>
+            <div class="si"><div class="sd teal">✓</div><div><div class="sit">Asked at least one question</div><div class="six">"What do you think about this?" — direct §20 Interaction signal</div></div></div>
+            <div class="si"><div class="sd teal">✓</div><div><div class="sit">Used polite agreement or disagreement</div><div class="six">"That's a good point. However, I believe..."</div></div></div>
+            <div class="si"><div class="sd teal">✓</div><div><div class="sit">Helped the group reach consensus</div><div class="six">"Shall we agree that [point] is the most effective?"</div></div></div>
           </div>
         </div>
       </div>
@@ -897,13 +897,13 @@ select:focus,textarea:focus,input:focus{border-color:var(--blue)}textarea{resize
 
 </div><!-- end .page -->
 <script>
-/* â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
+/* ═══════════════════════════════════════════════════════════
    MPM MUET 800 - Official Regulations Data
    §17: Speaking 30 min, 25%, Paper 800/2
    §18: Speaking max score = 90
    §19: Bands 1.0 · 2.0 · 2.5 · 3.0 · 3.5 · 4.0 · 4.5 · 5.0 · 5+
    §20: Production (Task A) + Interaction (Task B)
-â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• */
+═══════════════════════════════════════════════════════════ */
 const BANDS=[
   {b:"1.0",min:0,max:14,cefr:"A1",lbl:"Very Limited",col:"#9CA3AF"},
   {b:"2.0",min:15,max:29,cefr:"A2",lbl:"Basic",col:"#C73030"},
@@ -980,6 +980,7 @@ let timerB={ph:0,phases:[{lbl:"Preparation",dur:180},{lbl:"Discussion",dur:600}]
 let recSt={A:null,B:null},recTm={A:{iv:null,el:0},B:{iv:null,el:0}},srec={A:null,B:null};
 let lecState={groups:[],nid:1,wsIdx:0};
 let sampleTopic=0;
+let sampleCand="B";
 
 const FLOW_ORDER=["sampleA","testA","sampleB","testB","report"];
 const FLOW_LABELS={
@@ -1162,6 +1163,9 @@ function closeMobileNav(){
 }
 
 function setView(v){
+  // Stop any running timers when leaving test views
+  if(v!=="testA"&&timerA.iv){clearInterval(timerA.iv);timerA.iv=null;}
+  if(v!=="testB"&&timerB.iv){clearInterval(timerB.iv);timerB.iv=null;}
   document.querySelectorAll(".view").forEach(e=>{e.classList.add("hidden");e.classList.remove("su");});
   const el=$("view-"+v);if(!el)return;
   el.classList.remove("hidden");void el.offsetWidth;el.classList.add("su");
@@ -1184,7 +1188,7 @@ function goStep(task,step){
     const p=$(`${task}step-${i}`);
     if(p){p.classList.toggle("act",i===step);p.classList.toggle("hidden",i!==step);}
     const b=document.querySelector(`[data-task="${task}"][data-step="${i}"]`);
-    if(b){b.classList.remove("act","done");if(i===step)b.classList.add("act");else if(i<step){b.classList.add("done");const n=b.querySelector(".sn");if(n)n.textContent="âœ“";}}
+    if(b){b.classList.remove("act","done");if(i===step)b.classList.add("act");else if(i<step){b.classList.add("done");const n=b.querySelector(".sn");if(n)n.textContent="✓";}}
   });
   window.scrollTo({top:0,behavior:"smooth"});
   cleanVisibleText();
@@ -1194,11 +1198,29 @@ document.querySelectorAll(".sbtn").forEach(b=>b.addEventListener("click",()=>goS
 function saveRecord(){
   rec.name=$("rec-name").value.trim();rec.reg=$("rec-reg").value.trim();rec.cls=$("rec-class").value.trim();
   if(!rec.name)return;
+  try{localStorage.setItem("muet_rec",JSON.stringify(rec));}catch(e){}
   [$("tA-slbl"),$("tB-slbl")].forEach(el=>{if(el)el.textContent=" - "+rec.name;});
   const s=$("rec-saved");s.classList.remove("hidden");setTimeout(()=>s.classList.add("hidden"),2500);
   cleanVisibleText();
 }
-function clearRecord(){rec={name:"",reg:"",cls:""};$("rec-name").value="";$("rec-reg").value="";$("rec-class").value="";}
+function clearRecord(){
+  rec={name:"",reg:"",cls:""};
+  $("rec-name").value="";$("rec-reg").value="";$("rec-class").value="";
+  try{localStorage.removeItem("muet_rec");}catch(e){}
+}
+function loadRecord(){
+  try{
+    const saved=localStorage.getItem("muet_rec");
+    if(saved){
+      const r=JSON.parse(saved);
+      rec=r;
+      if($("rec-name"))$("rec-name").value=r.name||"";
+      if($("rec-reg"))$("rec-reg").value=r.reg||"";
+      if($("rec-class"))$("rec-class").value=r.cls||"";
+      if(r.name){[$("tA-slbl"),$("tB-slbl")].forEach(el=>{if(el)el.textContent=" - "+r.name;});}
+    }
+  }catch(e){}
+}
 
 function populateSelects(){
   const opts=ALL_SETS.map((s,i)=>`<option value="${i}">${s.lbl}</option>`).join("");
@@ -1206,6 +1228,7 @@ function populateSelects(){
 }
 
 function renderA(){
+  if(tA.idx<0||tA.idx>=ALL_SETS.length)tA.idx=0;
   const s=ALL_SETS[tA.idx];
   $("tA-set").value=String(tA.idx);
   if($("tA-source"))$("tA-source").textContent=s.src;
@@ -1221,7 +1244,7 @@ function renderA(){
   if($("tA-tmpl-p"))$("tA-tmpl-p").textContent=`"I strongly believe that ${pt.toLowerCase()}"`;
   $("tA-allpts").innerHTML=Object.entries(s.taskA.cands).map(([c,p])=>`
     <div style="display:flex;gap:7px;padding:5px 0;border-bottom:1px solid var(--border);align-items:flex-start">
-      <span style="font-size:10px;font-weight:800;color:${c===tA.cand?"var(--blue)":"var(--muted)"};width:65px;flex-shrink:0;text-transform:uppercase">Cand. ${c}${c===tA.cand?" â˜…":""}</span>
+      <span style="font-size:10px;font-weight:800;color:${c===tA.cand?"var(--blue)":"var(--muted)"};width:65px;flex-shrink:0;text-transform:uppercase">Cand. ${c}${c===tA.cand?" ★":""}</span>
       <span style="font-size:11px;line-height:1.6">${p}</span></div>`).join("");
   $("tA-script").innerHTML=`<div class="sl">
     <div class="si"><div class="sd" style="background:var(--navy)">O</div><div><div class="sit">Opening</div><div class="six">"Good morning. Today, I would like to discuss ${s.taskA.sit.toLowerCase()}"</div></div></div>
@@ -1241,6 +1264,7 @@ $("tA-new").onclick=()=>{tA.idx=rnd(ALL_SETS,tA.idx);$("tA-transcript").value=""
 $("tA-newset").onclick=()=>{tA.idx=rnd(ALL_SETS,tA.idx);$("tA-transcript").value="";renderA();goStep("A",0);};
 
 function renderB(){
+  if(tB.idx<0||tB.idx>=ALL_SETS.length)tB.idx=0;
   const s=ALL_SETS[tB.idx];
   $("tB-set").value=String(tB.idx);
   const full=`${s.taskB.sit} ${s.taskB.q}`;
@@ -1266,7 +1290,7 @@ $("tB-newset").onclick=()=>{tB.idx=rnd(ALL_SETS,tB.idx);$("tB-transcript").value
 function renderTimer(t){
   const st=t==="A"?timerA:timerB;const ph=st.phases[st.ph];
   $(t==="A"?"tA-time":"tB-time").textContent=fmt(st.rem);
-  $(t==="A"?"tA-phase":"tB-phase").textContent=st.iv?(st.phases[st.ph].lbl+" â–¶"):st.ph>0?"Phase "+(st.ph+1):"Ready to start";
+  $(t==="A"?"tA-phase":"tB-phase").textContent=st.iv?(st.phases[st.ph].lbl+" ▶"):st.ph>0?"Phase "+(st.ph+1):"Ready to start";
   const arc=$(t==="A"?"tA-arc":"tB-arc");
   if(arc){const tot=395.8;const pct=(ph.dur-st.rem)/ph.dur;arc.style.strokeDashoffset=String(tot-(tot*pct));arc.style.stroke=t==="A"?"var(--blue)":"var(--amber)";}
 }
@@ -1281,6 +1305,8 @@ $("tB-start").onclick=()=>startTimer("B");$("tB-next").onclick=()=>nextPhase("B"
 
 async function startRec(mode){
   const dot=$(mode==="A"?"tA-rdot":"tB-rdot"),status=$(mode==="A"?"tA-rstatus":"tB-rstatus"),ta=$(mode==="A"?"tA-transcript":"tB-transcript"),tm=recTm[mode],tl=$(mode==="A"?"tA-rtime":null);
+  const SR=window.SpeechRecognition||window.webkitSpeechRecognition;
+  if(!SR){status.textContent="⚠ Speech recognition not supported in this browser. Use Chrome or Edge, or type manually.";dot.style.background="var(--amber)";return;}
   try{
     const stream=await navigator.mediaDevices.getUserMedia({audio:true});
     const chunks=[];const mr=new MediaRecorder(stream);
@@ -1289,15 +1315,12 @@ async function startRec(mode){
     mr.onstop=()=>{const blob=new Blob(chunks,{type:"audio/webm"});const a=$(mode==="A"?"tA-audio":"tB-audio");a.src=URL.createObjectURL(blob);a.classList.remove("hidden");stream.getTracks().forEach(t=>t.stop());};
     mr.start();
   }catch(e){status.textContent="Mic denied. Type manually.";}
-  const SR=window.SpeechRecognition||window.webkitSpeechRecognition;
-  if(SR){
-    const r=new SR();r.continuous=true;r.interimResults=true;r.lang="en-US";srec[mode]=r;
-    let fin="";
-    r.onresult=ev=>{let int="";for(let i=ev.resultIndex;i<ev.results.length;i++){if(ev.results[i].isFinal)fin+=ev.results[i][0].transcript+" ";else int+=ev.results[i][0].transcript;}ta.value=fin+int;if(mode==="A"&&$("tA-wcount"))$("tA-wcount").textContent=(fin+int).trim().split(/\s+/).filter(Boolean).length+" words";};
-    r.onerror=()=>{status.textContent="Transcription error. Type manually.";};
-    try{r.start();}catch(e){}
-    status.textContent="Recording + transcribing...";
-  }else status.textContent="Recording... (type transcript manually)";
+  const r=new SR();r.continuous=true;r.interimResults=true;r.lang="en-US";srec[mode]=r;
+  let fin="";
+  r.onresult=ev=>{let int="";for(let i=ev.resultIndex;i<ev.results.length;i++){if(ev.results[i].isFinal)fin+=ev.results[i][0].transcript+" ";else int+=ev.results[i][0].transcript;}ta.value=fin+int;if(mode==="A"&&$("tA-wcount"))$("tA-wcount").textContent=(fin+int).trim().split(/\s+/).filter(Boolean).length+" words";};
+  r.onerror=()=>{status.textContent="Transcription error. Type manually.";};
+  try{r.start();}catch(e){}
+  status.textContent="Recording + transcribing...";
   dot.classList.add("live");
   clearInterval(tm.iv);tm.el=0;if(tl)tl.textContent="00:00";
   tm.iv=setInterval(()=>{tm.el++;if(tl)tl.textContent=fmt(tm.el);},1000);
@@ -1314,12 +1337,12 @@ $("tA-transcript").oninput=()=>{const wc=$("tA-transcript").value.trim().split(/
 $("tB-transcript").oninput=()=>{clearTimeout(timerB._d);timerB._d=setTimeout(evalB,700);};
 function copyPh(el,text){navigator.clipboard&&navigator.clipboard.writeText(text);el.classList.add("cp");setTimeout(()=>el.classList.remove("cp"),1000);}
 
-/* â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
+/* ═══════════════════════════════════════════════════════
    MUET OFFICIAL EVALUATION ENGINE (§20)
-   Production (Task A): 6 criteria Ã— 15 = 90 marks max
-   Interaction (Task B): 6 criteria Ã— 15 = 90 marks max
+   Production (Task A): 6 criteria × 15 = 90 marks max
+   Interaction (Task B): 6 criteria × 15 = 90 marks max
    Band scale: §19 official 9 levels
-â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• */
+═══════════════════════════════════════════════════════ */
 
 const PROD_DESC={"5+":"Presents a clear, smoothly-flowing description or argument in a style appropriate to the context, with an effective logical structure that helps the recipient notice and remember significant points.","5.0":"Presents clear, detailed descriptions of complex subjects, integrating sub-themes, developing particular points and rounding off with an appropriate conclusion.","4.5":"Presents a clear viewpoint on the topic with some advantages and disadvantages. Mostly fluent, generally accurate, with good vocabulary range.","4.0":"Can interact with a degree of fluency. Can explain a viewpoint on a topical issue giving advantages and disadvantages of various options.","3.5":"Produces simple connected speech on familiar topics. Describes and briefly gives reasons and explanations.","3.0":"Produces basic connected sentences on familiar topics. Can describe experiences and briefly give reasons. Limited vocabulary.","2.5":"Can communicate in simple and routine tasks requiring simple and direct exchange of information on familiar matters.","2.0":"Very basic utterances. Communication limited to simple familiar phrases. Frequent errors impede understanding.","1.0":"Very limited English. Unable to produce meaningful speech beyond a few isolated words."};
 const INTER_DESC={"5+":"Takes part effortlessly in any conversation or discussion. Demonstrates familiarity with idiomatic expressions. Can express finer shades of meaning precisely. Can backtrack and restructure smoothly.","5.0":"Expresses themselves fluently and spontaneously without much obvious searching for expressions. Formulates ideas with precision, relating contribution skillfully to other speakers.","4.5":"Interacts with a degree of fluency making regular interaction quite possible. Maintains interaction well, contributes actively.","4.0":"Contributes ideas and responds to others. Able to agree or disagree with reasons. Some searching for words at times.","3.5":"Can deal with most situations likely to arise. Enters the conversation, agrees or disagrees, asks simple questions.","3.0":"Produces simple turns and responds to direct questions. Participation mainly reactive rather than initiating.","2.5":"Participates in simple and routine tasks. Unable to sustain a discussion independently.","2.0":"Very limited participation. Responds with very short turns. Interaction largely minimal.","1.0":"No meaningful interaction. Unable to contribute to the group discussion."};
@@ -1374,11 +1397,12 @@ function analyzeInteraction(text){
 }
 
 function evalA(){
+  try{
   const r=analyzeProduction($("tA-transcript").value);
   const bo=s90(r.score90);
   const struct=["Opening","Point","Reason","Example","Conclusion"].map((l,i)=>{
     const ok=[r.hasOpen,r.hasPt,r.hasRsn,r.hasEx,r.hasCon][i];
-    return `<span style="background:${ok?"#E0F4EE":"var(--cream2)"};color:${ok?"#076650":"var(--muted)"};border-radius:3px;padding:2px 8px;font-size:10px;font-weight:700;display:inline-block;margin:2px">${ok?"âœ“":"â—‹"} ${l}</span>`;
+    return `<span style="background:${ok?"#E0F4EE":"var(--cream2)"};color:${ok?"#076650":"var(--muted)"};border-radius:3px;padding:2px 8px;font-size:10px;font-weight:700;display:inline-block;margin:2px">${ok?"✓":"○"} ${l}</span>`;
   }).join("");
   const crit=[{n:"Task Fulfilment",v:r.tf,h:"PREP structure + assigned point addressed"},{n:"Fluency & Coherence",v:r.fl,h:"Discourse markers, sentence flow"},{n:"Vocabulary",v:r.voc,h:"Word range and appropriacy"},{n:"Language Accuracy",v:r.la,h:"Grammar and sentence construction"},{n:"Communicative Ability",v:r.ca,h:"Engagement, opening, closure"},{n:"Pronunciation (estimated)",v:r.pr,h:"Estimated from text — practice speaking aloud"}];
   $("tA-feedback").innerHTML=`
@@ -1397,7 +1421,7 @@ function evalA(){
       </table>
     </div>
     <div style="background:var(--white);border:1.5px solid var(--border);border-radius:var(--rl);padding:16px">
-      <div style="font-size:11px;font-weight:700;color:var(--teal);margin-bottom:5px">âœ… Strength</div>
+      <div style="font-size:11px;font-weight:700;color:var(--teal);margin-bottom:5px">✅ Strength</div>
       <div style="font-size:12px;margin-bottom:11px">${r.sc5>=4&&r.dc>=3?"Your response shows clear PREP structure with linked ideas — this matches Band 4.0+ Production criteria.":r.dc>=2?"You used some discourse markers, which helps coherence.":"Your response attempts the task. Focus on completing the full PREP structure."}</div>
       <div style="font-size:11px;font-weight:700;color:var(--orange);margin-bottom:5px">🎯 Key Improvement</div>
       <div style="font-size:12px;margin-bottom:11px">${r.sc5<5?`Missing: ${["Opening","Point","Reason","Example","Conclusion"].filter((_,i)=>[!r.hasOpen,!r.hasPt,!r.hasRsn,!r.hasEx,!r.hasCon][i]).join(", ")}. Each PREP element raises Task Fulfilment score.`:r.wc<100?"Your response is short. Band 4.0+ expects detailed development.":"Upgrade vocabulary: 'good'→'beneficial', 'help'→'facilitate', 'show'→'demonstrate'."}</div>
@@ -1405,9 +1429,11 @@ function evalA(){
       <div style="font-size:12px">${NEXT_PROD[bo.b]||""}</div>
     </div>`;
   cleanVisibleText();
+  }catch(e){console.error("evalA error:",e);if($("tA-feedback"))$("tA-feedback").innerHTML=`<div class="gb amber"><div class="gbi">⚠</div><div><div class="gbt">Could not calculate score</div><div class="gbx">Add more text to your transcript and try again.</div></div></div>`;}
 }
 
 function evalB(){
+  try{
   const r=analyzeInteraction($("tB-transcript").value);
   const bo=s90(r.score90);
   const crit=[{n:"Task Fulfilment (Task B)",v:r.tf,h:"Consensus reached + meaningful contribution"},{n:"Fluency & Coherence",v:r.fl,h:"Turn quality, smooth participation"},{n:"Vocabulary",v:r.voc,h:"Agreement/disagreement language range"},{n:"Language Accuracy",v:r.la,h:"Grammar and expression"},{n:"Communicative Ability",v:r.ca,h:"Initiating, questioning, inviting others"},{n:"Interaction",v:r.inter,h:"Responding to others, building on points"}];
@@ -1428,7 +1454,7 @@ function evalB(){
       </table>
     </div>
     <div style="background:var(--white);border:1.5px solid var(--border);border-radius:var(--rl);padding:16px">
-      <div style="font-size:11px;font-weight:700;color:var(--teal);margin-bottom:5px">âœ… Strength</div>
+      <div style="font-size:11px;font-weight:700;color:var(--teal);margin-bottom:5px">✅ Strength</div>
       <div style="font-size:12px;margin-bottom:11px">${r.tot>=4&&r.turns>=4?"Active interaction — you responded, questioned, and engaged. This is exactly what §20 Interaction assesses.":r.ac>0||r.dc>0?"You used agreement/disagreement language. Examiners reward this directly.":"You contributed. Increase interaction moves to push your band."}</div>
       <div style="font-size:11px;font-weight:700;color:var(--orange);margin-bottom:5px">🎯 Key Improvement</div>
       <div style="font-size:12px;margin-bottom:11px">${r.qs===0?"No questions asked. Asking questions is a direct §20 Interaction signal that raises your band.":r.ic<2?"Reference other candidates by name when responding — 'I agree with Candidate A because...'":r.turns<4?"Increase your number of turns. Band 4.0+ requires active multi-turn participation.":"Build more directly on others' points rather than introducing new ones."}</div>
@@ -1436,6 +1462,7 @@ function evalB(){
       <div style="font-size:12px">${NEXT_INTER[bo.b]||""}</div>
     </div>`;
   cleanVisibleText();
+  }catch(e){console.error("evalB error:",e);if($("tB-feedback"))$("tB-feedback").innerHTML=`<div class="gb amber"><div class="gbi">⚠</div><div><div class="gbt">Could not calculate score</div><div class="gbx">Add more text to your discussion log and try again.</div></div></div>`;}
 }
 
 function markDone(task){
@@ -1450,6 +1477,9 @@ function markDone(task){
 }
 
 function buildReport(){
+  try{
+  if(tA.idx<0||tA.idx>=ALL_SETS.length)tA.idx=0;
+  if(tB.idx<0||tB.idx>=ALL_SETS.length)tB.idx=0;
   const d=new Date().toLocaleDateString("en-MY",{year:"numeric",month:"long",day:"numeric"});
   const sA=ALL_SETS[tA.idx],sB=ALL_SETS[tB.idx];
   const boA=s90(tA.score90),boB=s90(tB.score90),boAvg=s90(Math.round((tA.score90+tB.score90)/2));
@@ -1499,6 +1529,7 @@ function buildReport(){
     </div>
     </div>`;
   cleanVisibleText();
+  }catch(e){console.error("buildReport error:",e);if($("report-body"))$("report-body").innerHTML=`<div class="gb amber"><div class="gbi">⚠</div><div><div class="gbt">Could not build report</div><div class="gbx">Please complete both Task A and Task B tests first, then return to this page.</div></div></div>`;}
 }
 function copyRpt(){const el=$("rpt-print");navigator.clipboard&&navigator.clipboard.writeText(el?el.innerText:"");alert("Copied.");}
 
@@ -1513,13 +1544,48 @@ function getModelReason(id){const m={"tourism":"it allows Malaysia to differenti
 function getModelExample(id){const m={"tourism":"Sabah's Kinabatangan River eco-tourism has attracted over 50,000 international visitors annually, generating income for local communities","env":"Penang's 'Say No to Straws' initiative reduced single-use plastic usage by 40% within 18 months","cost":"the MyKasih programme has helped over 300,000 B40 families track and manage monthly expenditure","transport":"Klang Valley's MRT system reduced private vehicle usage along its corridors by approximately 15%","tech":"Malaysia's MyDIGITAL initiative has enrolled over 200,000 participants in digital skills programmes, creating thousands of new jobs","wellbeing":"Universiti Malaya's introduction of flexible timetables reduced student counselling referrals by 22%","career":"graduates from institutions with mandatory internship programmes report 35% higher employment rates within 6 months"};return m[id]||"in Malaysia, several successful programmes have demonstrated measurable positive outcomes";}
 
 const SAMPLE_PREP_BANK={
-"TC":{title:"Tourism Challenge",intro:"Today, I would like to discuss ways to promote tourism in Malaysia.",main:"In my opinion, I strongly believe that promoting Malaysian food culture and heritage festivals internationally is one of the most effective ways to attract tourists.",p1:"Firstly, Malaysian food is very unique and diverse.",r1:"This is because it is influenced by different cultures such as Malay, Chinese, and Indian.",e1:"For example, dishes like nasi lemak, satay, and roti canai are popular among international tourists.",o1:"Therefore, promoting Malaysian cuisine globally can attract food lovers to visit Malaysia.",p2:"Furthermore, heritage festivals can showcase Malaysia's rich traditions and cultural identity.",r2:"This is because these festivals allow tourists to experience local customs and traditions.",e2:"For instance, celebrations such as Hari Raya, Chinese New Year, and Deepavali provide unique cultural experiences.",o2:"Hence, these festivals can make Malaysia more attractive as a cultural tourism destination.",c:"In conclusion, I strongly believe that promoting Malaysian food culture and heritage festivals internationally is an effective way to enhance tourism."},
-"GM":{title:"Green Mission",intro:"Today, I would like to discuss ways to reduce environmental problems in Malaysia.",main:"In my opinion, I strongly believe that using recyclable bags is one of the most practical ways to reduce plastic waste.",p1:"Firstly, recyclable bags can reduce the use of single-use plastic bags.",r1:"This is because people can reuse the same bag many times instead of taking a new plastic bag every time they shop.",e1:"For example, many supermarkets in Malaysia already encourage customers to bring their own shopping bags.",o1:"Therefore, this can help reduce the amount of plastic waste produced daily.",p2:"Furthermore, using recyclable bags can help create better environmental awareness.",r2:"This is because people become more responsible when they practise sustainable habits regularly.",e2:"For instance, students and families who use reusable bags often become more aware of other eco-friendly actions.",o2:"Hence, this habit can contribute to a cleaner and greener environment.",c:"In conclusion, I strongly believe that using recyclable bags is an effective way to reduce plastic waste and protect the environment."},
-"SM":{title:"Survival Mode",intro:"Today, I would like to discuss ways people can cope with the rising cost of living.",main:"In my opinion, I strongly believe that reducing spending on non-essential items is an effective way to manage daily expenses.",p1:"Firstly, spending less on unnecessary items helps people control their budget.",r1:"This is because they can focus only on important needs such as food, transport, and bills.",e1:"For example, people can reduce online shopping or avoid buying luxury items too often.",o1:"Therefore, this can help them save more money every month.",p2:"Furthermore, careful spending can reduce financial stress.",r2:"This is because people are less likely to face debt when they manage their money wisely.",e2:"For instance, students who avoid impulse buying may have enough money for books and daily meals.",o2:"Hence, wise spending habits can improve financial stability.",c:"In conclusion, I strongly believe that reducing non-essential spending is a practical way to cope with the rising cost of living."},
-"UC":{title:"Urban Challenge",intro:"Today, I would like to discuss ways to reduce traffic congestion in Malaysia.",main:"In my opinion, I strongly believe that improving public transportation is one of the best ways to reduce traffic congestion.",p1:"Firstly, efficient public transport can reduce the number of private vehicles on the road.",r1:"This is because more people will choose buses or trains if they are comfortable, affordable, and reliable.",e1:"For example, MRT and LRT services in major cities can help commuters travel without using their own cars.",o1:"Therefore, this can reduce road congestion, especially during peak hours.",p2:"Furthermore, better public transport can save time and fuel costs.",r2:"This is because people can travel more efficiently without being stuck in long traffic jams.",e2:"For instance, workers who use trains may arrive at their destinations faster than those driving in heavy traffic.",o2:"Hence, improving public transportation benefits both individuals and society.",c:"In conclusion, I strongly believe that improving public transportation is an effective solution to reduce traffic congestion in Malaysia."},
-"FL":{title:"Future Lab",intro:"Today, I would like to discuss how technology and AI can benefit students in learning.",main:"In my opinion, I strongly believe that getting news and information quickly is one of the most useful benefits of technology.",p1:"Firstly, technology allows students to access information instantly.",r1:"This is because online platforms provide fast updates and useful educational resources.",e1:"For example, students can use websites, news apps, and AI tools to search for information within seconds.",o1:"Therefore, this helps them learn more efficiently and stay informed.",p2:"Furthermore, quick access to information supports independent learning.",r2:"This is because students can explore topics on their own without depending only on textbooks.",e2:"For instance, they can watch tutorials, read articles, and use AI tools to improve understanding.",o2:"Hence, technology encourages students to become more active learners.",c:"In conclusion, I strongly believe that getting news and information quickly is a major benefit of technology in learning."},
-"BM":{title:"Balance Mode",intro:"Today, I would like to discuss ways students can manage stress and maintain their well-being.",main:"In my opinion, I strongly believe that building strong social support networks with friends and family is an effective way to manage stress.",p1:"Firstly, support from others helps students feel less alone when facing problems.",r1:"This is because talking to trusted people can reduce emotional pressure and provide comfort.",e1:"For example, students who share their worries with close friends or family members often feel calmer and more confident.",o1:"Therefore, social support can improve emotional well-being.",p2:"Furthermore, strong support networks can motivate students to stay positive.",r2:"This is because encouragement from others helps them cope better with academic and personal challenges.",e2:"For instance, a friend who offers advice or emotional support can help a student remain focused and resilient.",o2:"Hence, good relationships play an important role in stress management.",c:"In conclusion, I strongly believe that building strong social support networks is an effective way to help students manage stress."},
-"CR":{title:"Career Ready",intro:"Today, I would like to discuss ways students can improve their employability while still studying.",main:"In my opinion, I strongly believe that developing soft skills such as communication, teamwork, and critical thinking is one of the most important ways to improve employability.",p1:"Firstly, soft skills are highly valued by employers.",r1:"This is because employers want graduates who can work well with others and communicate clearly in the workplace.",e1:"For example, students who participate in presentations and group projects can strengthen these skills before graduating.",o1:"Therefore, soft skills can make graduates more attractive to employers.",p2:"Furthermore, soft skills help students adapt to workplace challenges.",r2:"This is because critical thinking and teamwork are necessary for solving problems and completing tasks effectively.",e2:"For instance, interns who communicate professionally and cooperate with colleagues often perform better at work.",o2:"Hence, developing soft skills can increase students' chances of employment.",c:"In conclusion, I strongly believe that developing soft skills is an effective way to improve employability."}
+"TC":{
+  "A":{main:"In my opinion, I strongly believe that developing eco-tourism and nature-based attractions is one of the most effective ways to promote tourism in Malaysia.",p1:"Firstly, Malaysia's natural environment is a unique selling point that sets it apart from other destinations.",r1:"This is because Malaysia's rainforests, beaches, and wildlife are among the most biodiverse in the world.",e1:"For example, Taman Negara National Park and the Kinabatangan River in Sabah attract thousands of nature-loving tourists each year.",o1:"Therefore, investing in eco-tourism draws a growing segment of environmentally conscious travellers.",p2:"Furthermore, eco-tourism generates sustainable income for rural and indigenous communities.",r2:"This is because nature-based attractions require local guides, conservation staff, and hospitality workers.",e2:"For instance, the Mulu Caves in Sarawak have created livelihoods for local communities through responsible eco-tourism.",o2:"Hence, eco-tourism supports both economic growth and environmental conservation.",c:"In conclusion, I strongly believe that developing eco-tourism and nature-based attractions is the most effective strategy to boost tourism in Malaysia."},
+  "B":{main:"In my opinion, I strongly believe that promoting Malaysian food culture and heritage festivals internationally is one of the most effective ways to attract tourists.",p1:"Firstly, Malaysian food is uniquely diverse and deeply rooted in multicultural heritage.",r1:"This is because it is influenced by Malay, Chinese, Indian, and indigenous traditions, making it unlike any other cuisine in the world.",e1:"For example, dishes like nasi lemak, satay, and roti canai are already recognised internationally and attract food-loving visitors.",o1:"Therefore, promoting Malaysian cuisine globally can draw food tourism from across the world.",p2:"Furthermore, heritage festivals showcase Malaysia's rich cultural identity in a way no other promotion can.",r2:"This is because festivals allow tourists to experience authentic local customs, costumes, and traditions firsthand.",e2:"For instance, celebrations such as Hari Raya open houses, Chinese New Year, and Thaipusam offer immersive cultural experiences unique to Malaysia.",o2:"Hence, cultural festivals make Malaysia more attractive as a destination beyond beaches and nature.",c:"In conclusion, I strongly believe that promoting Malaysian food culture and heritage festivals internationally is one of the most effective ways to enhance tourism."},
+  "C":{main:"In my opinion, I strongly believe that improving tourism infrastructure and transportation links is one of the most effective ways to promote tourism in Malaysia.",p1:"Firstly, good infrastructure makes tourist destinations accessible and enjoyable for all visitors.",r1:"This is because travellers choose destinations based on ease of getting there and moving around comfortably.",e1:"For example, the expansion of Penang International Airport and improved road networks to Cameron Highlands have significantly increased visitor numbers.",o1:"Therefore, infrastructure investment directly leads to higher tourist arrivals.",p2:"Furthermore, better transportation links connect more destinations across Malaysia into a single trip.",r2:"This is because improved connectivity allows tourists to explore multiple regions without difficulty.",e2:"For instance, the East Coast Rail Link will open up tourism in Pahang, Kelantan, and Terengganu to far more visitors.",o2:"Hence, infrastructure development creates a wider and more attractive tourism ecosystem.",c:"In conclusion, I strongly believe that improving tourism infrastructure and transportation links is a highly effective strategy to boost tourism in Malaysia."},
+  "D":{main:"In my opinion, I strongly believe that using social media and digital marketing campaigns is one of the most effective ways to promote tourism in Malaysia.",p1:"Firstly, social media reaches millions of potential tourists globally at low cost.",r1:"This is because most modern travellers research and plan their trips through Instagram, YouTube, and TikTok.",e1:"For example, Malaysia's Tourism Board's social media campaigns have reached tens of millions of international viewers across multiple platforms.",o1:"Therefore, digital marketing can attract tourists from markets that traditional advertising cannot reach.",p2:"Furthermore, user-generated content on social media creates authentic and trusted promotion.",r2:"This is because tourists trust reviews and travel content from real visitors more than official advertisements.",e2:"For instance, travel bloggers and influencers who feature Malaysian destinations have driven significant increases in tourist bookings and enquiries.",o2:"Hence, social media marketing creates a self-sustaining cycle of tourism promotion.",c:"In conclusion, I strongly believe that using social media and digital marketing campaigns is a highly effective and cost-efficient way to boost tourism in Malaysia."}
+},
+"GM":{
+  "A":{main:"In my opinion, I strongly believe that reducing plastic usage and switching to eco-friendly alternatives is one of the most effective ways for individuals to protect the environment.",p1:"Firstly, plastic pollution is one of Malaysia's most serious and visible environmental problems.",r1:"This is because single-use plastics take hundreds of years to decompose and harm marine ecosystems and wildlife.",e1:"For example, Malaysia produces over 3 million tonnes of plastic waste annually, much of which ends up in rivers and oceans.",o1:"Therefore, reducing plastic use can significantly decrease environmental pollution at the source.",p2:"Furthermore, switching to eco-friendly alternatives creates market demand for sustainable products.",r2:"This is because consumer choices drive businesses to produce greener packaging and products.",e2:"For instance, supermarkets in Selangor that introduced plastic bag charges saw a 70% reduction in plastic bag usage within months.",o2:"Hence, individual action collectively creates significant and measurable environmental change.",c:"In conclusion, I strongly believe that reducing plastic usage and switching to eco-friendly alternatives is an effective way to protect Malaysia's environment."},
+  "B":{main:"In my opinion, I strongly believe that conserving energy at home by using energy-efficient appliances is one of the most effective ways to protect the environment.",p1:"Firstly, energy-efficient appliances can significantly reduce household electricity consumption.",r1:"This is because these appliances use less power to perform the same tasks compared to conventional ones.",e1:"For example, switching from standard bulbs to LED lights can reduce electricity usage by up to 75% in Malaysian households.",o1:"Therefore, this leads to lower electricity bills and a reduction in carbon emissions.",p2:"Furthermore, widespread adoption of energy-efficient appliances can help Malaysia meet its national sustainability goals.",r2:"This is because when many households reduce energy use, the overall demand on power plants decreases significantly.",e2:"For instance, Malaysia's energy efficiency programmes have encouraged families to upgrade to five-star rated appliances under the HEMAT initiative.",o2:"Hence, this practice directly contributes to Malaysia's commitment to reducing carbon emissions.",c:"In conclusion, I strongly believe that conserving energy at home by using energy-efficient appliances is an effective and practical way to protect the environment."},
+  "C":{main:"In my opinion, I strongly believe that practising recycling and waste segregation consistently is one of the most effective individual actions to protect the environment.",p1:"Firstly, recycling reduces the amount of waste sent to landfills and incinerators.",r1:"This is because recyclable materials like paper, plastic, and glass can be processed and reused instead of contributing to pollution.",e1:"For example, Malaysia's National Solid Waste Management Policy aims to increase the national recycling rate to 40% through consistent household segregation.",o1:"Therefore, widespread recycling can significantly extend landfill lifespan and reduce environmental harm.",p2:"Furthermore, consistent waste segregation creates a sustainable supply of recycled materials for industry.",r2:"This is because manufacturers rely on recycled inputs to produce new goods at lower environmental cost.",e2:"For instance, recycled aluminium uses 95% less energy to produce than new aluminium, making recycling an extraordinarily impactful habit.",o2:"Hence, recycling delivers both environmental and economic benefits to the nation.",c:"In conclusion, I strongly believe that practising recycling and waste segregation consistently is an effective and accessible way to protect the environment."},
+  "D":{main:"In my opinion, I strongly believe that using public transport or cycling instead of private vehicles is one of the most effective ways for individuals to reduce environmental impact.",p1:"Firstly, private vehicles are a major source of carbon emissions in Malaysian cities.",r1:"This is because Malaysia has one of the highest car ownership rates in Southeast Asia, contributing significantly to urban air pollution.",e1:"For example, commuters who switch from private cars to the LRT in Kuala Lumpur reduce their individual carbon footprint by up to 80% per trip.",o1:"Therefore, shifting to public transport and cycling can dramatically reduce urban carbon emissions.",p2:"Furthermore, greener commuting reduces traffic congestion and national fuel consumption.",r2:"This is because fewer private vehicles on the road leads to faster travel times and lower overall fuel costs.",e2:"For instance, Putrajaya's cycling lanes and the Rapid KL bus network have encouraged thousands of commuters to leave their cars at home.",o2:"Hence, greener commuting benefits both individuals and the broader environment simultaneously.",c:"In conclusion, I strongly believe that using public transport or cycling instead of private vehicles is a highly effective individual action to protect the environment."}
+},
+"SM":{
+  "A":{main:"In my opinion, I strongly believe that creating and following a strict monthly budget is one of the most effective ways for individuals to manage the rising cost of living.",p1:"Firstly, a monthly budget helps individuals track and control their spending clearly.",r1:"This is because knowing exactly where money goes allows people to identify unnecessary expenses and redirect funds to essentials.",e1:"For example, Malaysians who use budgeting apps or manual expense tracking often report saving 20 to 30 percent more each month.",o1:"Therefore, disciplined budgeting directly improves financial stability and reduces wasteful spending.",p2:"Furthermore, a budget provides a structured plan for saving towards future financial goals.",r2:"This is because consistent saving, even in small amounts, accumulates over time into a meaningful financial cushion.",e2:"For instance, EPF's financial literacy programmes teach Malaysians to allocate at least 10% of income to savings through disciplined monthly budgeting.",o2:"Hence, budgeting builds long-term financial resilience and security.",c:"In conclusion, I strongly believe that creating and following a strict monthly budget is an effective and empowering way to manage the rising cost of living."},
+  "B":{main:"In my opinion, I strongly believe that finding additional income through part-time work or freelancing is one of the most effective ways to manage the rising cost of living.",p1:"Firstly, having an extra source of income helps people cover daily expenses more comfortably.",r1:"This is because additional earnings allow individuals to pay for basic necessities without having to cut back too severely on their regular needs.",e1:"For example, many Malaysian students and young workers take on part-time jobs or sell products online to supplement their main income.",o1:"Therefore, this can reduce financial stress and help them maintain a reasonable standard of living.",p2:"Furthermore, part-time work and freelancing develop valuable skills and open new career opportunities.",r2:"This is because working in different roles exposes individuals to new experiences that improve their employability and earning potential.",e2:"For instance, young Malaysians who freelance on platforms like Upwork or local sites have been able to earn significantly more than their base salary.",o2:"Hence, additional income sources not only help with daily expenses but also contribute to long-term career development.",c:"In conclusion, I strongly believe that finding additional income through part-time work or freelancing is an effective strategy to cope with the rising cost of living."},
+  "C":{main:"In my opinion, I strongly believe that reducing daily expenses by cooking at home is one of the most practical ways to manage the rising cost of living.",p1:"Firstly, home-cooked meals cost significantly less than eating out or ordering food delivery.",r1:"This is because cooking at home eliminates service charges, delivery fees, packaging costs, and restaurant markups.",e1:"For example, a home-cooked meal for a Malaysian family of four costs approximately RM10 to RM15, compared to RM40 to RM60 at a restaurant.",o1:"Therefore, cooking at home can save hundreds of ringgit every month for the average household.",p2:"Furthermore, cooking at home promotes healthier eating habits and reduces food waste.",r2:"This is because home cooks can control portion sizes, ingredient quality, and preparation methods better than commercial kitchens.",e2:"For instance, families who practise meal planning and home cooking in Malaysia report better health outcomes and lower medical expenses over time.",o2:"Hence, cooking at home provides both financial savings and long-term health benefits.",c:"In conclusion, I strongly believe that reducing daily expenses by cooking at home is a highly effective and sustainable strategy to cope with the rising cost of living."},
+  "D":{main:"In my opinion, I strongly believe that using government-subsidised services and aid programmes is one of the most effective ways for Malaysians to manage the rising cost of living.",p1:"Firstly, government programmes provide direct financial relief to households most affected by rising prices.",r1:"This is because subsidies and cash aid lower the actual cost of essential goods and services for eligible families.",e1:"For example, the Sumbangan Tunai Rahmah and its predecessor programmes have provided millions of low-income Malaysians with direct financial assistance.",o1:"Therefore, utilising available aid programmes significantly reduces the financial burden on B40 and M40 families.",p2:"Furthermore, subsidised public services lower household expenditure across multiple areas at once.",r2:"This is because access to affordable healthcare, education, and transportation through government schemes reduces overall living costs substantially.",e2:"For instance, MySalam and PeKa B40 provide free health screenings and insurance coverage to lower-income Malaysians, saving them hundreds of ringgit in medical fees.",o2:"Hence, government programmes provide a safety net that protects vulnerable households from the full impact of inflation.",c:"In conclusion, I strongly believe that utilising government-subsidised services and aid programmes is an effective way for Malaysians to manage the rising cost of living."}
+},
+"UC":{
+  "A":{main:"In my opinion, I strongly believe that expanding and improving the public rail and bus network is one of the most effective solutions to urban transportation problems in Malaysia.",p1:"Firstly, a comprehensive rail and bus network can serve a large number of commuters efficiently.",r1:"This is because public transport moves thousands of passengers per hour, far more than the same road space occupied by private cars.",e1:"For example, Kuala Lumpur's MRT Putrajaya Line has significantly reduced travel time between Putrajaya and the city centre while cutting road congestion.",o1:"Therefore, expanding public rail dramatically improves urban mobility for all commuters.",p2:"Furthermore, improved public transport reduces the city's carbon footprint and commuting costs.",r2:"This is because electric trains and efficient buses produce far fewer emissions per passenger than private vehicles.",e2:"For instance, Rapid KL's integrated bus and rail network serves over 800,000 passengers daily, saving significant amounts of fuel and emissions compared to car use.",o2:"Hence, public transport expansion benefits both commuters and the environment at the same time.",c:"In conclusion, I strongly believe that expanding and improving the public rail and bus network is the most effective solution to urban transportation challenges in Malaysia."},
+  "B":{main:"In my opinion, I strongly believe that introducing carpooling schemes and ride-sharing incentives is an effective way to address urban transportation problems.",p1:"Firstly, carpooling reduces the number of private vehicles on the road at any given time.",r1:"This is because when multiple passengers share a single vehicle, fewer cars are needed for the same number of commuters.",e1:"For example, the Malaysian government has supported ride-sharing platforms like Grab Carpool, which has helped reduce peak-hour traffic in major cities.",o1:"Therefore, carpooling can significantly ease congestion and lower carbon emissions at the same time.",p2:"Furthermore, financial incentives for carpooling encourage more people to participate in shared rides.",r2:"This is because reduced fuel costs and toll discounts make carpooling an attractive and economical option for daily commuters.",e2:"For instance, toll rebate programmes offered to carpoolers on expressways such as the PLUS highway have shown measurable increases in shared ride participation.",o2:"Hence, incentivised carpooling creates long-term behavioural change among Malaysian commuters.",c:"In conclusion, I strongly believe that introducing carpooling schemes and ride-sharing incentives is an effective and practical solution to reduce traffic congestion in Malaysia."},
+  "C":{main:"In my opinion, I strongly believe that building more bicycle lanes and pedestrian-friendly infrastructure is one of the most effective solutions to urban transportation problems in Malaysia.",p1:"Firstly, cycling infrastructure provides a sustainable and low-cost mode of urban transport.",r1:"This is because bicycles produce zero emissions, require no fuel, and reduce road congestion significantly.",e1:"For example, Putrajaya's dedicated cycling paths and Shah Alam's bicycle-sharing programme have encouraged hundreds of residents to cycle to work daily.",o1:"Therefore, cycling infrastructure offers an affordable and eco-friendly alternative to private vehicles.",p2:"Furthermore, walkable and cycle-friendly cities improve residents' health and overall quality of life.",r2:"This is because active commuting through walking and cycling reduces lifestyle diseases associated with sedentary behaviour.",e2:"For instance, Penang's investment in pedestrian walkways along George Town has increased foot traffic and contributed to improved public health indicators.",o2:"Hence, cyclist and pedestrian infrastructure delivers transport, health, and environmental benefits simultaneously.",c:"In conclusion, I strongly believe that building more bicycle lanes and pedestrian-friendly infrastructure is an effective and sustainable solution to urban transportation challenges."},
+  "D":{main:"In my opinion, I strongly believe that implementing smart traffic management systems using technology is one of the most effective solutions to urban transportation problems in Malaysia.",p1:"Firstly, smart traffic systems can optimise traffic flow and reduce congestion in real time.",r1:"This is because AI-powered traffic lights and sensors can adjust signal timing based on actual live traffic conditions.",e1:"For example, Malaysia's Intelligent Transport System along the Federal Highway has reduced travel time by adjusting signal cycles automatically during peak hours.",o1:"Therefore, smart traffic technology reduces commute times without requiring expensive new roads.",p2:"Furthermore, digital traffic management improves road safety and reduces accidents.",r2:"This is because smart systems detect hazards, control speeds, and alert drivers to dangerous conditions before accidents occur.",e2:"For instance, speed cameras and incident detection systems on Malaysian highways have contributed to a consistent reduction in fatal road accidents.",o2:"Hence, smart traffic technology enhances both efficiency and safety on Malaysian roads.",c:"In conclusion, I strongly believe that implementing smart traffic management systems is a forward-looking and effective solution to urban transportation challenges in Malaysia."}
+},
+"FL":{
+  "A":{main:"In my opinion, I strongly believe that using AI tools to enhance learning and academic performance is one of the most beneficial ways for students to engage with technology.",p1:"Firstly, AI tools personalise learning to match each individual student's needs.",r1:"This is because AI systems analyse a student's performance and adapt content to target their specific weaknesses and learning pace.",e1:"For example, AI-powered platforms like Khan Academy and Quizlet have helped Malaysian students improve their grades through personalised practice and targeted feedback.",o1:"Therefore, AI-enhanced learning produces better academic outcomes for students at all levels.",p2:"Furthermore, AI tools provide students with 24/7 access to learning support outside of class.",r2:"This is because AI tutors and chatbots can answer questions and explain concepts at any time without waiting for a teacher.",e2:"For instance, many Malaysian university students use AI writing and study tools to improve their essays and understand complex topics at their own pace.",o2:"Hence, AI democratises access to quality academic support for all students regardless of location.",c:"In conclusion, I strongly believe that using AI tools to enhance learning and academic performance is one of the most valuable ways for students to benefit from technology."},
+  "B":{main:"In my opinion, I strongly believe that developing digital and coding skills for future technology-driven careers is the most important way for young Malaysians to benefit from technology.",p1:"Firstly, coding and digital skills are increasingly in demand across many industries in Malaysia and globally.",r1:"This is because technology is transforming the way businesses operate, creating strong demand for workers who can build, manage, and innovate with digital systems.",e1:"For example, Malaysia's MyDIGITAL initiative aims to produce 20,000 technology workers by 2025, reflecting the very high demand for these skills in the job market.",o1:"Therefore, students who develop coding skills early will have significantly greater employment opportunities in the future.",p2:"Furthermore, digital skills open doors to global career opportunities and flexible remote work.",r2:"This is because technology-driven roles are not limited by geography, allowing Malaysians to work for international companies from home.",e2:"For instance, many young Malaysian developers and UI/UX designers are already freelancing for overseas clients through platforms like GitHub and Fiverr.",o2:"Hence, developing digital skills empowers young Malaysians to compete effectively in the global job market.",c:"In conclusion, I strongly believe that developing digital and coding skills is the most valuable way for students to prepare themselves for a technology-driven future."},
+  "C":{main:"In my opinion, I strongly believe that using technology to start online businesses and create income is one of the most beneficial ways for young Malaysians to benefit from technology.",p1:"Firstly, online businesses can be started with minimal capital through widely available digital platforms.",r1:"This is because e-commerce platforms like Shopee and TikTok Shop allow anyone to sell products without needing a physical store or large upfront investment.",e1:"For example, many Malaysian students have successfully started online businesses selling handmade products, digital services, and drop-shipped goods while still studying.",o1:"Therefore, technology enables young Malaysians to become entrepreneurs regardless of their financial background.",p2:"Furthermore, running an online business develops practical entrepreneurial and financial skills simultaneously.",r2:"This is because managing an online business teaches marketing, customer service, inventory management, and financial planning all at once.",e2:"For instance, graduates who ran online businesses during university consistently report higher employability and stronger business acumen when entering the workforce.",o2:"Hence, technology-based entrepreneurship builds both income and marketable skills at the same time.",c:"In conclusion, I strongly believe that using technology to start online businesses is a highly effective way for young Malaysians to benefit from the digital economy."},
+  "D":{main:"In my opinion, I strongly believe that staying connected with global developments through digital media is one of the most important ways for young Malaysians to benefit from technology.",p1:"Firstly, digital media gives Malaysians real-time access to global news, trends, and innovations.",r1:"This is because the internet removes geographical barriers, allowing anyone to access the same information as professionals and experts worldwide.",e1:"For example, Malaysian students who follow global technology and business developments through LinkedIn and YouTube gain insights that keep them competitive in the job market.",o1:"Therefore, digital media keeps young Malaysians informed and globally competitive.",p2:"Furthermore, staying connected globally helps young Malaysians build international networks and discover new opportunities.",r2:"This is because global awareness opens doors to international scholarships, collaborations, and career opportunities.",e2:"For instance, many young Malaysians have secured internships and collaborations with international organisations through connections made on LinkedIn and social media.",o2:"Hence, global digital connectivity creates both knowledge and career benefits for young Malaysians.",c:"In conclusion, I strongly believe that staying connected with global developments through digital media is a valuable way for young Malaysians to benefit from technology."}
+},
+"BM":{
+  "A":{main:"In my opinion, I strongly believe that practising regular physical exercise and maintaining a healthy lifestyle is one of the most effective ways for students to maintain good mental health.",p1:"Firstly, physical exercise releases endorphins that directly reduce stress and anxiety.",r1:"This is because exercise triggers chemical changes in the brain that improve mood and reduce feelings of worry and tension.",e1:"For example, studies at Malaysian universities found that students who exercise at least three times a week report significantly lower stress levels than those who do not.",o1:"Therefore, regular exercise is a scientifically proven method for managing student mental health.",p2:"Furthermore, maintaining a healthy lifestyle improves sleep quality and cognitive function.",r2:"This is because proper nutrition and exercise regulate the body's natural rhythms, leading to better rest and sharper academic focus.",e2:"For instance, students at Universiti Teknologi Malaysia who joined wellness programmes reported improved concentration and better academic performance.",o2:"Hence, a healthy lifestyle supports both mental well-being and academic success simultaneously.",c:"In conclusion, I strongly believe that practising regular physical exercise and maintaining a healthy lifestyle is one of the most effective strategies for students to maintain good mental health."},
+  "B":{main:"In my opinion, I strongly believe that building strong social support networks with friends and family is an effective way for students to manage stress and maintain good mental health.",p1:"Firstly, support from others helps students feel less alone when facing academic and personal challenges.",r1:"This is because talking to trusted people can reduce emotional pressure, provide different perspectives, and offer genuine comfort.",e1:"For example, students who regularly share their worries with close friends or family members often feel calmer, more confident, and better equipped to handle difficulties.",o1:"Therefore, social support directly improves students' emotional well-being.",p2:"Furthermore, strong support networks motivate students to stay positive during difficult times.",r2:"This is because encouragement and understanding from others helps students cope better with academic pressure and personal setbacks.",e2:"For instance, a close friend or family member who offers advice or emotional support can help a student remain focused and resilient throughout their studies.",o2:"Hence, good relationships play a central role in long-term mental health and academic success.",c:"In conclusion, I strongly believe that building strong social support networks with friends and family is an effective way to help students manage stress and maintain their well-being."},
+  "C":{main:"In my opinion, I strongly believe that managing time effectively to reduce academic stress is one of the most important ways for students to maintain good mental health.",p1:"Firstly, poor time management is a leading cause of stress and anxiety among university students.",r1:"This is because unfinished tasks and last-minute cramming create overwhelming pressure that seriously harms mental well-being.",e1:"For example, Malaysian university students who use structured study timetables and planning tools consistently report lower stress levels and better exam results.",o1:"Therefore, effective time management directly reduces the mental burden of academic life.",p2:"Furthermore, good time management creates space for rest, hobbies, and meaningful social activities.",r2:"This is because when academic tasks are completed on time, students have more time to relax, recharge, and enjoy life outside of study.",e2:"For instance, students who use study planning techniques like time-blocking or the Pomodoro method report a better balance between academic work and personal well-being.",o2:"Hence, time management improves both academic performance and overall mental health.",c:"In conclusion, I strongly believe that managing time effectively is one of the most practical and empowering ways for students to reduce stress and maintain good mental health."},
+  "D":{main:"In my opinion, I strongly believe that seeking professional counselling or mental health support when needed is one of the most important ways for students to maintain good mental health and well-being.",p1:"Firstly, professional counsellors are trained to provide effective strategies for managing serious mental health challenges.",r1:"This is because trained counsellors can identify the root causes of stress, anxiety, and depression that friends or family may not be equipped to address.",e1:"For example, Malaysian universities such as UPM and UM have student counselling centres that have helped thousands of students overcome academic and personal challenges.",o1:"Therefore, professional support provides a level of care that informal help simply cannot replace.",p2:"Furthermore, seeking help openly normalises mental health care and reduces stigma among peers.",r2:"This is because when students visibly seek support, it encourages others in the same community to do the same.",e2:"For instance, mental health awareness campaigns at Malaysian universities have led to a 40% increase in students voluntarily accessing counselling services.",o2:"Hence, professional mental health support benefits both individuals and the wider student community.",c:"In conclusion, I strongly believe that seeking professional counselling or mental health support when needed is a crucial and effective way for students to maintain their mental well-being."}
+},
+"CR":{
+  "A":{main:"In my opinion, I strongly believe that gaining practical work experience through internships and part-time jobs is one of the most important ways for students to improve their employability.",p1:"Firstly, employers consistently rank practical experience as their top hiring criterion above academic grades.",r1:"This is because work experience demonstrates that a graduate can apply academic knowledge in real workplace situations.",e1:"For example, surveys by TalentCorp Malaysia found that graduates with internship experience are hired 40% faster than those without.",o1:"Therefore, practical experience gives graduates a significant competitive advantage in the job market.",p2:"Furthermore, internships and part-time jobs expose students to professional workplace culture and expectations.",r2:"This is because no classroom can fully replicate the dynamics of real workplace communication, deadlines, and teamwork.",e2:"For instance, graduates who completed structured internship programmes consistently report being more confident and better prepared for their first full-time job.",o2:"Hence, work experience bridges the gap between academic learning and professional readiness.",c:"In conclusion, I strongly believe that gaining practical work experience through internships and part-time jobs is one of the most effective ways to improve graduate employability."},
+  "B":{main:"In my opinion, I strongly believe that developing soft skills such as communication, teamwork, and critical thinking is one of the most important ways to improve employability.",p1:"Firstly, soft skills are highly valued by employers in all sectors across Malaysia.",r1:"This is because employers want graduates who can work well with others and communicate clearly in the workplace, not just those with strong academic results.",e1:"For example, students who participate in presentations, group projects, and co-curricular activities during university strengthen these skills well before graduating.",o1:"Therefore, soft skills make graduates significantly more attractive to employers in a competitive job market.",p2:"Furthermore, soft skills help students adapt to workplace challenges and changes throughout their careers.",r2:"This is because critical thinking and teamwork are necessary for solving problems, managing conflicts, and completing tasks effectively.",e2:"For instance, interns who communicate professionally and cooperate well with colleagues often perform better and earn greater career opportunities.",o2:"Hence, developing soft skills increases students' chances of employment and long-term career advancement.",c:"In conclusion, I strongly believe that developing soft skills is the most effective way to improve graduate employability in Malaysia."},
+  "C":{main:"In my opinion, I strongly believe that building a professional network through industry events and LinkedIn is one of the most effective ways for students to improve their employability.",p1:"Firstly, professional connections often open doors to job opportunities that are never publicly advertised.",r1:"This is because many companies prefer to hire through referrals and personal recommendations from trusted contacts.",e1:"For example, LinkedIn data shows that approximately 85% of jobs are filled through networking, making professional connections more valuable than applications alone.",o1:"Therefore, building a strong professional network significantly increases a graduate's chances of finding employment.",p2:"Furthermore, industry events and online networks expose students to the latest trends and employer expectations.",r2:"This is because attending career fairs, seminars, and networking events allows students to learn directly from professionals about required skills and career paths.",e2:"For instance, Malaysian graduates who actively participated in MDEC's tech forums and MaGIC's entrepreneurship events secured mentorships and job offers directly through those connections.",o2:"Hence, professional networking accelerates both career awareness and job placement simultaneously.",c:"In conclusion, I strongly believe that building a professional network through industry events and LinkedIn is a highly effective strategy to improve graduate employability in Malaysia."},
+  "D":{main:"In my opinion, I strongly believe that pursuing industry-recognised certifications and additional qualifications is one of the most effective ways for students to improve their employability.",p1:"Firstly, industry certifications demonstrate specialised, job-ready skills that go beyond a general university degree.",r1:"This is because employers in fields like technology, finance, and engineering actively seek candidates with verified technical competencies.",e1:"For example, Malaysian IT graduates with certifications such as AWS Cloud Practitioner, Google Analytics, or CompTIA Security+ are hired at significantly higher rates and starting salaries.",o1:"Therefore, industry certifications make graduates stand out distinctly in a highly competitive job market.",p2:"Furthermore, pursuing additional qualifications shows personal initiative and commitment to self-improvement.",r2:"This is because employers value candidates who go beyond the minimum requirements to develop their professional capabilities.",e2:"For instance, accounting students who obtain ACCA or CIMA certifications alongside their degree consistently achieve higher employment rates in Malaysian financial institutions.",o2:"Hence, industry qualifications signal both competence and professional drive to prospective employers.",c:"In conclusion, I strongly believe that pursuing industry-recognised certifications and additional qualifications is a highly effective way to improve graduate employability in Malaysia."}
+}
 };
 
 function buildPrepCard(label,text){return`<div class="prep-card"><button class="prep-btn" type="button">${label}</button><div class="prep-content">${text}</div></div>`;}
@@ -1527,22 +1593,14 @@ function bindPrepAccordion(rootId="sampleA-model"){const root=document.getElemen
 
 function updateSampleA(){
   const t=GTOPICS[sampleTopic];
-  const prep=SAMPLE_PREP_BANK[t.icon];
-  $("sampleA-q-title").textContent=`${t.title} - Task A Question`;
-
-   // ✅ SAFETY CHECK: Ensure PREP data exists for this topic
-  if(!prep){
-    console.error(`PREP data missing for topic icon: ${t.icon}`);
-    $("sampleA-model").innerHTML=`<div class="prep-sample-wrap"><h2 class="prep-sample-title">PREP Breakdown – Sample Answer</h2><p class="prep-sample-sub">Error: Data not found for topic ${t.icon}</p></div>`;
-    return;
-  
+  const prep=SAMPLE_PREP_BANK[t.icon][sampleCand];
   $("sampleA-q-title").textContent=`${t.title} - Task A Question`;
   $("sampleA-sit").textContent=t.taskA.sit;
-  $("sampleA-cands").innerHTML=Object.entries(t.taskA.cands).map(([c,p])=>`<div class="ccard${c==="B"?" sel":""}"><div class="cltr">Candidate ${c}${c==="B"?'<span class="cyou">SAMPLE</span>':""}</div><div class="ctxt">${p}</div></div>`).join("");
+  $("sampleA-cands").innerHTML=Object.entries(t.taskA.cands).map(([c,p])=>`<div class="ccard${c===sampleCand?" sel":""}" onclick="selSampleCand('${c}')" style="cursor:pointer"><div class="cltr">Candidate ${c}${c===sampleCand?'<span class="cyou">SAMPLE</span>':""}</div><div class="ctxt">${p}</div></div>`).join("");
   $("sampleA-model").innerHTML=`
     <div class="prep-sample-wrap">
-      <h2 class="prep-sample-title">PREP Breakdown - Sample Answer</h2>
-      <p class="prep-sample-sub">Candidate B | ${prep.title} | Click each section to reveal the structure</p>
+      <h2 class="prep-sample-title">PREP Breakdown - Candidate ${sampleCand}</h2>
+      <p class="prep-sample-sub">Candidate ${sampleCand} | ${t.title} | Click each section to reveal the structure</p>
       ${buildPrepCard("Point (Main Idea)",prep.main)}
       ${buildPrepCard("Point 1",prep.p1)}
       ${buildPrepCard("Reason",prep.r1)}
@@ -1562,6 +1620,7 @@ function updateSampleA(){
     </div>`;
   bindPrepAccordion("sampleA-model");
 }
+function selSampleCand(c){sampleCand=c;updateSampleA();}
 
 /* Lecturer */
 function mkCand(n){return{name:n,spoke:0,responded:0,asked:0,quiet:0,dominated:0,rubric:{tf:3,fl:3,voc:3,la:3,band:"3.0",cmt:""}};}
@@ -1595,7 +1654,7 @@ $("lec-wssel").onchange=e=>{lecState.wsIdx=+e.target.value;renderWS();};
 $("lec-wscp").onclick=async()=>{try{const s=ALL_SETS[lecState.wsIdx];await navigator.clipboard.writeText(`${s.lbl}\n\nTask A:\n${s.taskA.sit}\n${Object.entries(s.taskA.cands).map(([c,p])=>`Cand. ${c}: ${p}`).join("\n")}\n\nTask B:\n${s.taskB.q}\n${s.taskB.pts.join(" | ")}\n\nBands (Section 19): 1.0 | 2.0 | 2.5 | 3.0 | 3.5 | 4.0 | 4.5 | 5.0 | 5+  Score /90`);alert("Copied.");}catch{alert("Failed.");}};
 window.lctrl=lctrl;window.ltrack=ltrack;window.lurub=lurub;window.lcpy=lcpy;
 
-applyHeaderLabels();applyStableHomeIcons();populateSelects();renderA();renderB();renderSampleTopics();
+applyHeaderLabels();applyStableHomeIcons();populateSelects();loadRecord();renderA();renderB();renderSampleTopics();
 lecState.groups=[mkGroup(),mkGroup()];renderLec();renderWS();setView("home");cleanVisibleText();
 </script>
 <style>@media print{#nav,.ff,button,[data-v]{display:none!important}#rpt-print{display:block!important}.card{break-inside:avoid}.report-header{-webkit-print-color-adjust:exact;print-color-adjust:exact}}
