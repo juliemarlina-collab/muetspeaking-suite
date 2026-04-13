@@ -1529,6 +1529,14 @@ function updateSampleA(){
   const t=GTOPICS[sampleTopic];
   const prep=SAMPLE_PREP_BANK[t.icon];
   $("sampleA-q-title").textContent=`${t.title} - Task A Question`;
+
+   // ✅ SAFETY CHECK: Ensure PREP data exists for this topic
+  if(!prep){
+    console.error(`PREP data missing for topic icon: ${t.icon}`);
+    $("sampleA-model").innerHTML=`<div class="prep-sample-wrap"><h2 class="prep-sample-title">PREP Breakdown – Sample Answer</h2><p class="prep-sample-sub">Error: Data not found for topic ${t.icon}</p></div>`;
+    return;
+  
+  $("sampleA-q-title").textContent=`${t.title} - Task A Question`;
   $("sampleA-sit").textContent=t.taskA.sit;
   $("sampleA-cands").innerHTML=Object.entries(t.taskA.cands).map(([c,p])=>`<div class="ccard${c==="B"?" sel":""}"><div class="cltr">Candidate ${c}${c==="B"?'<span class="cyou">SAMPLE</span>':""}</div><div class="ctxt">${p}</div></div>`).join("");
   $("sampleA-model").innerHTML=`
